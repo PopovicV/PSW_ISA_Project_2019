@@ -3,9 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './modules/general/home/home.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
+import {LoginComponent} from './modules/general/login/login.component';
+import {RegisterComponent} from './modules/general/register/register.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, },
+  // { path: '', component: HomeComponent, },
+  { path: '', component: LoginComponent, },
+  {
+    path: 'register', component: RegisterComponent,
+  },
   {
     path: 'about',
     loadChildren: () => import('./modules/general/about/about.module').then(mod => mod.AboutModule)
