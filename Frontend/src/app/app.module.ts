@@ -9,6 +9,7 @@ import {ProfileModule} from './modules/general/profile/profile.module';
 
 import {LoginModule} from './modules/general/login/login.module';
 import {RegisterModule} from './modules/general/register/register.module';
+import {ProfilKlinikeModule} from './modules/general/profilKlinike/profilKlinike.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {RegisterModule} from './modules/general/register/register.module';
     AppRoutingModule,
     ProfileModule,
     LoginModule,
-    RegisterModule
+    RegisterModule,
+    ProfilKlinikeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
