@@ -1,28 +1,28 @@
 <div class="container">
-  <form class="form-horizontal" role="form">
+  <form name="registerForm" (ngSubmit)="onSubmit()" class="form-horizontal" role="form">
     <h2>Registracija</h2>
     <div class="form-group">
       <label for="firstName" class="col-sm-3 control-label">Ime</label>
       <div class="col-sm-9">
-        <input type="text" id="firstName" placeholder="Ime" class="form-control" autofocus>
+        <input type="text" [(ngModel)]="pacijent.ime" id="firstName" placeholder="Ime" name="ime" class="form-control" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="lastName" class="col-sm-3 control-label">Prezime</label>
       <div class="col-sm-9">
-        <input type="text" id="lastName" placeholder="Prezime" class="form-control" autofocus>
+        <input type="text" [(ngModel)]="pacijent.prezime" id="lastName" placeholder="Prezime" name="prezime" class="form-control" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="email" class="col-sm-3 control-label">Email* </label>
       <div class="col-sm-9">
-        <input type="email" id="email" placeholder="Email" class="form-control" name= "email">
+        <input type="email" id="email" [(ngModel)]="pacijent.email" placeholder="Email" class="form-control" name= "email">
       </div>
     </div>
     <div class="form-group">
       <label for="password" class="col-sm-3 control-label">Lozinka*</label>
       <div class="col-sm-9">
-        <input type="password" id="password" placeholder="Lozinka" class="form-control">
+        <input type="password" [(ngModel)]="pacijent.lozinka" id="password" name="password" placeholder="Lozinka" class="form-control">
       </div>
     </div>
     <div class="form-group">
@@ -34,31 +34,31 @@
     <div class="form-group">
       <label for="phoneNumber" class="col-sm-3 control-label">Kontakt telefon </label>
       <div class="col-sm-9">
-        <input type="phoneNumber" id="phoneNumber" placeholder="Kontakt telefon" class="form-control">
+        <input type="phoneNumber" [(ngModel)]="pacijent.kontaktTelefon" id="phoneNumber" placeholder="Kontakt telefon" name="kontaktTelefon" class="form-control">
       </div>
     </div>
     <div class="form-group">
       <label for="lastName" class="col-sm-3 control-label">Adresa</label>
       <div class="col-sm-9">
-        <input type="text" id="adresa" placeholder="Adresa" class="form-control" autofocus>
+        <input type="text" [(ngModel)]="pacijent.adresa" id="adresa" placeholder="Adresa" name="adresa" class="form-control" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="lastName" class="col-sm-3 control-label">Grad</label>
       <div class="col-sm-9">
-        <input type="text" id="grad" placeholder="Grad" class="form-control" autofocus>
+        <input type="text" [(ngModel)]="pacijent.grad" id="grad" placeholder="Grad" name="grad" class="form-control" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="lastName" class="col-sm-3 control-label">Drzava</label>
       <div class="col-sm-9">
-        <input type="text" id="drzava" placeholder="Drzava" class="form-control" autofocus>
+        <input type="text" id="drzava" [(ngModel)]="pacijent.drzava"placeholder="Drzava" name="drzava" class="form-control" autofocus>
       </div>
     </div>
     <div class="form-group">
       <label for="lastName" class="col-sm-3 control-label">JBO</label>
       <div class="col-sm-9">
-        <input type="text" id="jbo" placeholder="JBO" class="form-control" autofocus>
+        <input type="text" [(ngModel)]="pacijent.jbo" id="jbo" placeholder="JBO" name="jbo" class="form-control" autofocus>
       </div>
     </div>
     <div class="form-group">

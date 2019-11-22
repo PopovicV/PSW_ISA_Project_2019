@@ -6,6 +6,7 @@ import {LoginComponent} from '../login/login.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppModule} from '../../../app.module';
 import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule( {
@@ -14,7 +15,8 @@ import {RouterModule} from '@angular/router';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   exports : [
     RegisterComponent
