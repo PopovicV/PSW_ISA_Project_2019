@@ -7,6 +7,10 @@ import { NotFoundComponent } from './modules/general/not-found/not-found.compone
 import { AppRoutingModule } from './app-routing.module';
 import {ProfileModule} from './modules/general/profile/profile.module';
 
+import {LoginModule} from './modules/general/login/login.module';
+import {RegisterModule} from './modules/general/register/register.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +20,9 @@ import {ProfileModule} from './modules/general/profile/profile.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ProfileModule
+    ProfileModule,
+    LoginModule,
+    RegisterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
