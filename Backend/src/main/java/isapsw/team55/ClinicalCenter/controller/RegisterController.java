@@ -6,12 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.HttpMethod;
 import javax.ws.rs.core.Context;
 
 @RestController
@@ -26,7 +24,7 @@ public class RegisterController {
         System.out.println(pacijent.toString());
         Pacijent noviKorisnik = registerService.registracijaKorisnika(pacijent);
         if (noviKorisnik != null) {
-            return new ResponseEntity<Pacijent>(noviKorisnik, HttpStatus.ACCEPTED);
+            return new ResponseEntity<Pacijent>(noviKorisnik, HttpStatus.OK);
         } else {
             return new ResponseEntity<Pacijent>(HttpStatus.NOT_ACCEPTABLE);
         }
