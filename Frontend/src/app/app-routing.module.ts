@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './modules/general/home/home.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
+import {ProfileComponent} from './modules/general/profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
+  { path: 'profile', component: ProfileComponent},
   {
     path: 'about',
     loadChildren: () => import('./modules/general/about/about.module').then(mod => mod.AboutModule)
