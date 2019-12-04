@@ -47,6 +47,6 @@ export class RegisterComponent implements OnInit {
       grad: new FormControl('', Validators.required),
       drzava: new FormControl('', Validators.required),
       jbo: new FormControl('', Validators.required),
-    })
+    });
   }
 }

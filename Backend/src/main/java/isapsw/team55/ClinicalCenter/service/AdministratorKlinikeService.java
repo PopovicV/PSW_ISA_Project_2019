@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AdministratorKlinikeService {
@@ -44,6 +45,19 @@ public class AdministratorKlinikeService {
 
     public AdministratorKlinike save(AdministratorKlinike administratorKlinike) {
         return administratorKlinikeRepository.save(administratorKlinike);
+    }
+
+    public AdministratorKlinike update(AdministratorKlinike administratorKlinike) {
+        AdministratorKlinike a = administratorKlinikeRepository.findOneById(administratorKlinike.getId());
+
+        a.setEmail(administratorKlinike.getEmail());
+        a.setIme(administratorKlinike.getIme());
+        a.setKlinika(administratorKlinike.getKlinika());
+        a.setKontaktTelefon(administratorKlinike.getKontaktTelefon());
+        a.setLozinka(administratorKlinike.getLozinka());
+        a.setPrezime(administratorKlinike.getPrezime());
+
+        return save(a);
     }
 
     public void remove(Long id) {
