@@ -26,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileModule,
     LoginModule,
     RegisterModule,
-    ProfilKlinikeModule
+    ProfilKlinikeModule,
     HttpClientModule
   ],
   providers: [RegisterService],
