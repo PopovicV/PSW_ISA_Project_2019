@@ -50,4 +50,16 @@ public class MedicinskoOsobljeService {
     public void remove(Long id) {
         medicinskoOsobljeRepository.deleteById(id);
     }
+
+    public MedicinskoOsoblje update(MedicinskoOsoblje medicinskoOsoblje) {
+        MedicinskoOsoblje a = medicinskoOsobljeRepository.findOneByEmail(medicinskoOsoblje.getEmail());
+
+        a.setEmail(medicinskoOsoblje.getEmail());
+        a.setIme(medicinskoOsoblje.getIme());
+        a.setKontaktTelefon(medicinskoOsoblje.getKontaktTelefon());
+        a.setLozinka(medicinskoOsoblje.getLozinka());
+        a.setPrezime(medicinskoOsoblje.getPrezime());
+
+        return save(a);
+    }
 }
