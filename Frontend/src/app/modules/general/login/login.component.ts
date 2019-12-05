@@ -22,19 +22,19 @@ export class LoginComponent implements OnInit{
   constructor(private loginService: LoginService) {
     this.korisnik = new Korisnik();
   }
-  
+
   onSubmit() {
     this.loginService.logIn(this.korisnik).subscribe(
       data => {
-        alert("Ulogovan korisnik" + data.email);
+        alert('Ulogovan korisnik' + data.email);
         return true;
       }
-    )
+    );
   }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      email: new FormControl('',Validators.required),
+      email: new FormControl('', Validators.required),
       lozinka: new FormControl('', Validators.required)
     });
   }
