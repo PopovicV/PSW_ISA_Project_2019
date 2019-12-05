@@ -11,16 +11,16 @@ public class Korisnik {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id", unique = true, nullable = false)
-    private Long id;
+    protected Long id;
 
     @Column(name = "lozinka", nullable = false)
-    private String lozinka;
+    protected String lozinka;
 
     @Column(name = "email", unique = true, nullable = false)
-    private String email;
+    protected String email;
 
     @Column(name = "uloga", nullable = true)
-    private String uloga;
+    protected String uloga;
 
     public Long getId() {
         return id;

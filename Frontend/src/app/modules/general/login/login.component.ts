@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit{
         alert("Ulogovan korisnik" + data.email);
         return true;
       }
-    )
+    );
   }
 
   ngOnInit() {
