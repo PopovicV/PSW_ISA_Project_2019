@@ -1,7 +1,9 @@
 package isapsw.team55.ClinicalCenter.service;
 
 import isapsw.team55.ClinicalCenter.domain.AdministratorKlinike;
+import isapsw.team55.ClinicalCenter.domain.MedicinskoOsoblje;
 import isapsw.team55.ClinicalCenter.repository.AdministratorKlinikeRepository;
+import isapsw.team55.ClinicalCenter.repository.MedicinskoOsobljeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +17,9 @@ public class AdministratorKlinikeService {
 
     @Autowired
     private AdministratorKlinikeRepository administratorKlinikeRepository;
+
+    @Autowired
+    private MedicinskoOsobljeRepository medicinskoOsobljeRepository;
 
     public AdministratorKlinike findOneById(Long id) {
         return administratorKlinikeRepository.findById(id).orElseGet(null);
@@ -48,7 +53,7 @@ public class AdministratorKlinikeService {
     }
 
     public AdministratorKlinike update(AdministratorKlinike administratorKlinike) {
-        AdministratorKlinike a = administratorKlinikeRepository.findOneById(administratorKlinike.getId());
+        AdministratorKlinike a = administratorKlinikeRepository.findOneByEmail(administratorKlinike.getEmail());
 
         a.setEmail(administratorKlinike.getEmail());
         a.setIme(administratorKlinike.getIme());
@@ -62,5 +67,15 @@ public class AdministratorKlinikeService {
 
     public void remove(Long id) {
         administratorKlinikeRepository.deleteById(id);
+    }
+
+    public MedicinskoOsoblje addMedicinsoOsoblje(MedicinskoOsoblje medicinskoOsoblje) {
+        MedicinskoOsoblje me = medicinskoOsobljeRepository.findOneByEmail(medicinskoOsoblje.getEmail());
+        if(me == null) {
+            medicinskoOsobljeRepository.save(medicinskoOsoblje);
+            return  medicinskoOsoblje;
+        } else {
+            return null;
+        }
     }
 }

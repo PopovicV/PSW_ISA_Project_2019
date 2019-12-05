@@ -1,31 +1,32 @@
 package isapsw.team55.ClinicalCenter.domain;
 
+import isapsw.team55.ClinicalCenter.dto.MedicinskoOsobljeDTO;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class MedicinskoOsoblje {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "lozinka", nullable = false)
-    private String lozinka;
-
+public class MedicinskoOsoblje extends Korisnik{
     @Column(name = "ime", nullable = false)
     private String ime;
 
     @Column(name = "prezime", nullable = false)
     private String prezime;
 
-    @Column(name = "email", nullable = false, unique = true)
-    private String email;
-
     @Column(name = "kontaktTelefon", nullable = false)
     private String kontaktTelefon;
 
     public MedicinskoOsoblje() {
+    }
+
+    public MedicinskoOsoblje(MedicinskoOsobljeDTO mo) {
+        this.id = mo.getId();
+        this.email = mo.getEmail();
+        this.ime = mo.getIme();
+        this.kontaktTelefon = mo.getKontaktTelefon();
+        this.prezime = mo.getPrezime();
+        this.lozinka = mo. getLozinka();
+        this.uloga = "MEDICINSKO_OSOBLJE";
     }
 
     public Long getId() {
