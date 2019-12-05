@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.lozinkaConfirm = (document.getElementById('passwordConfirm') as HTMLInputElement).value;
     if (this.lozinkaConfirm === this.pacijent.lozinka) {
+      alert(JSON.stringify(this.pacijent))
       this.registerService.logIn(this.pacijent).subscribe(
         data => {
           this.registerForm.reset();

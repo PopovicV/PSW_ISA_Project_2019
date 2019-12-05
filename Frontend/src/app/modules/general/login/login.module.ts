@@ -4,6 +4,7 @@ import {RegisterModule} from '../register/register.module';
 import {AppRoutingModule} from '../../../app-routing.module';
 import {RegisterComponent} from '../register/register.component';
 import {BrowserModule} from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 @NgModule( {
   declarations: [
@@ -11,7 +12,8 @@ import {BrowserModule} from '@angular/platform-browser';
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   exports : [
     LoginComponent

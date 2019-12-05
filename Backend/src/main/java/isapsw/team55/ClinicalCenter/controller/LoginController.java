@@ -1,5 +1,6 @@
 package isapsw.team55.ClinicalCenter.controller;
 
+import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.domain.Pacijent;
 import isapsw.team55.ClinicalCenter.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +24,13 @@ public class LoginController {
     private LoginService loginService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Pacijent> loginPacijent(@RequestBody Pacijent pacijent, @Context HttpServletRequest request) throws Exception {
-        Pacijent ulogovanKorisnik = loginService.proveraKorisnika(pacijent.getEmail(), pacijent.getLozinka());
+    public ResponseEntity<Korisnik> loginPacijent(@RequestBody Korisnik korisnik, @Context HttpServletRequest request) throws Exception {
+        Korisnik ulogovanKorisnik = loginService.proveraKorisnika(korisnik.getEmail(), korisnik.getLozinka());
         if (ulogovanKorisnik != null) {
             request.getSession().setAttribute("ulogovanKorisnik", ulogovanKorisnik);
-            return new ResponseEntity<Pacijent>(ulogovanKorisnik, HttpStatus.ACCEPTED);
+            return new ResponseEntity<Korisnik>(ulogovanKorisnik, HttpStatus.ACCEPTED);
         } else {
-            return new ResponseEntity<Pacijent>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Korisnik>(HttpStatus.NOT_FOUND);
         }
     }
 }

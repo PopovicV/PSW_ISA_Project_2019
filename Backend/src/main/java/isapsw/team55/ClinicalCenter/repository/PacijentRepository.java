@@ -10,10 +10,6 @@ import java.util.List;
 
 public interface PacijentRepository extends JpaRepository<Pacijent, Long> {
 
-        Pacijent findOneById(Long id);
-
-        Pacijent findByEmail(String email);
-
         Page<Pacijent> findAll(Pageable pageable);
 
         List<Pacijent> findAllByPrezime(String prezime);

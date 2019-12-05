@@ -13,6 +13,8 @@ import {ProfilKlinikeModule} from './modules/general/profilKlinike/profilKlinike
 
 import { RegisterService} from './service/register.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginService } from './service/login.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProfilKlinikeModule,
     HttpClientModule
   ],
-  providers: [RegisterService],
+  providers: [RegisterService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
