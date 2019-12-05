@@ -1,29 +1,187 @@
-<div class="row">
-  <div class="col-md-12 text-center">
-    <div class="row pt-1 mb-2">
-      <div class="col-md-4 text-center mb-2">
-        <h1 class="h5">
-          <i class="fab fa-android fa-lg mr-2 text-primary"></i>
-          {{ name }}<i class="fab fa-apple fa-lg ml-2 mr-1 text-primary"></i>
-        </h1>
-      </div>
-      <div class="col-md-4 text-center">
-        <h2 class="h5">{{angular}}&nbsp;&nbsp;<img src="./assets/params/images/logo/angular.png" width="36" height="36"
-            alt=""></h2>
-      </div>
-      <div class="col-md-4 text-center">
-        <h2 class="h5">{{bootstrap}}&nbsp;&nbsp;<img src="./assets/params/images/logo/bootstrap.png" width="28"
-            height="28" alt=""></h2>
+<div class="container">
+  <div class="row m-y-2">
+    <div class="col-lg-8 push-lg-4">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Notifikacije</a>
+        </li>
+        <li class="nav-item">
+          <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Izmeni profil</a>
+        </li>
+      </ul>
+      <div class="tab-content p-b-3">
+        <div class="tab-pane active" id="profile">
+          <br>
+          <div class = "row">
+
+            <div class="col-md-12"> <div class = "row"><h6>Ime: </h6><h6> Ovde ide ime </h6></div></div>
+            <div class="col-md-12"> <div class = "row"><h6>Prezime: </h6> <h6> Ovde ide prezime </h6></div></div>
+            <div class="col-md-12"> <div class = "row"><h6>ID: </h6> <h6> Ovde ide ID </h6></div></div>
+            <div class="col-md-12"> <div class = "row"><h6>Email: </h6> <h6> Ovde ide email </h6></div></div>
+            <div class="col-md-12"> <div class = "row"><h6>Kontakt telefon: </h6> <h6> Ovde ide kontakt telefon </h6></div></div>
+
+            <div class="col-md-12">
+              <h4 class="m-t-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Recent Activity</h4>
+              <table class="table table-hover table-striped">
+                <tbody>
+                <tr>
+                  <td>
+                    <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!--/row-->
+        </div>
+        <div class="tab-pane" id="messages">
+          <h4 class="m-y-2">Recent Messages &amp; Notifications</h4>
+          <div class="alert alert-info alert-dismissable">
+            <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
+          </div>
+          <table class="table table-hover table-striped">
+            <tbody>
+            <tr>
+              <td>
+                <span class="pull-xs-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="pull-xs-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="pull-xs-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="pull-xs-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus.
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tab-pane" id="edit">
+          <h4 class="m-y-2">Edit Profile</h4>
+          <form role="form">
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">First name</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="Jane">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="Bishop">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Email</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="email" value="email@gmail.com">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Company</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Website</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="url" value="">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Address</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="" placeholder="Street">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-6">
+                <input class="form-control" type="text" value="" placeholder="City">
+              </div>
+              <div class="col-lg-3">
+                <input class="form-control" type="text" value="" placeholder="State">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+              <div class="col-lg-9">
+                <select id="user_time_zone" class="form-control" size="0">
+                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                  <option value="Alaska">(GMT-09:00) Alaska</option>
+                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                  <option value="Arizona">(GMT-07:00) Arizona</option>
+                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Username</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="janeuser">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Password</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="password" value="11111122333">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="password" value="11111122333">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-9">
+                <input type="reset" class="btn btn-secondary" value="Cancel">
+                <input type="button" class="btn btn-primary" value="Save Changes">
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-    <hr>
-    <div class="row mb-1">
-      <div class="col-md-12 text-center">
-        <h3 class="h6">Features&nbsp;&nbsp;<i class="fas fa-list"></i></h3>
-      </div>
-    </div>
-    <p>
-      home works!
-    </p>
   </div>
 </div>
+<hr>
