@@ -18,4 +18,7 @@ public interface PacijentRepository extends JpaRepository<Pacijent, Long> {
 
         Pacijent save(Pacijent pacijent);
 
+        @Query("select p from Pacijent p where p.adminAktiviraoNalog = ?1")
+        List<Pacijent> pronadjiNeaktiviraneKorisnike(String uslov);
+
 }
