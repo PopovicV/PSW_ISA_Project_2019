@@ -15,6 +15,7 @@ import { RegisterService} from './service/register.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './service/login.service';
 import { FormsModule } from '@angular/forms';
+import {ProfilAdministratoraKlinickogCentraModule} from './modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     LoginModule,
     RegisterModule,
     ProfilKlinikeModule,
+    ProfilAdministratoraKlinickogCentraModule,
     HttpClientModule
   ],
   providers: [RegisterService, LoginService],

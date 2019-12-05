@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../../../app-routing.module';
-import {ProfilKlinikeComponent} from './profilKlinike.component';
+import {ProfilAdministratoraKlinickogCentraComponent} from './profilAdministratoraKlinickogCentra.component';
 
 @NgModule({
   imports: [
@@ -9,10 +9,10 @@ import {ProfilKlinikeComponent} from './profilKlinike.component';
     AppRoutingModule
   ],
   declarations: [
-    ProfilKlinikeComponent
+    ProfilAdministratoraKlinickogCentraComponent
   ]
 })
 
-export class ProfilKlinikeModule {
+export class ProfilAdministratoraKlinickogCentraModule {
 
 }

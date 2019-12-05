@@ -1,0 +1,2 @@
+insert into korisnik (email, lozinka, uloga) values (abuhmiler4@gmail.com, 1111, "ADMINISTRATOR_KLINICKOG_CENTRA")
+insert into administrator-klinickog-centra (id, ime, prezime, kontaktTelefon) values (1, Ana-Marija, Buhmiler, 0621731170)

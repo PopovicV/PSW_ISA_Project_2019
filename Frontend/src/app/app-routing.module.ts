@@ -7,6 +7,7 @@ import {ProfileComponent} from './modules/general/profile/profile.component';
 import {LoginComponent} from './modules/general/login/login.component';
 import {RegisterComponent} from './modules/general/register/register.component';
 import {ProfilKlinikeComponent} from './modules/general/profilKlinike/profilKlinike.component';
+import {ProfilAdministratoraKlinickogCentraComponent} from "./modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.component";
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, },
@@ -16,6 +17,7 @@ const routes: Routes = [
   },
   { path: 'profile', component: ProfileComponent},
   { path: 'profil-klinike', component: ProfilKlinikeComponent},
+  { path: 'profil-administratora-klinickog-centra', component: ProfilAdministratoraKlinickogCentraComponent},
   {
     path: 'about',
     loadChildren: () => import('./modules/general/about/about.module').then(mod => mod.AboutModule)

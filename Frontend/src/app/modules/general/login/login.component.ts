@@ -10,7 +10,7 @@ import { LoginService } from 'src/app/service/login.service';
   styleUrls : ['./login.component.css']
 
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
 
   name = environment.application.name;
   angular = environment.application.angular;

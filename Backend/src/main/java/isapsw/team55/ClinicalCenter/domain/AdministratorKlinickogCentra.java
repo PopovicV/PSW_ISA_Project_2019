@@ -1,5 +1,7 @@
 package isapsw.team55.ClinicalCenter.domain;
 
+import isapsw.team55.ClinicalCenter.dto.AdministratorKlinickogCentraDTO;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -7,22 +9,14 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-public class AdministratorKlinickogCentra {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "lozinka", unique = false, nullable = false)
-    private String lozinka;
+@Table(name = "administrator-klinickog-centra")
+public class AdministratorKlinickogCentra extends Korisnik {
 
     @Column(name = "ime", unique = false, nullable = false)
     private String ime;
 
     @Column(name = "prezime", unique = false, nullable = false)
     private String prezime;
-
-    @Column(name = "email", unique = true, nullable = false)
-    private String email;
 
     @Column(name = "kontaktTelefon", unique = false, nullable = false)
     private String kontaktTelefon;
@@ -32,23 +26,18 @@ public class AdministratorKlinickogCentra {
     private KlinickiCentar klinickiCentar;
 
     public AdministratorKlinickogCentra() {
-
+        super();
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        id = id;
-    }
-
-    public String getLozinka() {
-        return lozinka;
-    }
-
-    public void setLozinka(String lozinka) {
-        this.lozinka = lozinka;
+    public AdministratorKlinickogCentra(AdministratorKlinickogCentraDTO akcdto) {
+        this.id = akcdto.getId();
+        this.lozinka = akcdto.getLozinka();
+        this.ime = akcdto.getIme();
+        this.prezime = akcdto.getPrezime();
+        this.email = akcdto.getEmail();
+        this.kontaktTelefon = akcdto.getKontaktTelefon();
+        this.klinickiCentar = akcdto.getKlinickiCentar();
+        this.uloga = "ADMINISTRATOR_KLINICKOG_CENTRA";
     }
 
     public String getIme() {
@@ -65,14 +54,6 @@ public class AdministratorKlinickogCentra {
 
     public void setPrezime(String prezime) {
         this.prezime = prezime;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getKontaktTelefon() {

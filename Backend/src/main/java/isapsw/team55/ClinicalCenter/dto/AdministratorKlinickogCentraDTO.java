@@ -15,11 +15,11 @@ public class AdministratorKlinickogCentraDTO {
     private KlinickiCentar klinickiCentar;
 
     public AdministratorKlinickogCentraDTO() {
-
+        super();
     }
 
     public AdministratorKlinickogCentraDTO(Long id, String lozinka, String ime, String prezime, String email, String kontaktTelefon, KlinickiCentar klinickiCentar) {
-        id = id;
+        this.id = id;
         this.lozinka = lozinka;
         this.ime = ime;
         this.prezime = prezime;
