@@ -14,4 +14,5 @@ public interface MedicinskoOsobljeRepository extends JpaRepository<MedicinskoOso
     List<MedicinskoOsoblje> findAllByIme(String ime);
     List<MedicinskoOsoblje> findAllByImeAndPrezime(String ime, String prezime);
     MedicinskoOsoblje findOneByEmail(String email);
+    MedicinskoOsoblje save(MedicinskoOsoblje medicinskoOsoblje);
 }
