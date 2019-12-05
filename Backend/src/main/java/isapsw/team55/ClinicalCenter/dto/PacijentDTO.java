@@ -32,7 +32,7 @@ public class PacijentDTO {
     }
 
     public PacijentDTO (Pacijent pacijent) {
-        this(pacijent.getId(), pacijent.getLozinka(), pacijent.getIme(), pacijent.getPrezime(), pacijent.getEmail(), pacijent.getKontaktTelefon(), pacijent.getAdresa(), pacijent.getGrad(), pacijent.getDrzava(), pacijent.getJBO());
+        this(pacijent.getId(), pacijent.getLozinka(), pacijent.getIme(), pacijent.getPrezime(), pacijent.getEmail(), pacijent.getKontaktTelefon(), pacijent.getAdresa(), pacijent.getGrad(), pacijent.getDrzava(), pacijent.getJbo());
     }
 
     public Long getId() {

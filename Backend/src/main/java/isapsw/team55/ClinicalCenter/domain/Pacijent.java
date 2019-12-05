@@ -1,24 +1,11 @@
 package isapsw.team55.ClinicalCenter.domain;
 
 import java.util.ArrayList;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
-public class Pacijent {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "lozinka", nullable = false)
-    private String lozinka;
+@Table(name="pacijent")
+public class Pacijent extends Korisnik{
 
     @Column(name = "ime", nullable = false)
     private String ime;
@@ -26,8 +13,6 @@ public class Pacijent {
     @Column(name = "prezime", nullable = false)
     private String prezime;
 
-    @Column(name = "email", unique = true, nullable = false)
-    private String email;
 
     @Column(name = "kontaktTelefon", nullable = false)
     private String kontaktTelefon;
@@ -44,19 +29,18 @@ public class Pacijent {
     @Column(name = "jbo")
     private String jbo;
 
+    @Column(name = "adminAktivirao")
+    private String adminAktiviraoNalog;
+
+    @Column(name = "pacijentAktivirao")
+    private String pacijentAktiviraoNalog;
+
+
     //private ZdravstveniKarton zdravstveniKarton;
     //ArrayList<Pregled> listaPregleda = new ArrayList<Pregled>();
 
 
     public Pacijent() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getLozinka() {
-        return lozinka;
     }
 
     public String getIme() {
@@ -67,9 +51,6 @@ public class Pacijent {
         return prezime;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
     public String getKontaktTelefon() {
         return kontaktTelefon;
@@ -87,28 +68,12 @@ public class Pacijent {
         return drzava;
     }
 
-    public String getJBO() {
-        return jbo;
-    }
-
-    public void setId(long id) {
-        id = id;
-    }
-
-    public void setLozinka(String lozinka) {
-        this.lozinka = lozinka;
-    }
-
     public void setIme(String ime) {
         this.ime = ime;
     }
 
     public void setPrezime(String prezime) {
         this.prezime = prezime;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public void setKontaktTelefon(String kontaktTelefon) {
@@ -127,23 +92,43 @@ public class Pacijent {
         this.drzava = drzava;
     }
 
-    public void setJBO(String JBO) {
-        this.jbo = JBO;
+
+    public String getJbo() {
+        return jbo;
+    }
+
+    public void setJbo(String jbo) {
+        this.jbo = jbo;
+    }
+
+    public String getAdminAktiviraoNalog() {
+        return adminAktiviraoNalog;
+    }
+
+    public void setAdminAktiviraoNalog(String adminAktiviraoNalog) {
+        this.adminAktiviraoNalog = adminAktiviraoNalog;
+    }
+
+    public String getPacijentAktiviraoNalog() {
+        return pacijentAktiviraoNalog;
+    }
+
+    public void setPacijentAktiviraoNalog(String pacijentAktiviraoNalog) {
+        this.pacijentAktiviraoNalog = pacijentAktiviraoNalog;
     }
 
     @Override
     public String toString() {
         return "Pacijent{" +
-                "id=" + id +
-                ", lozinka='" + lozinka + '\'' +
-                ", ime='" + ime + '\'' +
+                "ime='" + ime + '\'' +
                 ", prezime='" + prezime + '\'' +
-                ", email='" + email + '\'' +
                 ", kontaktTelefon='" + kontaktTelefon + '\'' +
                 ", adresa='" + adresa + '\'' +
                 ", grad='" + grad + '\'' +
                 ", drzava='" + drzava + '\'' +
-                ", JBO='" + jbo + '\'' +
+                ", jbo='" + jbo + '\'' +
+                ", adminAktiviraoNalog='" + adminAktiviraoNalog + '\'' +
+                ", pacijentAktiviraoNalog='" + pacijentAktiviraoNalog + '\'' +
                 '}';
     }
 }
