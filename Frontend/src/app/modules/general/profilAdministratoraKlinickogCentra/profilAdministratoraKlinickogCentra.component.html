@@ -1,0 +1,285 @@
+<div class="container">
+  <div class="row m-y-2">
+    <div class="col-lg-8 push-lg-4">
+      <ul class="nav nav-tabs">
+
+        <li class="nav-item">
+          <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profil</a>
+        </li>
+        <li class="nav-item">
+          <a href="" data-target="#klinike" data-toggle="tab" class="nav-link">Klinike</a>
+        </li>
+        <li class="nav-item">
+          <a href="" data-target="#sifarnik" data-toggle="tab" class="nav-link">Sifarnik</a>
+        </li>
+        <li class="nav-item">
+          <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Zahtevi</a>
+        </li>
+        <li class="nav-item">
+          <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Izmeni profil</a>
+        </li>
+      </ul>
+
+
+      <div class="tab-content p-b-3">
+        <div class="tab-pane" id="klinike">
+          <table class="table table-hover table-striped">
+            <tr>
+              <table class="table table-hover table-striped" >
+                <th>
+                  <div class="col-lg-12">
+                    Id
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-12">
+                    Ime
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-12">
+                    Adresa
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-12">
+                    Administratori klinike
+                  </div>
+                </th>
+                <th></th>
+              </table>
+            <tr>
+              <td> </td>
+              <td>
+                <div class="col-lg-12">
+                  <input type="button" class="btn btn-primary" value="Dodaj novu kliniku">
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="tab-pane" id="sifarnik">
+          <table class="table table-hover table-striped" >
+            <table class="table table-hover table-striped" >
+              <th>
+                <div class="col-lg-12">
+                  Id dijagnoze
+                </div>
+              </th>
+              <th>
+                <div class="col-lg-12">
+                  Ime dijagnoze
+                </div>
+              </th>
+              <th></th>
+              <th></th>
+            </table>
+            <tr>
+              <td> </td>
+              <td></td>
+              <td></td>
+              <td>
+                <div class="col-lg-12">
+                  <input type="button" class="btn btn-primary" value="Dodaj novu dijagnozu">
+                </div>
+              </td>
+            </tr>
+          </table>
+          <table class="table table-hover table-striped" >
+            <table class="table table-hover table-striped" >
+            <th>
+              <div class="col-lg-12">
+                Id leka
+              </div>
+            </th>
+            <th>
+              <div class="col-lg-12">
+                Naziv leka
+              </div>
+            </th>
+            <th>
+              <div class="col-lg-12">
+                Opis leka
+              </div>
+            </th>
+            </table>
+            <tr>
+              <td> </td>
+              <td>
+                <div class="col-lg-12">
+                  <input type="button" class="btn btn-primary" value="Dodaj novi lek">
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+
+        <div class="tab-pane active" id="profile">
+          <table class="table table-hover table-striped" >
+            <tbody>
+            <!-- <tr> -->
+            <!-- <div class="col-lg-4 pull-lg-8 text-xs-center"> -->
+            <!-- <img src="//placehold.it/150" class="m-x-auto img-fluid img-circle" alt="avatar"> -->
+            <!-- <h6 class="m-t-2">Upload a different photo</h6> -->
+            <!-- <label class="custom-file"> -->
+            <!-- <input type="file" id="file" class="custom-file-input"> -->
+            <!-- <span class="custom-file-control">Choose file</span> -->
+            <!-- </label> -->
+            <!-- </div> -->
+            <!-- </tr> -->
+            <tr>
+              <td>
+                <strong>ID</strong>
+              </td>
+              <td>
+                id korisnika
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>IME</strong>
+              </td>
+              <td>
+                ime korisnika
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>PREZIME</strong>
+              </td>
+              <td>
+                prezime korisnika
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>EMAIL</strong>
+              </td>
+              <td>
+                email korisnika
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>KONTAKT TELEFON</strong>
+              </td>
+              <td>
+                kontakt telefon korisnika
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <!--/row-->
+        </div>
+        <!-- Notifikacije ne diraj!!-->
+        <!-- Ovde ce ici zahtevi za registraciju pacijenata -->
+        <div class="tab-pane" id="messages">
+          <h4 class="m-y-2">Zahtevi za registraciju</h4>
+          <div class="alert alert-info alert-dismissable">
+            <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
+          </div>
+          <table class="table table-hover table-striped">
+            <tbody>
+            <tr>
+              <td>
+                <span class="pull-xs-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="pull-xs-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="pull-xs-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="pull-xs-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus.
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Edit ne diraj!!-->
+        <div class="tab-pane" id="edit">
+          <h4 class="m-y-2">Izmena profila</h4>
+          <form role="form">
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Ime</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="" placeholder="Ime">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Prezime</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="" placeholder="Prezime">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Email</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="email" value="" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Adresa</label>
+              <div class="col-lg-7">
+                <input class="form-control" type="text" value="" placeholder="Ulica">
+              </div>
+              <div class="col-lg-2">
+                <input class="form-control" type="text" value="" placeholder="Broj">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-6">
+                <input class="form-control" type="text" value="" placeholder="Grad">
+              </div>
+              <div class="col-lg-3">
+                <input class="form-control" type="text" value="" placeholder="Drzava">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Kontakt telefon</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" placeholder = "Kontakt telefon" >
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Korisnicko ime</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" placeholder = "Korisnicko ime">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Lozinka</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="password" value="11111122333">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Potvrda lozinke</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="password" value="11111122333">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-9">
+                <input type="reset" class="btn btn-secondary" value="Odustani">
+                &nbsp;
+                <input type="button" class="btn btn-primary" value="Potvrdi">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
