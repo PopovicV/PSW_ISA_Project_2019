@@ -35,9 +35,6 @@ public class PacijentService {
         pacijentRepository.deleteById(id);
     }
 
-    public Pacijent findByEmail(String email) {
-        return pacijentRepository.findByEmail(email);
-    }
 
     public List<Pacijent> findByPrezime(String prezime) {
         return pacijentRepository.findAllByPrezime(prezime);

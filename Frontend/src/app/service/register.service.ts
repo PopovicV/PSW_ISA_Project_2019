@@ -16,7 +16,9 @@ export class RegisterService {
   }
 
   public logIn(pacijent: Pacijent) {
+    alert('neki random');
     let podaci = JSON.stringify(pacijent);
+    console.log('neki random2');
     console.log(podaci);
     return this.http.post<Pacijent>(this.registerUrl, podaci, httpOptions);
   }
