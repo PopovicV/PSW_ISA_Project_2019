@@ -16,8 +16,7 @@ constructor(private http: HttpClient) {
 
 public logIn(korisnik: Korisnik) {
     let podaci = JSON.stringify(korisnik);
-    console.log(podaci);
-    return this.http.post<Korisnik>(this.loginUrl, podaci, httpOptions)
+    return this.http.post<Korisnik>(this.loginUrl, podaci, httpOptions);
 }
 
 }

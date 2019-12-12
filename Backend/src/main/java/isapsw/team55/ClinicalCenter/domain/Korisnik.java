@@ -22,6 +22,13 @@ public class Korisnik {
     @Column(name = "uloga", nullable = true)
     protected String uloga;
 
+    public Korisnik(Korisnik korisnik) {
+        this.id = korisnik.id;
+        this.email = korisnik.email;
+        this.lozinka = korisnik.lozinka;
+        this.uloga = korisnik.uloga;
+    }
+
     public Long getId() {
         return id;
     }

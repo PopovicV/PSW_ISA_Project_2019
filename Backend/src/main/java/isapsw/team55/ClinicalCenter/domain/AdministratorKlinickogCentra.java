@@ -9,7 +9,7 @@ import java.util.Set;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "administrator-klinickog-centra")
+@Table(name = "administrator_klinickog_centra")
 public class AdministratorKlinickogCentra extends Korisnik {
 
     @Column(name = "ime", unique = false, nullable = false)
