@@ -1,64 +1,83 @@
 <div class="container">
-  <form name="registerForm" (ngSubmit)="onSubmit()" class="form-horizontal" role="form">
+  <form (ngSubmit)="onSubmit()" class="form-horizontal" role="form" [formGroup]="registerForm">
     <h2>Registracija</h2>
     <div class="form-group">
-      <label for="firstName" class="col-sm-3 control-label">Ime</label>
+      <label for="ime" class="col-sm-3 control-label">Ime*</label>
       <div class="col-sm-9">
-        <input type="text" [(ngModel)]="pacijent.ime" id="firstName" placeholder="Ime" name="ime" class="form-control" autofocus>
+        <input formGroupName="ime" type="text" id="ime" placeholder="Ime" [ngClass]="{ 'is-invalid': submitted && f.ime.errors }" class="form-control" autofocus>
+        <div *ngIf="submitted && f.ime.errors" class="invalid-feedback">
+          <div *ngIf="f.ime.errors.required">Ime je obavezno</div>
+        </div>
       </div>
     </div>
     <div class="form-group">
-      <label for="lastName" class="col-sm-3 control-label">Prezime</label>
+      <label for="prezime" class="col-sm-3 control-label">Prezime*</label>
       <div class="col-sm-9">
-        <input type="text" [(ngModel)]="pacijent.prezime" id="lastName" placeholder="Prezime" name="prezime" class="form-control" autofocus>
+        <input formControlName="prezime" type="text" id="prezime" placeholder="Prezime" [ngClass]="{ 'is-invalid': submitted && f.prezime.errors }" class="form-control" autofocus>
+        <div *ngIf="submitted && f.prezime.errors" class="invalid-feedback">
+          <div *ngIf="f.prezime.errors.required">Prezime je obavezno</div>
+        </div>
       </div>
     </div>
     <div class="form-group">
       <label for="email" class="col-sm-3 control-label">Email* </label>
       <div class="col-sm-9">
-        <input type="email" id="email" [(ngModel)]="pacijent.email" placeholder="Email" class="form-control" name= "email">
+        <input formControlName="email" type="email" id="email" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="form-control" name= "email">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email je obavezan</div>
+          <div *ngIf="f.email.errors.email">Email mora biti validan email</div>
+        </div>
       </div>
     </div>
     <div class="form-group">
       <label for="password" class="col-sm-3 control-label">Lozinka*</label>
       <div class="col-sm-9">
-        <input type="password" [(ngModel)]="pacijent.lozinka" id="password" name="password" placeholder="Lozinka" class="form-control">
+        <input formControlName="lozinka" type="password" id="lozinka" placeholder="Lozinka" [ngClass]="{ 'is-invalid': submitted && f.lozinka.errors }" class="form-control">
+        <div *ngIf="submitted && f.lozinka.errors" class="invalid-feedback">
+          <div *ngIf="f.lozinka.errors.required">Lozinka je obavezna</div>
+        </div>
       </div>
     </div>
     <div class="form-group">
       <label for="password" class="col-sm-3 control-label">Potvrda lozinke*</label>
       <div class="col-sm-9">
-        <input type="password" id="passwordConfirm" placeholder="Lozinka" class="form-control">
+        <input formControlName="lozinkaConfirm" type="password" id="lozinkaConfirm" placeholder="Lozinka" [ngClass]="{ 'is-invalid': submitted && f.lozinkaConfirm.errors }" class="form-control">
+        <div *ngIf="submitted && f.lozinkaConfirm.errors" class="invalid-feedback">
+          <div *ngIf="f.lozinkaConfirm.errors.required">Lozinka je obavezna</div>
+        </div>
       </div>
     </div>
     <div class="form-group">
-      <label for="phoneNumber" class="col-sm-3 control-label">Kontakt telefon </label>
+      <label for="phoneNumber" class="col-sm-3 control-label">Kontakt telefon* </label>
       <div class="col-sm-9">
-        <input type="phoneNumber" [(ngModel)]="pacijent.kontaktTelefon" id="phoneNumber" placeholder="Kontakt telefon" name="kontaktTelefon" class="form-control">
+        <input formControlName="kontaktTelefon" type="text" id="kontaktTelefon" placeholder="Kontakt telefon" [ngClass]="{ 'is-invalid': submitted && f.kontaktTelefon.errors }" class="form-control">
+        <div *ngIf="submitted && f.kontaktTelefon.errors" class="invalid-feedback">
+          <div *ngIf="f.kontaktTelefon.errors.required">Kontakt telefon je obavezan</div>
+        </div>
       </div>
     </div>
     <div class="form-group">
-      <label for="lastName" class="col-sm-3 control-label">Adresa</label>
+      <label for="adresa" class="col-sm-3 control-label">Adresa</label>
       <div class="col-sm-9">
-        <input type="text" [(ngModel)]="pacijent.adresa" id="adresa" placeholder="Adresa" name="adresa" class="form-control" autofocus>
+        <input formControlName="adresa" type="text" id="adresa" placeholder="Adresa" name="adresa" class="form-control" autofocus>
       </div>
     </div>
     <div class="form-group">
-      <label for="lastName" class="col-sm-3 control-label">Grad</label>
+      <label for="grad" class="col-sm-3 control-label">Grad</label>
       <div class="col-sm-9">
-        <input type="text" [(ngModel)]="pacijent.grad" id="grad" placeholder="Grad" name="grad" class="form-control" autofocus>
+        <input formControlName="grad" type="text" id="grad" placeholder="Grad" name="grad" class="form-control" autofocus>
       </div>
     </div>
     <div class="form-group">
-      <label for="lastName" class="col-sm-3 control-label">Drzava</label>
+      <label for="drzava" class="col-sm-3 control-label">Drzava</label>
       <div class="col-sm-9">
-        <input type="text" id="drzava" [(ngModel)]="pacijent.drzava"placeholder="Drzava" name="drzava" class="form-control" autofocus>
+        <input formControlName="drzava" type="text" id="drzava" placeholder="Drzava" name="drzava" class="form-control" autofocus>
       </div>
     </div>
     <div class="form-group">
-      <label for="lastName" class="col-sm-3 control-label">JBO</label>
+      <label for="jbo" class="col-sm-3 control-label">JBO</label>
       <div class="col-sm-9">
-        <input type="text" [(ngModel)]="pacijent.jbo" id="jbo" placeholder="JBO" name="jbo" class="form-control" autofocus>
+        <input formControlName="jbo" type="text" id="jbo" placeholder="JBO" name="jbo" class="form-control" autofocus>
       </div>
     </div>
     <div class="form-group">
