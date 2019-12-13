@@ -1,6 +1,9 @@
-export class Korisnik {
+export class AdministratorKlinike {
   id: string;
   email: string;
   lozinka: string;
   uloga: string;
+  ime: string;
+  prezime: string;
+  kontaktTelefon: string;
 }

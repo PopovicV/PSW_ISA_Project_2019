@@ -7,7 +7,8 @@ import {ProfileComponent} from './modules/general/profile/profile.component';
 import {LoginComponent} from './modules/general/login/login.component';
 import {RegisterComponent} from './modules/general/register/register.component';
 import {ProfilKlinikeComponent} from './modules/general/profilKlinike/profilKlinike.component';
-import {ProfilAdministratoraKlinickogCentraComponent} from "./modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.component";
+import {ProfilAdministratoraKlinickogCentraComponent} from './modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.component';
+import {ProfilAdministratoraKlinikeComponent} from './modules/general/administratorKlinike/profilAdministratoraKlinike.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, },
@@ -16,6 +17,7 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent,
   },
   { path: 'profile', component: ProfileComponent},
+  { path: 'profil-administratora-klinike', component: ProfilAdministratoraKlinikeComponent},
   { path: 'profil-klinike', component: ProfilKlinikeComponent},
   { path: 'profil-administratora-klinickog-centra', component: ProfilAdministratoraKlinickogCentraComponent},
   {

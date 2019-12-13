@@ -18,20 +18,26 @@
 <body>
 <div class="container">
   <div class="row m-y-2">
-    <div class="col-lg-8 push-lg-4">
+    <div class="col-lg-10 push-lg-4">
       <ul class="nav nav-tabs">
 
         <li class="nav-item">
           <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profil</a>
         </li>
         <li class="nav-item">
-          <a href="" data-target="#klinike" data-toggle="tab" class="nav-link">Klinike</a>
+          <a href="" data-target="#klinika" data-toggle="tab" class="nav-link">Klinika</a>
         </li>
         <li class="nav-item">
-          <a href="" data-target="#sifarnik" data-toggle="tab" class="nav-link">Sifarnik</a>
+          <a href="" data-target="#lekari" data-toggle="tab" class="nav-link">Lekari</a>
         </li>
         <li class="nav-item">
-          <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Zahtevi</a>
+          <a href="" data-target="#pacijenti" data-toggle="tab" class="nav-link">Pacijenti</a>
+        </li>
+        <li class="nav-item">
+          <a href="" data-target="#medicinskoOsoblje" data-toggle="tab" class="nav-link">Medicinsko osoblje</a>
+        </li>
+        <li class="nav-item">
+          <a href="" data-target="#editKlinika" data-toggle="tab" class="nav-link">Izmeni profil klinike</a>
         </li>
         <li class="nav-item">
           <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Izmeni profil</a>
@@ -40,64 +46,6 @@
 
 
       <div class="tab-content p-b-3">
-        <div class="tab-pane" id="klinike">
-          <table>
-            <tr>
-              <table class="table table-hover table-striped" >
-                <th>
-                  <div class="col-lg-9">
-                    Id
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Ime
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Adresa
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Administratori klinike
-                  </div>
-                </th>
-              </table>
-            <tr>
-              <td> </td>
-              <td>
-                <div class="col-lg-9">
-                  <input type="button" class="btn btn-primary" value="Dodaj novu kliniku">
-                </div>
-              </td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="tab-pane" id="sifarnik">
-          <table>
-            <table class="table table-hover table-striped" >
-              <th>
-                <div class="col-lg-9">
-                  Id dijagnoze
-                </div>
-              </th>
-              <th>
-                <div class="col-lg-9">
-                  Ime dijagnoze
-                </div>
-              </th>
-              <th>
-                <div class="col-lg-9">
-                  Preporuceni lekovi
-                </div>
-              </th>
-            </table>
-          </table>
-        </div>
-
 
         <div class="tab-pane active" id="profile">
           <table class="table table-hover table-striped" >
@@ -114,100 +62,305 @@
             <!-- </tr> -->
             <tr>
               <td>
-                <strong>ID</strong>
+                <strong>Id</strong>
               </td>
               <td>
-                id korisnika
+                {{this.ulogovanKorisnik.id}}
               </td>
             </tr>
             <tr>
               <td>
-                <strong>IME</strong>
+                <strong>Ime</strong>
               </td>
               <td>
-                ime korisnika
+                {{this.ulogovanKorisnik.ime}}
               </td>
             </tr>
             <tr>
               <td>
-                <strong>PREZIME</strong>
+                <strong>Prezime</strong>
               </td>
               <td>
-                prezime korisnika
+                {{this.ulogovanKorisnik.prezime}}
               </td>
             </tr>
             <tr>
               <td>
-                <strong>EMAIL</strong>
+                <strong>Email</strong>
               </td>
               <td>
-                email korisnika
+                {{this.ulogovanKorisnik.email}}
               </td>
             </tr>
             <tr>
               <td>
-                <strong>KONTAKT TELEFON</strong>
+                <strong>Kontakt telefon</strong>
               </td>
               <td>
-                kontakt telefon korisnika
+                {{this.ulogovanKorisnik.kontaktTelefon}}
               </td>
-            </tr>
             </tbody>
           </table>
           <!--/row-->
         </div>
-        <!-- Notifikacije ne diraj!!-->
-        <!-- Ovde ce ici zahtevi za registraciju pacijenata -->
-        <div class="tab-pane" id="messages">
-          <h4 class="m-y-2">Zahtevi za registraciju</h4>
-          <div class="alert alert-info alert-dismissable">
-            <a class="panel-close close" data-dismiss="alert">×</a> This is an <strong>.alert</strong>. Use this to show important messages to the user.
-          </div>
-          <table class="table table-hover table-striped">
-            <tbody>
+
+        <div class="tab-pane" id="klinika">
+          <table class="table table-hover table-striped" >
             <tr>
               <td>
-                <span class="pull-xs-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+                <div class="col-lg-9">
+                  <strong>Id</strong>
+                </div>
+              <td>
+              <td>
+                <div class="col-lg-9">
+                  {{this.klinika.id}}
+                </div>
               </td>
             </tr>
             <tr>
               <td>
-                <span class="pull-xs-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+                <div class="col-lg-9">
+                  <strong>Ime</strong>
+                </div>
+              <td>
+              <td>
+                <div class="col-lg-9">
+                  {{this.klinika.ime}}
+                </div>
               </td>
-            </tr>
             <tr>
               <td>
-                <span class="pull-xs-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
-              </td>
-            </tr>
-            <tr>
+                <div class="col-lg-9">
+                  <strong>Adresa</strong>
+                </div>
               <td>
-                <span class="pull-xs-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus.
+              <td>
+                <div class="col-lg-9">
+                  {{this.klinika.adresa}}
+                </div>
               </td>
             </tr>
-            </tbody>
           </table>
         </div>
+
+        <div class="tab-pane" id="pacijenti">
+          <table>
+            <tr>
+              <table class="table table-hover table-striped" >
+                <th>
+                  <div class="col-lg-9">
+                    Id
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Ime
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Prezime
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Kontakt telefon
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Email
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Kontakt telefon
+                  </div>
+                </th>
+              </table>
+            </tr>
+          </table>
+        </div>
+
+        <div class="tab-pane" id="lekari">
+          <table>
+            <tr>
+              <table class="table table-hover table-striped" >
+                <th>
+                  <div class="col-lg-9">
+                    Id
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Ime
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Prezime
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Kontakt telefon
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Email
+                  </div>
+                </th>
+              </table>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>
+                <div class="col-lg-9">
+                  <input type="button" class="btn btn-primary" value="Dodaj novog lekara">
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="tab-pane" id="medicinskoOsoblje">
+          <table>
+            <tr>
+              <table class="table table-hover table-striped" >
+                <th>
+                  <div class="col-lg-9">
+                    Id
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Ime
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Prezime
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Kontakt telefon
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Email
+                  </div>
+                </th>
+              </table>
+            </tr>
+            <tr>
+              <td> </td>
+              <td>
+                <div class="col-lg-9">
+                  <input type="button" class="btn btn-primary" value="Dodaj novu medicinsku sestru">
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="tab-pane" id="medicinskoOsoblje">
+          <table>
+            <tr>
+              <table class="table table-hover table-striped" >
+                <th>
+                  <div class="col-lg-9">
+                    Id
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Ime
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Prezime
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Kontakt telefon
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-9">
+                    Email
+                  </div>
+                </th>
+              </table>
+            </tr>
+          </table>
+        </div>
+
+
+
         <!-- Edit ne diraj!!-->
         <div class="tab-pane" id="edit">
           <h4 class="m-y-2">Izmena profila</h4>
-          <form role="form">
+          <form role="form" class="form-horizontal" name = "izmeniProfilForm" (ngSubmit)="onSubmit()" >
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Ime</label>
               <div class="col-lg-9">
-                <input class="form-control" type="text" value="" placeholder="Ime">
+                <input id="ime" name = "ime" class="form-control" type="text" [(ngModel)]="this.ulogovanKorisnik.ime">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Prezime</label>
               <div class="col-lg-9">
-                <input class="form-control" type="text" value="" placeholder="Prezime">
+                <input id="prezime" name = "prezime" class="form-control" type="text" [(ngModel)]="this.ulogovanKorisnik.prezime">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Email</label>
               <div class="col-lg-9">
-                <input class="form-control" type="email" value="" placeholder="Email">
+                <input id="email" name = "email" class="form-control" type="email" [(ngModel)]="this.ulogovanKorisnik.email">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Kontakt telefon</label>
+              <div class="col-lg-9">
+                <input id="kontaktTelefon" name = "kontaktTelefon" class="form-control" type="text" [(ngModel)]="this.ulogovanKorisnik.kontaktTelefon">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Lozinka</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="password" id = "lozinka" name="lozinka">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Potvrda lozinke</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="password" id = "lozinkaConfirm" name = "lozinkaConfirm">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-9">
+                <input type="reset" class="btn btn-secondary" value="Odustani">
+                &nbsp;
+                <input type="submit" class="btn btn-primary" value="Potvrdi">
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="tab-pane" id="editKlinika">
+          <h4 class="m-y-2">Izmena profila klinike</h4>
+          <form role="form">
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label">Ime</label>
+              <div class="col-lg-9">
+                <input class="form-control" type="text" value="" placeholder="Ime">
               </div>
             </div>
             <div class="form-group row">
@@ -229,37 +382,14 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Kontakt telefon</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="text" placeholder = "Kontakt telefon" >
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Korisnicko ime</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="text" placeholder = "Korisnicko ime">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Lozinka</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="password" value="11111122333">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Potvrda lozinke</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="password" value="11111122333">
-              </div>
-            </div>
-            <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label"></label>
               <div class="col-lg-9">
                 <input type="reset" class="btn btn-secondary" value="Odustani">
                 &nbsp;
-                <input type="button" class="btn btn-primary" value="Potvrdi">
+                <input type="submit" class="btn btn-primary btn-block" value="Potvrdi">
               </div>
             </div>
+
           </form>
         </div>
       </div>
