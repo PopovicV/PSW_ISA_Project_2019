@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import { Korisnik } from 'src/app/model/korisnik';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/service/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,14 +20,18 @@ export class LoginComponent implements OnInit {
   korisnik: Korisnik;
   loginForm: FormGroup;
 
-  constructor(private loginService: LoginService) {
+  constructor(private router: Router, private loginService: LoginService) {
     this.korisnik = new Korisnik();
   }
 
   onSubmit() {
     this.loginService.logIn(this.korisnik).subscribe(
       data => {
-        alert('Ulogovan korisnik' + data.email);
+        alert(data.uloga);
+        if (data.uloga === 'ADMINISTRATOR_KLINIKE') {
+          this.router.navigate(['profil-administratora-klinike']);
+        }
+
         return true;
       }
     );
