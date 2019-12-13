@@ -1,8 +1,6 @@
 package isapsw.team55.ClinicalCenter.controller;
 
-import isapsw.team55.ClinicalCenter.domain.AdministratorKlinike;
-import isapsw.team55.ClinicalCenter.domain.Lekar;
-import isapsw.team55.ClinicalCenter.domain.MedicinskoOsoblje;
+import isapsw.team55.ClinicalCenter.domain.*;
 import isapsw.team55.ClinicalCenter.dto.AdministratorKlinikeDTO;
 import isapsw.team55.ClinicalCenter.service.AdministratorKlinikeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.core.Context;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,5 +65,14 @@ public class AdministratorKlinikeController {
         }
     }
 
+    @GetMapping(value = "/ulogovanAdministratorKlinike", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AdministratorKlinike> getKorisnik(@Context HttpServletRequest request) {
+        Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
+        AdministratorKlinike administratorKlinike = administratorKlinikeService.findOneById(korisnik.getId());
 
+        if(administratorKlinike == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return  new ResponseEntity(administratorKlinike, HttpStatus.OK);
+    }
 }

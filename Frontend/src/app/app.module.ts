@@ -14,8 +14,9 @@ import {ProfilKlinikeModule} from './modules/general/profilKlinike/profilKlinike
 import { RegisterService} from './service/register.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginService } from './service/login.service';
-import { FormsModule } from '@angular/forms';
 import {ProfilAdministratoraKlinickogCentraModule} from './modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.module';
+import {ProfilAdministratoraKlinikeModule} from './modules/general/administratorKlinike/profilAdministratoraKlinike.module';
+import {AdministratorKlinikeService} from './service/administratorKlinike.service';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,11 @@ import {ProfilAdministratoraKlinickogCentraModule} from './modules/general/profi
     LoginModule,
     RegisterModule,
     ProfilKlinikeModule,
+    ProfilAdministratoraKlinikeModule,
     ProfilAdministratoraKlinickogCentraModule,
     HttpClientModule
   ],
-  providers: [RegisterService, LoginService],
+  providers: [RegisterService, LoginService, AdministratorKlinikeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
