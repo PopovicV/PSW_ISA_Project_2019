@@ -1,6 +1,6 @@
 import {environment} from '../../../../environments/environment';
 import {Component, OnInit} from '@angular/core';
-import { RegisterService } from 'src/app/service/register.service'
+import { RegisterService } from 'src/app/service/register.service';
 import {Pacijent} from '../../../model/pacijent';
 import {FormControl, FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
 @Component({
@@ -32,7 +32,6 @@ export class RegisterComponent implements OnInit {
     //}
     this.lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
     if (this.lozinkaConfirm === this.pacijent.lozinka) {
-      alert(JSON.stringify(this.pacijent))
       this.registerService.logIn(this.pacijent).subscribe(
         data => {
           this.registerForm.reset();

@@ -1,4 +1,10 @@
 import {Component} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Korisnik} from '../../../model/korisnik';
+
+const httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 @Component({
   selector: 'app-profile',
@@ -6,11 +12,16 @@ import {Component} from '@angular/core';
 })
 
 export class ProfileComponent {
-  id = '1';
-  ime = 'ana';
-  prezime = 'buhmiler';
-  email = 'abuhmiler4@gmail.com';
-  kontaktTelefon = '0621731170';
-  lozinka = 'heh';
+  ulogovanKorisnik: Korisnik;
+  ulogovanUrl: string;
+
+  constructor(private http: HttpClient) {
+    this.ulogovanUrl = '/server/api/ulogovanKorisnik';
+    this.http.get<Korisnik>(this.ulogovanUrl, httpOptions).subscribe(
+      data => {
+        this.ulogovanKorisnik = data;
+      }
+    );
+  }
 
 }

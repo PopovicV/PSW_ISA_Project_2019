@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
-import {PorfilAdministratoraKlinikeComponent} from './porfilAdministratoraKlinike.component';
+import {ProfilAdministratoraKlinikeComponent} from './profilAdministratoraKlinike.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../../../app-routing.module';
 
 @NgModule( {
   declarations: [
-    PorfilAdministratoraKlinikeComponent
+    ProfilAdministratoraKlinikeComponent
   ],
   imports: [
     AppRoutingModule,
@@ -14,9 +14,9 @@ import {AppRoutingModule} from '../../../app-routing.module';
     FormsModule
   ],
   exports: [
-    PorfilAdministratoraKlinikeComponent
+    ProfilAdministratoraKlinikeComponent
   ],
-  bootstrap: [PorfilAdministratoraKlinikeComponent]
+  bootstrap: [ProfilAdministratoraKlinikeComponent]
 })
 
 export class ProfilAdministratoraKlinikeModule { }
