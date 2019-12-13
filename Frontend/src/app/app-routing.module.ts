@@ -3,11 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './modules/general/home/home.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
-<<<<<<< HEAD
-
-const routes: Routes = [
-  { path: '', component: HomeComponent, },
-=======
 import {ProfileComponent} from './modules/general/profile/profile.component';
 import {LoginComponent} from './modules/general/login/login.component';
 import {RegisterComponent} from './modules/general/register/register.component';
@@ -23,7 +18,6 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'profil-klinike', component: ProfilKlinikeComponent},
   { path: 'profil-administratora-klinickog-centra', component: ProfilAdministratoraKlinickogCentraComponent},
->>>>>>> 809b48e4dbe06a550be6afa9298f71b5f0047172
   {
     path: 'about',
     loadChildren: () => import('./modules/general/about/about.module').then(mod => mod.AboutModule)
