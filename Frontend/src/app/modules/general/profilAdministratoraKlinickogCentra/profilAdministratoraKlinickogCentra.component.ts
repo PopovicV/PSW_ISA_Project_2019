@@ -38,7 +38,6 @@ export class ProfilAdministratoraKlinickogCentraComponent {
     this.ulogovanUrl = '/server/api/administratorKlinickogCentra/ulogovanAdministratorKlinickogCentra';
     this.http.get<AdministratorKlinickogCentra>(this.ulogovanUrl, httpOptions).subscribe(
       data => {
-        alert(data.email);
         this.ulogovanKorisnik = data;
       }
     );
