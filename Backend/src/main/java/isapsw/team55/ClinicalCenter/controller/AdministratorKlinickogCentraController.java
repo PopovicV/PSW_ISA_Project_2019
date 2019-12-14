@@ -1,11 +1,16 @@
 package isapsw.team55.ClinicalCenter.controller;
 
 import isapsw.team55.ClinicalCenter.domain.AdministratorKlinickogCentra;
+import isapsw.team55.ClinicalCenter.domain.Klinika;
+import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.domain.Pacijent;
 import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.dto.AdministratorKlinickogCentraDTO;
 import isapsw.team55.ClinicalCenter.service.AdministratorKlinickogCentraService;
 import isapsw.team55.ClinicalCenter.service.EmailService;
+
+import isapsw.team55.ClinicalCenter.service.KlinikaService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +32,9 @@ public class AdministratorKlinickogCentraController {
 
     @Autowired
     EmailService emailService;
+    @Autowired
+    KlinikaService klinikaService;
+
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<AdministratorKlinickogCentraDTO>> getAllAdministratorKlinickogCentra(Pageable page) {
@@ -79,14 +87,27 @@ public class AdministratorKlinickogCentraController {
         }
     }
 
-    @GetMapping(value = "/ulogovanAdministratorKlinickogCentra", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AdministratorKlinickogCentra> getKorisnik(@Context HttpServletRequest request) {
+    @GetMapping(value = "/ulogovanKorisnik", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AdministratorKlinickogCentraDTO> getKorisnik(@Context HttpServletRequest request) {
         Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
-        AdministratorKlinickogCentra administratorKlinickogCentra = administratorKlinickogCentraService.findOne(korisnik.getId());
+        AdministratorKlinickogCentra administratorKlinickogCentra = administratorKlinickogCentraService.findOneById(korisnik.getId());
+
         if(administratorKlinickogCentra == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return  new ResponseEntity(administratorKlinickogCentra, HttpStatus.OK);
+        return  new ResponseEntity(new AdministratorKlinickogCentraDTO(administratorKlinickogCentra), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/addKlinika", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Klinika> addMedicinskoOsoblje(@Context HttpServletRequest request, @RequestBody Klinika klinika) throws Exception {
+        Klinika k = klinikaService.addKlinika(klinika);
+        Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
+        AdministratorKlinickogCentra administratorKlinickogCentra = administratorKlinickogCentraService.findOneById(korisnik.getId());
+        if(k != null) {
+            administratorKlinickogCentra.addKlinika(k);
+            return new ResponseEntity<Klinika>(klinika, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<Klinika>(HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
 }

@@ -4,6 +4,7 @@ import {AppRoutingModule} from '../../../app-routing.module';
 import {ProfilAdministratoraKlinickogCentraComponent} from './profilAdministratoraKlinickogCentra.component';
 import {FormsModule} from '@angular/forms';
 
+
 @NgModule({
   imports: [
     BrowserModule,

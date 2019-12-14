@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {environment} from '../../../../environments/environment';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+
 import { AdministratorKlinickogCentra } from 'src/app/model/administratorKlinickogCentra';
 import {AdministratorKlinickogCentraService} from '../../../service/administratorKlinickogCentra.service';
 
@@ -41,7 +42,6 @@ export class ProfilAdministratoraKlinickogCentraComponent {
         this.ulogovanKorisnik = data;
       }
     );
-  }
 
   onSubmit() {
     const lozinka = (document.getElementById('lozinka') as HTMLInputElement).value;

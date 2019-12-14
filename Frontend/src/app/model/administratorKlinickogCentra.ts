@@ -1,8 +1,9 @@
-export class AdministratorKlinickogCentra{
+export class AdministratorKlinickogCentra {
   id: string;
-  ime: string;
-  prezime: string;
   email: string;
   lozinka: string;
+  uloga: string;
+  ime: string;
+  prezime: string;
   kontaktTelefon: string;
 }

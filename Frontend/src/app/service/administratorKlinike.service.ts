@@ -19,4 +19,9 @@ export class AdministratorKlinikeService {
     const podaci = JSON.stringify(administratorKlinike);
     return this.http.post<AdministratorKlinike>(this.requestUrl, podaci, httpOptions);
   }
+
+  public getUlogovanKorisnik() {
+    this.requestUrl = '/server/api/administratorKlinike/ulogovanKorisnik';
+    return this.http.get<AdministratorKlinike>(this.requestUrl, httpOptions);
+  }
 }

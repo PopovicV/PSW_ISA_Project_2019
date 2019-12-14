@@ -19,29 +19,48 @@ export class LoginComponent implements OnInit {
 
   korisnik: Korisnik;
   loginForm: FormGroup;
+  submitted = false;
+  badLogIn = false;
 
   constructor(private router: Router, private loginService: LoginService) {
     this.korisnik = new Korisnik();
   }
 
   onSubmit() {
+    this.submitted = true;
+
+    if (this.loginForm.invalid) {
+      return;
+     }
     this.loginService.logIn(this.korisnik).subscribe(
       data => {
         alert(data.uloga);
         if (data.uloga === 'ADMINISTRATOR_KLINIKE') {
           this.router.navigate(['profil-administratora-klinike']);
+          
         } else if (data.uloga === 'ADMINISTRATOR_KLINICKOG_CENTRA') {
           this.router.navigate(['profil-administratora-klinickog-centra']);
+
+        } else if (data.uloga === 'PACIJENT') {
+          this.router.navigate(['profil-pacijenta']);
+
         }
 
+
         return true;
+      },
+      error => {
+        this.badLogIn = true;
+         alert('POGRESIO SI')
       }
     );
   }
 
+  get f() { return this.loginForm.controls; }
+
   ngOnInit() {
     this.loginForm = new FormGroup({
-      email: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email]),
       lozinka: new FormControl('', Validators.required)
     });
   }
