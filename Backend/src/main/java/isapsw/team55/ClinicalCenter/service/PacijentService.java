@@ -35,6 +35,20 @@ public class PacijentService {
         pacijentRepository.deleteById(id);
     }
 
+    public Pacijent update(Pacijent pacijent) {
+        Pacijent p = pacijentRepository.findByEmail(pacijent.getEmail());
+        p.setIme(pacijent.getIme());
+        p.setPrezime(pacijent.getPrezime());
+        p.setEmail(pacijent.getEmail());
+        p.setLozinka(pacijent.getLozinka());
+        p.setAdresa(pacijent.getAdresa());
+        p.setGrad(pacijent.getGrad());
+        p.setDrzava(pacijent.getDrzava());
+        p.setKontaktTelefon(pacijent.getKontaktTelefon());
+
+        return save(p);
+    }
+
 
     public List<Pacijent> findByPrezime(String prezime) {
         return pacijentRepository.findAllByPrezime(prezime);
