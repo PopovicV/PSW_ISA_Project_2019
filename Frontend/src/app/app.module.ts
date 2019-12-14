@@ -17,8 +17,12 @@ import { LoginService } from './service/login.service';
 import {ProfilAdministratoraKlinickogCentraModule} from './modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.module';
 import {ProfilAdministratoraKlinikeModule} from './modules/general/administratorKlinike/profilAdministratoraKlinike.module';
 import {AdministratorKlinikeService} from './service/administratorKlinike.service';
+
+import {AdministratorKlinickogCentraService} from './service/administratorKlinickogCentra.service';
+
 import { PacijentService } from './service/pacijent.service';
 import { ProfilPacijentaModule } from './modules/general/pacijent/profilPacijenta.module';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +42,9 @@ import { ProfilPacijentaModule } from './modules/general/pacijent/profilPacijent
     ProfilPacijentaModule,
     HttpClientModule
   ],
-  providers: [RegisterService, LoginService, AdministratorKlinikeService, PacijentService],
+
+  providers: [RegisterService, LoginService, AdministratorKlinikeService, AdministratorKlinickogCentraService, PacijentService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

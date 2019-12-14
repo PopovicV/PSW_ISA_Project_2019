@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {environment} from '../../../../environments/environment';
-import {Korisnik} from '../../../model/korisnik';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {AdministratorKlinickogCentra} from '../../../model/administratorKlinickogCentra';
+
+import { AdministratorKlinickogCentra } from 'src/app/model/administratorKlinickogCentra';
+import {AdministratorKlinickogCentraService} from '../../../service/administratorKlinickogCentra.service';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -24,11 +25,37 @@ export class ProfilAdministratoraKlinickogCentraComponent {
   ulogovanKorisnik: AdministratorKlinickogCentra;
   izmenaForm: FormGroup;
 
-  constructor(private http: HttpClient) {
-    this.ulogovanUrl = 'server/api/ulogovanKorisnik';
+  ngOnInit(): void {
+    this.izmenaForm = new FormGroup({
+      ime: new FormControl('', Validators.required),
+      prezime: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      lozinka: new FormControl('', Validators.required),
+      kontaktTelefon: new FormControl('', Validators.required),
+    });
   }
 
-  OnInit() {
-    const ulogovanKorisnik = this.http.get<AdministratorKlinickogCentra>(this.ulogovanUrl, httpOptions);
+  constructor(private http: HttpClient, private administratorKlinickogCentraService: AdministratorKlinickogCentraService) {
+    this.ulogovanUrl = '/server/api/administratorKlinickogCentra/ulogovanAdministratorKlinickogCentra';
+    this.http.get<AdministratorKlinickogCentra>(this.ulogovanUrl, httpOptions).subscribe(
+      data => {
+        this.ulogovanKorisnik = data;
+      }
+    );
+
+  onSubmit() {
+    const lozinka = (document.getElementById('lozinka') as HTMLInputElement).value;
+    const lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
+
+    if (lozinka === lozinkaConfirm) {
+      this.administratorKlinickogCentraService.izmeniProfil(this.ulogovanKorisnik).subscribe(
+        data => {
+          this.izmenaForm.reset();
+          return true;
+        },
+      );
+    }
   }
+
+
 }

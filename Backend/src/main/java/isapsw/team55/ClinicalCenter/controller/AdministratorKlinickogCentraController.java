@@ -4,11 +4,14 @@ import isapsw.team55.ClinicalCenter.domain.AdministratorKlinickogCentra;
 import isapsw.team55.ClinicalCenter.domain.Klinika;
 import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.domain.Pacijent;
+import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.dto.AdministratorKlinickogCentraDTO;
 import isapsw.team55.ClinicalCenter.service.AdministratorKlinickogCentraService;
+import isapsw.team55.ClinicalCenter.service.EmailService;
+
 import isapsw.team55.ClinicalCenter.service.KlinikaService;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -28,7 +31,10 @@ public class AdministratorKlinickogCentraController {
     AdministratorKlinickogCentraService administratorKlinickogCentraService;
 
     @Autowired
+    EmailService emailService;
+    @Autowired
     KlinikaService klinikaService;
+
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<AdministratorKlinickogCentraDTO>> getAllAdministratorKlinickogCentra(Pageable page) {
@@ -40,7 +46,10 @@ public class AdministratorKlinickogCentraController {
         for (AdministratorKlinickogCentra akc : administratoriKlinickogCentra) {
             administratorKlinickogCentraDTO.add(new AdministratorKlinickogCentraDTO(akc));
         }
-
+//        new StringBuilder().append("ads").append("asdfdf").toString();
+//        StringBuilder s = new StringBuilder();
+//        s.append("s");
+//        s.append("gd");
         return new ResponseEntity<>(administratorKlinickogCentraDTO, HttpStatus.OK);
     }
 
@@ -70,9 +79,8 @@ public class AdministratorKlinickogCentraController {
     @PostMapping(value="/odobriZahtev", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
         public ResponseEntity<Pacijent> odobriZahtev(@RequestBody Pacijent pacijent) throws Exception {
             Pacijent p = administratorKlinickogCentraService.aktivirajNalog(pacijent);
-            //TODO: Poslati mail pacijentu da mu je odobren zahtev za registraciju
-
         if(p != null) {
+            emailService.sendNotificationAsync(p.getEmail(), "Dobrodosli!", "Vas zahtev za registraciju je odobren.");
             return new ResponseEntity<Pacijent>(p, HttpStatus.OK);
         } else {
             return new ResponseEntity<Pacijent>(HttpStatus.NOT_ACCEPTABLE);

@@ -5,6 +5,7 @@ import isapsw.team55.ClinicalCenter.domain.MedicinskoOsoblje;
 import isapsw.team55.ClinicalCenter.repository.AdministratorKlinikeRepository;
 import isapsw.team55.ClinicalCenter.repository.MedicinskoOsobljeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
