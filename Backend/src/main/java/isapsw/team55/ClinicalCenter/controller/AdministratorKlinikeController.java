@@ -65,7 +65,7 @@ public class AdministratorKlinikeController {
         }
     }
 
-    @GetMapping(value = "/ulogovanAdministratorKlinike", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/ulogovanKorisnik", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AdministratorKlinike> getKorisnik(@Context HttpServletRequest request) {
         Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
         AdministratorKlinike administratorKlinike = administratorKlinikeService.findOneById(korisnik.getId());

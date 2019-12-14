@@ -88,21 +88,21 @@
           </table>
           <table class="table table-hover table-striped" >
             <table class="table table-hover table-striped" >
-            <th>
-              <div class="col-lg-12">
-                Id leka
-              </div>
-            </th>
-            <th>
-              <div class="col-lg-12">
-                Naziv leka
-              </div>
-            </th>
-            <th>
-              <div class="col-lg-12">
-                Opis leka
-              </div>
-            </th>
+              <th>
+                <div class="col-lg-12">
+                  Id leka
+                </div>
+              </th>
+              <th>
+                <div class="col-lg-12">
+                  Naziv leka
+                </div>
+              </th>
+              <th>
+                <div class="col-lg-12">
+                  Opis leka
+                </div>
+              </th>
             </table>
             <tr>
               <td> </td>
@@ -131,42 +131,42 @@
             <!-- </tr> -->
             <tr>
               <td>
-                <strong>ID</strong>
+                <strong>Id</strong>
               </td>
               <td>
-                id korisnika
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>IME</strong>
-              </td>
-              <td>
-                ime korisnika
+                {{this.ulogovanKorisnik.id}}
               </td>
             </tr>
             <tr>
               <td>
-                <strong>PREZIME</strong>
+                <strong>Ime</strong>
               </td>
               <td>
-                prezime korisnika
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>EMAIL</strong>
-              </td>
-              <td>
-                email korisnika
+                {{this.ulogovanKorisnik.ime}}
               </td>
             </tr>
             <tr>
               <td>
-                <strong>KONTAKT TELEFON</strong>
+                <strong>Prezime</strong>
               </td>
               <td>
-                kontakt telefon korisnika
+                {{this.ulogovanKorisnik.prezime}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Email</strong>
+              </td>
+              <td>
+                {{this.ulogovanKorisnik.email}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Kontakt telefon</strong>
+              </td>
+              <td>
+                {{this.ulogovanKorisnik.kontaktTelefon}}
               </td>
             </tr>
             </tbody>
@@ -208,65 +208,41 @@
         <!-- Edit ne diraj!!-->
         <div class="tab-pane" id="edit">
           <h4 class="m-y-2">Izmena profila</h4>
-          <form role="form">
+          <form role="form" name = "izmenaForm" (ngSubmit)="onSubmit()">
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Ime</label>
               <div class="col-lg-9">
-                <input class="form-control" type="text" value="" placeholder="Ime">
+                <input class="form-control" name = "ime" type="text" value="" [(ngModel)]="this.ulogovanKorisnik.ime">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Prezime</label>
               <div class="col-lg-9">
-                <input class="form-control" type="text" value="" placeholder="Prezime">
+                <input class="form-control" name = "prezime" type="text" value="" [(ngModel)]="this.ulogovanKorisnik.prezime">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Email</label>
               <div class="col-lg-9">
-                <input class="form-control" type="email" value="" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Adresa</label>
-              <div class="col-lg-7">
-                <input class="form-control" type="text" value="" placeholder="Ulica">
-              </div>
-              <div class="col-lg-2">
-                <input class="form-control" type="text" value="" placeholder="Broj">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label"></label>
-              <div class="col-lg-6">
-                <input class="form-control" type="text" value="" placeholder="Grad">
-              </div>
-              <div class="col-lg-3">
-                <input class="form-control" type="text" value="" placeholder="Drzava">
+                <input class="form-control" name = "email" type="email" value="" [(ngModel)]="this.ulogovanKorisnik.email">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Kontakt telefon</label>
               <div class="col-lg-9">
-                <input class="form-control" type="text" placeholder = "Kontakt telefon" >
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Korisnicko ime</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="text" placeholder = "Korisnicko ime">
+                <input class="form-control" name = "kontaktTelefon" type="text" [(ngModel)]="this.ulogovanKorisnik.kontaktTelefon" >
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Lozinka</label>
               <div class="col-lg-9">
-                <input class="form-control" type="password" value="11111122333">
+                <input class="form-control" id = "lozinka" name = "lozinka" type="password" >
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Potvrda lozinke</label>
               <div class="col-lg-9">
-                <input class="form-control" type="password" value="11111122333">
+                <input class="form-control" id = "lozinkaConfirm" name = "lozinkaConfirm" type="password" >
               </div>
             </div>
             <div class="form-group row">
@@ -274,7 +250,7 @@
               <div class="col-lg-9">
                 <input type="reset" class="btn btn-secondary" value="Odustani">
                 &nbsp;
-                <input type="button" class="btn btn-primary" value="Potvrdi">
+                <input type="submit" class="btn btn-primary" value="Potvrdi">
               </div>
             </div>
           </form>
@@ -283,3 +259,4 @@
     </div>
   </div>
 </div>
+

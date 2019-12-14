@@ -3,6 +3,7 @@ import {environment} from '../../../../environments/environment';
 import {Korisnik} from '../../../model/korisnik';
 import {FormGroup} from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {AdministratorKlinickogCentra} from '../../../model/administratorKlinickogCentra';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -20,7 +21,7 @@ export class ProfilAdministratoraKlinickogCentraComponent {
   bootstrap = environment.application.bootstrap;
 
   ulogovanUrl: string;
-  ulogovanKorisnik: Korisnik;
+  ulogovanKorisnik: AdministratorKlinickogCentra;
   izmenaForm: FormGroup;
 
   constructor(private http: HttpClient) {
@@ -28,6 +29,6 @@ export class ProfilAdministratoraKlinickogCentraComponent {
   }
 
   OnInit() {
-    const ulogovanKorisnik = this.http.get<Korisnik>(this.ulogovanUrl, httpOptions);
+    const ulogovanKorisnik = this.http.get<AdministratorKlinickogCentra>(this.ulogovanUrl, httpOptions);
   }
 }

@@ -17,7 +17,6 @@ const httpOptions = {
 export class ProfilAdministratoraKlinikeComponent implements OnInit {
 
   ulogovanKorisnik: AdministratorKlinike;
-  ulogovanUrl: string;
   izmeniProfilForm: FormGroup;
 
   ngOnInit(): void {
@@ -30,9 +29,8 @@ export class ProfilAdministratoraKlinikeComponent implements OnInit {
     });
   }
 
-  constructor(private http: HttpClient, private administratorService: AdministratorKlinikeService) {
-    this.ulogovanUrl = '/server/api/administratorKlinike/ulogovanAdministratorKlinike';
-    this.http.get<AdministratorKlinike>(this.ulogovanUrl, httpOptions).subscribe(
+  constructor(private administratorService: AdministratorKlinikeService) {
+    administratorService.getUlogovanKorisnik().subscribe(
       data => {
         this.ulogovanKorisnik = data;
       }

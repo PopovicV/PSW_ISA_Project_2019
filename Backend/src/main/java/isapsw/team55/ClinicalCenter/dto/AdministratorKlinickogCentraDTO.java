@@ -12,24 +12,22 @@ public class AdministratorKlinickogCentraDTO {
     private String prezime;
     private String email;
     private String kontaktTelefon;
-    private KlinickiCentar klinickiCentar;
 
     public AdministratorKlinickogCentraDTO() {
         super();
     }
 
-    public AdministratorKlinickogCentraDTO(Long id, String lozinka, String ime, String prezime, String email, String kontaktTelefon, KlinickiCentar klinickiCentar) {
+    public AdministratorKlinickogCentraDTO(Long id, String lozinka, String ime, String prezime, String email, String kontaktTelefon) {
         this.id = id;
         this.lozinka = lozinka;
         this.ime = ime;
         this.prezime = prezime;
         this.email = email;
         this.kontaktTelefon = kontaktTelefon;
-        this.klinickiCentar = klinickiCentar;
     }
 
     public AdministratorKlinickogCentraDTO(AdministratorKlinickogCentra akc) {
-        this(akc.getId(), akc.getLozinka(), akc.getIme(), akc.getPrezime(), akc.getEmail(), akc.getKontaktTelefon(), akc.getKlinickiCentar());
+        this(akc.getId(), akc.getLozinka(), akc.getIme(), akc.getPrezime(), akc.getEmail(), akc.getKontaktTelefon());
     }
 
     public Long getId() {
@@ -78,13 +76,5 @@ public class AdministratorKlinickogCentraDTO {
 
     public void setKontaktTelefon(String kontaktTelefon) {
         this.kontaktTelefon = kontaktTelefon;
-    }
-
-    public KlinickiCentar getKlinickiCentar() {
-        return klinickiCentar;
-    }
-
-    public void setKlinickiCentar(KlinickiCentar klinickiCentar) {
-        this.klinickiCentar = klinickiCentar;
     }
 }

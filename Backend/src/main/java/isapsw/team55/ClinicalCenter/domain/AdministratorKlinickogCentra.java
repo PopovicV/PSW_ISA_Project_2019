@@ -3,10 +3,12 @@ package isapsw.team55.ClinicalCenter.domain;
 import isapsw.team55.ClinicalCenter.dto.AdministratorKlinickogCentraDTO;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
 
 @Entity
 @Table(name = "administrator_klinickog_centra")
@@ -21,9 +23,8 @@ public class AdministratorKlinickogCentra extends Korisnik {
     @Column(name = "kontaktTelefon", unique = false, nullable = false)
     private String kontaktTelefon;
 
-    //@OneToMany(mappedBy = "administratorKlinickogCentra", fetch = FetchType.LAZY, cascade = CascadeType.ALL)\
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private KlinickiCentar klinickiCentar;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Klinika> klinikaList;
 
     public AdministratorKlinickogCentra() {
         super();
@@ -36,7 +37,6 @@ public class AdministratorKlinickogCentra extends Korisnik {
         this.prezime = akcdto.getPrezime();
         this.email = akcdto.getEmail();
         this.kontaktTelefon = akcdto.getKontaktTelefon();
-        this.klinickiCentar = akcdto.getKlinickiCentar();
         this.uloga = "ADMINISTRATOR_KLINICKOG_CENTRA";
     }
 
@@ -64,14 +64,9 @@ public class AdministratorKlinickogCentra extends Korisnik {
         this.kontaktTelefon = kontaktTelefon;
     }
 
-    public KlinickiCentar getKlinickiCentar() {
-        return klinickiCentar;
+    public void addKlinika(Klinika klinika) {
+        klinikaList.add(klinika);
     }
-
-    public void setKlinickiCentar(KlinickiCentar klinickiCentar) {
-        this.klinickiCentar = klinickiCentar;
-    }
-
 //    @Override
 //    public int hashCode() {
 //        return Objects.hashCode(id);
