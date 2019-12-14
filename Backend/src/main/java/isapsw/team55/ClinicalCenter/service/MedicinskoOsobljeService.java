@@ -60,6 +60,6 @@ public class MedicinskoOsobljeService {
         a.setLozinka(medicinskoOsoblje.getLozinka());
         a.setPrezime(medicinskoOsoblje.getPrezime());
 
-        return save(a);
+        return medicinskoOsobljeRepository.save(a);
     }
 }

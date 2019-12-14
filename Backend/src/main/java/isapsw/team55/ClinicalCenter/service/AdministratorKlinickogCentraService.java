@@ -3,8 +3,10 @@ package isapsw.team55.ClinicalCenter.service;
 import java.util.List;
 
 import isapsw.team55.ClinicalCenter.domain.AdministratorKlinickogCentra;
+import isapsw.team55.ClinicalCenter.domain.Klinika;
 import isapsw.team55.ClinicalCenter.domain.Pacijent;
 import isapsw.team55.ClinicalCenter.repository.AdministratorKlinickogCentraRepository;
+import isapsw.team55.ClinicalCenter.repository.KlinikaRepository;
 import isapsw.team55.ClinicalCenter.repository.PacijentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -18,6 +20,13 @@ public class AdministratorKlinickogCentraService {
 
     @Autowired
     private PacijentRepository pacijentRepository;
+
+    @Autowired
+    private KlinikaRepository klinikaRepository;
+
+    public AdministratorKlinickogCentra findOneById(Long id) {
+        return administratorKlinickogCentraRepository.findById(id).orElseGet(null);
+    }
 
     public Page<AdministratorKlinickogCentra> findAll(Pageable pageable) {
         return administratorKlinickogCentraRepository.findAll(pageable);
@@ -59,7 +68,6 @@ public class AdministratorKlinickogCentraService {
         akc.setLozinka(administratorKlinickogCentra.getLozinka());
         akc.setIme(administratorKlinickogCentra.getIme());
         akc.setPrezime(administratorKlinickogCentra.getPrezime());
-        akc.setKlinickiCentar(administratorKlinickogCentra.getKlinickiCentar());
         akc.setKontaktTelefon(administratorKlinickogCentra.getKontaktTelefon());
 
         return save(akc);
@@ -72,5 +80,15 @@ public class AdministratorKlinickogCentraService {
     public Pacijent aktivirajNalog(Pacijent pacijent) {
         pacijent.setAdminAktiviraoNalog("DA");
         return pacijentRepository.save(pacijent);
+    }
+
+    public Klinika addKlinika(Klinika klinika) {
+        Klinika k = klinikaRepository.findOneByIme(klinika.getIme());
+        if(k == null) {
+            klinikaRepository.save(klinika);
+            return  klinika;
+        } else {
+            return null;
+        }
     }
 }
