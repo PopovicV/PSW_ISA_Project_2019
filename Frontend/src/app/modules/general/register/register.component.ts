@@ -27,9 +27,9 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    //if (this.registerForm.invalid) {
-     // return;
-    //}
+    if (this.registerForm.invalid) {
+     return;
+    }
     this.lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
     if (this.lozinkaConfirm === this.pacijent.lozinka) {
       this.registerService.logIn(this.pacijent).subscribe(

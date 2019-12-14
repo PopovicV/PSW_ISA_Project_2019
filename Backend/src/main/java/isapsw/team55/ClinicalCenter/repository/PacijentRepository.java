@@ -21,4 +21,6 @@ public interface PacijentRepository extends JpaRepository<Pacijent, Long> {
         @Query("select p from Pacijent p where p.adminAktiviraoNalog = ?1")
         List<Pacijent> pronadjiNeaktiviraneKorisnike(String uslov);
 
+        Pacijent findByEmail(String email);
+
 }
