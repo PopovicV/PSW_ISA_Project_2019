@@ -1,24 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-  <!-- Popper JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  <title> Profil administratora klinickog centra	</title>
-</head>
-<body>
 <div class="container">
   <div class="row m-y-2">
-    <div class="col-lg-10 push-lg-4">
+    <div class="col-lg-9 push-lg-4">
       <ul class="nav nav-tabs">
 
         <li class="nav-item">
@@ -148,36 +130,42 @@
           <table>
             <tr>
               <table class="table table-hover table-striped" >
-                <th>
-                  <div class="col-lg-9">
-                    Id
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Ime
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Prezime
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Kontakt telefon
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Email
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Kontakt telefon
-                  </div>
-                </th>
+                <thead>
+<!--                  <th>-->
+<!--                    <div class="col-lg-14">-->
+<!--                      Id-->
+<!--                    </div>-->
+<!--                  </th>-->
+                  <th>
+                    <div class="col-lg-14">
+                      Ime
+                    </div>
+                  </th>
+                  <th>
+                    <div class="col-lg-14">
+                      Prezime
+                    </div>
+                  </th>
+                  <th>
+                    <div class="col-lg-14">
+                      Kontakt telefon
+                    </div>
+                  </th>
+                  <th>
+                    <div class="col-lg-14">
+                      Email
+                    </div>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let pacijent of this.pacijenti">
+<!--                    <td>{{pacijent.id}}</td>-->
+                    <td>{{pacijent.ime}}</td>
+                    <td>{{pacijent.prezime}}</td>
+                    <td>{{pacijent.kontaktTelefon}}</td>
+                    <td>{{pacijent.email}}</td>
+                  </tr>
+                </tbody>
               </table>
             </tr>
           </table>
@@ -219,48 +207,6 @@
               <td>
                 <div class="col-lg-9">
                   <input type="button" class="btn btn-primary" value="Dodaj novog lekara">
-                </div>
-              </td>
-            </tr>
-          </table>
-        </div>
-
-        <div class="tab-pane" id="medicinskoOsoblje">
-          <table>
-            <tr>
-              <table class="table table-hover table-striped" >
-                <th>
-                  <div class="col-lg-9">
-                    Id
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Ime
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Prezime
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Kontakt telefon
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-9">
-                    Email
-                  </div>
-                </th>
-              </table>
-            </tr>
-            <tr>
-              <td> </td>
-              <td>
-                <div class="col-lg-9">
-                  <input type="button" class="btn btn-primary" value="Dodaj novu medicinsku sestru">
                 </div>
               </td>
             </tr>
@@ -396,6 +342,3 @@
     </div>
   </div>
 </div>
-<hr>
-</body>
-</html>
