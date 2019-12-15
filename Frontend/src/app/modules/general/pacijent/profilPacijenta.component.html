@@ -178,11 +178,11 @@
                           </th>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let klinika of klinike">
+                            <tr *ngFor="let klinika of this.klinike">
                                 <td>{{klinika.id}}</td>
-                                <td>{{klinka.ime}}</td>
+                                <td>{{klinika.ime}}</td>
                                 <td>{{klinika.adresa}}</td>
-                                <td>{{klinka.opis}}</td>
+                                <td>{{klinika.opis}}</td>
                                 </tr>
                         </tbody>
                         </table>
