@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
      }
     this.loginService.logIn(this.loginForm.value).subscribe(
       data => {
-        alert(data.uloga);
+        alert('Ulogovan: ' + data.uloga);
         if (data.uloga === 'ADMINISTRATOR_KLINIKE') {
           this.router.navigate(['profil-administratora-klinike']);
         } else if (data.uloga === 'ADMINISTRATOR_KLINICKOG_CENTRA') {

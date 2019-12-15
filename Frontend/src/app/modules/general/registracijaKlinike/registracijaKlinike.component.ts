@@ -34,10 +34,10 @@ export class RegistracijaKlinikeComponent implements OnInit{
   }
 
   onSubmit() {
-    alert(this.forma.value);
     this.registracijaKlinikeService.registrujKliniku(this.forma.value).subscribe(
       data => {
         this.forma.reset();
+        alert('Nova klinika uspesno registrovana.');
         return true;
       },
     );

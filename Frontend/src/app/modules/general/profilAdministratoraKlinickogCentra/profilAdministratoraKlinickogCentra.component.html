@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row m-y-2">
-    <div class="col-lg-8 push-lg-4">
+    <div class="col-lg-12 push-lg-4">
       <ul class="nav nav-tabs">
 
         <li class="nav-item">
@@ -26,32 +26,41 @@
           <table class="table table-hover table-striped">
             <tr>
               <table class="table table-hover table-striped" >
-                <th>
-                  <div class="col-lg-14">
-                    Id
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-14">
-                    Ime
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-14">
-                    Adresa
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-14">
-                    Administratori klinike
-                  </div>
-                </th>
-                <th>
-                  <div class="col-lg-14">
-                    Opis
-                  </div>
-                </th>
-                <th></th>
+                <thead>
+                  <th>
+                    <div class="col-lg-12">
+                      Id
+                    </div>
+                  </th>
+                  <th>
+                    <div class="col-lg-12">
+                      Ime
+                    </div>
+                  </th>
+                  <th>
+                    <div class="col-lg-12">
+                      Adresa
+                    </div>
+                  </th>
+<!--                  <th>-->
+<!--                    <div class="col-lg-14">-->
+<!--                      Administratori klinike-->
+<!--                    </div>-->
+<!--                  </th>-->
+                  <th>
+                    <div class="col-lg-12">
+                      Opis
+                    </div>
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let klinika of this.klinike">
+                    <td>{{klinika.id}}</td>
+                    <td>{{klinika.ime}}</td>
+                    <td>{{klinika.adresa}}</td>
+                    <td>{{klinika.opis}}</td>
+                  </tr>
+                </tbody>
               </table>
             <tr>
               <td> </td>
@@ -241,7 +250,7 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Lozinka</label>
               <div class="col-lg-9">
-                <input class="form-control" name="lozinka" id = "lozinka" type="password" [(ngModel)] = "this.ulogovanKorisnik.lozinka" >
+                <input class="form-control" name="lozinka" id = "lozinka" type="password" (ngModel) = "this.ulogovanKorisnik.lozinka" >
               </div>
             </div>
             <div class="form-group row">
