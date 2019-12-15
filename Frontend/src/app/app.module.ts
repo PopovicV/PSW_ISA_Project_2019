@@ -22,6 +22,7 @@ import {AdministratorKlinickogCentraService} from './service/administratorKlinic
 
 import { PacijentService } from './service/pacijent.service';
 import { ProfilPacijentaModule } from './modules/general/pacijent/profilPacijenta.module';
+import { LogoutService } from './service/logout.service';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { ProfilPacijentaModule } from './modules/general/pacijent/profilPacijent
     HttpClientModule
   ],
 
-  providers: [RegisterService, LoginService, AdministratorKlinikeService, AdministratorKlinickogCentraService, PacijentService],
+  providers: [RegisterService, LoginService, AdministratorKlinikeService, AdministratorKlinickogCentraService, PacijentService, LogoutService],
 
   bootstrap: [AppComponent]
 })

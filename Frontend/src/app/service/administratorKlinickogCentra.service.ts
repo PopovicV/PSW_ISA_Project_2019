@@ -23,7 +23,8 @@ export class AdministratorKlinickogCentraService {
     this.ulogovanUrl = '/server/api/administratorKlinickogCentra/update';
     const podaci = JSON.stringify(administratorKlinickogCentra);
     return this.http.post<AdministratorKlinickogCentra>(this.ulogovanUrl, podaci, httpOptions);
-
+  }
+  
   public getUlogovanKorisnik() {
     this.requestUrl = '/server/api/administratorKlinickogCentra/ulogovanKorisnik';
     return this.http.get<AdministratorKlinickogCentra>(this.requestUrl, httpOptions);

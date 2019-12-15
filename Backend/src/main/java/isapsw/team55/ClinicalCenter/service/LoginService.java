@@ -15,10 +15,16 @@ public class LoginService {
 
     public Korisnik proveraKorisnika(String email, String lozinka) {
         Korisnik korisnik = korisnikRepository.findByEmail(email);
-        if (korisnik.getLozinka().equals(lozinka)) {
-            return korisnik;
-        } else {
+        if (korisnik == null) {
+            System.out.println("Ne postoji korisnik sa unetom email adresom.");
             return null;
+        } else {
+            if (korisnik.getLozinka().equals(lozinka)) {
+                return korisnik;
+            } else {
+                System.out.println("Uneta sifra nije odgovarajuca.");
+                return null;
+            }
         }
     }
 }

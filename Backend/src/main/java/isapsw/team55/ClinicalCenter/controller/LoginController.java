@@ -25,18 +25,23 @@ public class LoginController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Korisnik> loginPacijent(@RequestBody Korisnik korisnik, @Context HttpServletRequest request) throws Exception {
         Korisnik ulogovanKorisnik = loginService.proveraKorisnika(korisnik.getEmail(), korisnik.getLozinka());
+        System.out.println("Usao sam u login");
         if (ulogovanKorisnik != null) {
+            //Postavljanje trenutno ulogovanog korisnika
             request.getSession().setAttribute("ulogovanKorisnik", ulogovanKorisnik);
-            return new ResponseEntity<Korisnik>(ulogovanKorisnik, HttpStatus.ACCEPTED);
+            System.out.println("Ulogovan korisnik je: " + ulogovanKorisnik.getEmail());
+            return new ResponseEntity<Korisnik>(ulogovanKorisnik, HttpStatus.OK);
         } else {
-            return new ResponseEntity<Korisnik>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Korisnik>(korisnik, HttpStatus.BAD_REQUEST);
         }
     }
 
     @GetMapping(value = "/logout", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Korisnik> logout(@Context HttpServletRequest request) throws Exception {
+        System.out.println("usao sam u logout!");
         Korisnik ulogovanKorisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
         request.getSession().invalidate();
-        return new ResponseEntity<Korisnik>(ulogovanKorisnik, HttpStatus.ACCEPTED);
+        System.out.println("KORISNIK " + ulogovanKorisnik.getEmail() + "JE IZLOGVAN.");
+        return new ResponseEntity<Korisnik>(ulogovanKorisnik, HttpStatus.OK);
     }
 }
