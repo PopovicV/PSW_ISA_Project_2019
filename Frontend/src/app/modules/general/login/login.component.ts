@@ -37,13 +37,10 @@ export class LoginComponent implements OnInit {
         alert(data.uloga);
         if (data.uloga === 'ADMINISTRATOR_KLINIKE') {
           this.router.navigate(['profil-administratora-klinike']);
-          
         } else if (data.uloga === 'ADMINISTRATOR_KLINICKOG_CENTRA') {
           this.router.navigate(['profil-administratora-klinickog-centra']);
-
         } else if (data.uloga === 'PACIJENT') {
           this.router.navigate(['profil-pacijenta']);
-
         }
 
 
@@ -51,7 +48,7 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.badLogIn = true;
-         alert('POGRESIO SI')
+         alert('POGRESIO SI');
       }
     );
   }
