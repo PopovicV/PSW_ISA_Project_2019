@@ -1,6 +1,8 @@
 package isapsw.team55.ClinicalCenter.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import isapsw.team55.ClinicalCenter.dto.AdministratorKlinikeDTO;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -18,6 +20,7 @@ public class AdministratorKlinike extends Korisnik{
     private String kontaktTelefon;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
     private Klinika klinika;
 
     public AdministratorKlinike() {

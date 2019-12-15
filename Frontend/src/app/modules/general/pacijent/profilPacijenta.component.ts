@@ -4,6 +4,7 @@ import { Pacijent } from 'src/app/model/pacijent';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { PacijentService } from 'src/app/service/pacijent.service';
+import { Klinika } from 'src/app/model/klinika';
 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -21,8 +22,10 @@ export class ProfilPacijentaComponent {
     bootstrap = environment.application.bootstrap;
 
     ulogovanUrl: string;
+    klinikeUrl: string;
     ulogovanKorisnik: Pacijent;
     izmenaForm: FormGroup;
+    klinike: Array<Klinika>;
 
     ngOnInit(): void {
         this.izmenaForm = new FormGroup({
@@ -44,6 +47,14 @@ export class ProfilPacijentaComponent {
             this.ulogovanKorisnik = data;
           }
         );
+        
+        this.klinikeUrl = '/server/api/klinika/all';
+        this.http.get<Array<Klinika>>(this.klinikeUrl, httpOptions).subscribe(
+          data => {
+            this.klinike = data;
+          }
+        )
+
       }
 
       onSubmit() {
