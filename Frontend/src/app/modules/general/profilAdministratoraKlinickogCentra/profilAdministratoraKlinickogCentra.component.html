@@ -27,23 +27,28 @@
             <tr>
               <table class="table table-hover table-striped" >
                 <th>
-                  <div class="col-lg-12">
+                  <div class="col-lg-14">
                     Id
                   </div>
                 </th>
                 <th>
-                  <div class="col-lg-12">
+                  <div class="col-lg-14">
                     Ime
                   </div>
                 </th>
                 <th>
-                  <div class="col-lg-12">
+                  <div class="col-lg-14">
                     Adresa
                   </div>
                 </th>
                 <th>
-                  <div class="col-lg-12">
+                  <div class="col-lg-14">
                     Administratori klinike
+                  </div>
+                </th>
+                <th>
+                  <div class="col-lg-14">
+                    Opis
                   </div>
                 </th>
                 <th></th>
@@ -52,7 +57,7 @@
               <td> </td>
               <td>
                 <div class="col-lg-12">
-                  <input type="button" class="btn btn-primary" value="Dodaj novu kliniku">
+                  <input type="button" routerLink = "/registracija-klinike" class="btn btn-primary" value="Dodaj novu kliniku">
                 </div>
               </td>
             </tr>
@@ -108,7 +113,7 @@
               <td> </td>
               <td>
                 <div class="col-lg-12">
-                  <input type="button" class="btn btn-primary" value="Dodaj novi lek">
+                  <input type="button"  class="btn btn-primary" value="Dodaj novi lek">
                 </div>
               </td>
             </tr>
@@ -236,13 +241,13 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Lozinka</label>
               <div class="col-lg-9">
-                <input class="form-control" id = "lozinka" name = "lozinka" type="password" >
+                <input class="form-control" name="lozinka" id = "lozinka" type="password" [(ngModel)] = "this.ulogovanKorisnik.lozinka" >
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Potvrda lozinke</label>
               <div class="col-lg-9">
-                <input class="form-control" id = "lozinkaConfirm" name = "lozinkaConfirm" type="password" >
+                <input class="form-control" name="lozinkaConfirm" id = "lozinkaConfirm" type="password" >
               </div>
             </div>
             <div class="form-group row">

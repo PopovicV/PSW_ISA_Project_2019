@@ -36,7 +36,7 @@ export class ProfilAdministratoraKlinickogCentraComponent {
   }
 
   constructor(private http: HttpClient, private administratorKlinickogCentraService: AdministratorKlinickogCentraService) {
-    this.ulogovanUrl = '/server/api/administratorKlinickogCentra/ulogovanAdministratorKlinickogCentra';
+    this.ulogovanUrl = '/server/api/administratorKlinickogCentra/ulogovanKorisnik';
     this.http.get<AdministratorKlinickogCentra>(this.ulogovanUrl, httpOptions).subscribe(
       data => {
         this.ulogovanKorisnik = data;
@@ -44,17 +44,18 @@ export class ProfilAdministratoraKlinickogCentraComponent {
     );
   }
 
-    onSubmit() {
+
+  onSubmit() {
     const lozinka = (document.getElementById('lozinka') as HTMLInputElement).value;
     const lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
 
     if (lozinka === lozinkaConfirm) {
-      this.administratorKlinickogCentraService.izmeniProfil(this.ulogovanKorisnik).subscribe(
-        data => {
-          this.izmenaForm.reset();
-          return true;
-        },
-      );
+    this.administratorKlinickogCentraService.izmeniProfil(this.ulogovanKorisnik).subscribe(
+      data => {
+        this.izmenaForm.reset();
+        return true;
+      },
+    );
     }
   }
 
