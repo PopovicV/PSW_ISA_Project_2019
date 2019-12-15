@@ -44,17 +44,18 @@ export class ProfilAdministratoraKlinickogCentraComponent {
     );
   }
 
-  onSubmit() {
-      const lozinka = (document.getElementById('lozinka') as HTMLInputElement).value;
-      const lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
 
-      if (lozinka === lozinkaConfirm) {
-      this.administratorKlinickogCentraService.izmeniProfil(this.ulogovanKorisnik).subscribe(
-        data => {
-          this.izmenaForm.reset();
-          return true;
-        },
-      );
+  onSubmit() {
+    const lozinka = (document.getElementById('lozinka') as HTMLInputElement).value;
+    const lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
+
+    if (lozinka === lozinkaConfirm) {
+    this.administratorKlinickogCentraService.izmeniProfil(this.ulogovanKorisnik).subscribe(
+      data => {
+        this.izmenaForm.reset();
+        return true;
+      },
+    );
     }
   }
 
