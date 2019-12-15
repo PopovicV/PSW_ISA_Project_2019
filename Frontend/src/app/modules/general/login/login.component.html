@@ -7,7 +7,7 @@
         <input formControlName="email" type="email" id="email" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="form-control" >
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.required">Email je obavezan</div>
-          <div *ngIf="f.email.errors.email">Email mora biti validan email</div>
+          <div *ngIf="f.email.errors.email">Email mora biti validan email.</div>
         </div>
       </div>
     </div>
@@ -16,7 +16,7 @@
       <div class="col-sm-9">
         <input formControlName="lozinka" type="password" id="lozinka" placeholder="Lozinka" [ngClass]="{ 'is-invalid': submitted && f.lozinka.errors }" class="form-control">
         <div *ngIf="submitted && f.lozinka.errors" class="invalid-feedback">
-          <div *ngIf="f.lozinka.errors.required">Lozinka je obavezna</div>
+          <div *ngIf="f.lozinka.errors.required">Lozinka je obavezna.</div>
         </div>
       </div>
     </div>
@@ -26,11 +26,9 @@
       </div>
     </div>
     <button type="submit" class="btn btn-primary btn-block">Uloguj se</button>
-    <!-- 
-    <div *ngIf="this.badLogIn" class="invalid-feedback">
-      <div *ngIf="this.badLogIn">Email i lozinka se ne poklapaju</div>
-    </div>
-    -->
+    <div class="alert alert-danger" role="alert" *ngIf="submitted && badLogIn">Email i lozinka se ne poklapaju!</div>
+
+    
   </form>
 </div>
 

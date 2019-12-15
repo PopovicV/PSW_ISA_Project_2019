@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
      }
-    this.loginService.logIn(this.korisnik).subscribe(
+    this.loginService.logIn(this.loginForm.value).subscribe(
       data => {
         alert(data.uloga);
         if (data.uloga === 'ADMINISTRATOR_KLINIKE') {
@@ -51,7 +51,6 @@ export class LoginComponent implements OnInit {
       },
       error => {
         this.badLogIn = true;
-         alert('POGRESIO SI')
       }
     );
   }
