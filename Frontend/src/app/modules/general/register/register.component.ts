@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   bootstrap = environment.application.bootstrap;
 
   pacijent: Pacijent;
+  lozinkaOriginalna: string;
   lozinkaConfirm: string;
   registerForm: FormGroup;
   submitted = false;
@@ -27,18 +28,17 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    if (this.registerForm.invalid) {
-     return;
-    }
+    this.lozinkaOriginalna = (document.getElementById('lozinka') as HTMLInputElement).value;
     this.lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
-    if (this.lozinkaConfirm === this.pacijent.lozinka) {
-      this.registerService.logIn(this.pacijent).subscribe(
+    alert(this.lozinkaOriginalna)
+    alert(this.lozinkaConfirm)
+    if (this.lozinkaOriginalna === this.lozinkaConfirm) {
+      this.registerService.logIn(this.registerForm.value).subscribe(
         data => {
           this.registerForm.reset();
           return true;
         },
       );
-      alert('saljem zahtev');
     }
   }
 

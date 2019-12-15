@@ -4,7 +4,7 @@
     <div class="form-group">
       <label for="ime" class="col-sm-3 control-label">Ime*</label>
       <div class="col-sm-9">
-        <input formGroupName="ime" type="text" id="ime" placeholder="Ime" [ngClass]="{ 'is-invalid': submitted && f.ime.errors }" class="form-control" autofocus>
+        <input formControlName="ime" type="text" id="ime" placeholder="Ime" [ngClass]="{ 'is-invalid': submitted && f.ime.errors }" class="form-control" autofocus>
         <div *ngIf="submitted && f.ime.errors" class="invalid-feedback">
           <div *ngIf="f.ime.errors.required">Ime je obavezno</div>
         </div>

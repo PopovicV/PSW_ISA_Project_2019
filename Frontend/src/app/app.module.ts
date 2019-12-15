@@ -17,13 +17,13 @@ import { LoginService } from './service/login.service';
 import {ProfilAdministratoraKlinickogCentraModule} from './modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.module';
 import {ProfilAdministratoraKlinikeModule} from './modules/general/administratorKlinike/profilAdministratoraKlinike.module';
 import {AdministratorKlinikeService} from './service/administratorKlinike.service';
-
 import {AdministratorKlinickogCentraService} from './service/administratorKlinickogCentra.service';
-
 import { PacijentService } from './service/pacijent.service';
 import { ProfilPacijentaModule } from './modules/general/pacijent/profilPacijenta.module';
+import { LogoutService } from './service/logout.service';
 import {RegistracijaKlinikeModule} from './modules/general/registracijaKlinike/registracijaKlinike.module';
 import {RegistracijaKlinikeService} from './service/registracijaKlinike.service';
+
 
 
 @NgModule({
@@ -45,8 +45,8 @@ import {RegistracijaKlinikeService} from './service/registracijaKlinike.service'
     HttpClientModule,
     RegistracijaKlinikeModule
   ],
+  providers: [RegisterService, LoginService, AdministratorKlinikeService, AdministratorKlinickogCentraService, PacijentService, RegistracijaKlinikeService, LogoutService],
 
-  providers: [RegisterService, LoginService, AdministratorKlinikeService, AdministratorKlinickogCentraService, PacijentService, RegistracijaKlinikeService],
 
   bootstrap: [AppComponent]
 })

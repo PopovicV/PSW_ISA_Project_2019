@@ -12,6 +12,9 @@
                 <li class="nav-item">
                     <a href="" data-target="#zdravstveniKarton" data-toggle="tab" class="nav-link">Zdravstveni karton</a>
                 </li>
+                <li class="nav-item">
+                    <a href="" data-target="#klinike" data-toggle="tab" class="nav-link">Klinike</a>
+                  </li>
             </ul>
                 
             
@@ -131,7 +134,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Lozinka</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="password" id = "lozinka" name = "lozinka" (ngModel) = "this.ulogovanKorisnik.lozinka">
+                                <input class="form-control" type="password" id = "lozinka" name = "lozinka" [(ngModel)] = "this.ulogovanKorisnik.lozinka">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -150,6 +153,41 @@
                         </div>
                     </form>
                 </div>
+                <div class="tab-pane" id="klinike">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                          <th>
+                            <div class="col-lg-12">
+                              Id
+                            </div>
+                          </th>
+                          <th>
+                            <div class="col-lg-12">
+                              Ime
+                            </div>
+                          </th>
+                          <th>
+                            <div class="col-lg-12">
+                              Adresa
+                            </div>
+                          </th>
+                          <th>
+                            <div class="col-lg-12">
+                              Opis
+                            </div>
+                          </th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let klinika of klinike">
+                                <td>{{klinika.id}}</td>
+                                <td>{{klinka.ime}}</td>
+                                <td>{{klinika.adresa}}</td>
+                                <td>{{klinka.opis}}</td>
+                                </tr>
+                        </tbody>
+                        </table>
+                  </div>
+
             </div>
         </div>
     </div>
