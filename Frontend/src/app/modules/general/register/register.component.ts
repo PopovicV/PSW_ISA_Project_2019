@@ -30,8 +30,6 @@ export class RegisterComponent implements OnInit {
 
     this.lozinkaOriginalna = (document.getElementById('lozinka') as HTMLInputElement).value;
     this.lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
-    alert(this.lozinkaOriginalna)
-    alert(this.lozinkaConfirm)
     if (this.lozinkaOriginalna === this.lozinkaConfirm) {
       this.registerService.logIn(this.registerForm.value).subscribe(
         data => {

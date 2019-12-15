@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 
 export class AppComponent {
 
-  constructor(private logoutService: LogoutService, private router: Router,) {
+  constructor(private logoutService: LogoutService, private router: Router ) {
 
   }
 
@@ -20,6 +20,5 @@ export class AppComponent {
       return true;
       }
     );
-    
   }
  }

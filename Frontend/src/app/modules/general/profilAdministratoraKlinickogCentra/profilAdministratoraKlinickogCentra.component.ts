@@ -5,6 +5,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import { AdministratorKlinickogCentra } from 'src/app/model/administratorKlinickogCentra';
 import {AdministratorKlinickogCentraService} from '../../../service/administratorKlinickogCentra.service';
+import {Klinika} from "../../../model/klinika";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -15,7 +16,7 @@ const httpOptions = {
   templateUrl: './profilAdministratoraKlinickogCentra.component.html'
 })
 
-export class ProfilAdministratoraKlinickogCentraComponent {
+export class ProfilAdministratoraKlinickogCentraComponent implements OnInit{
 
   name = environment.application.name;
   angular = environment.application.angular;

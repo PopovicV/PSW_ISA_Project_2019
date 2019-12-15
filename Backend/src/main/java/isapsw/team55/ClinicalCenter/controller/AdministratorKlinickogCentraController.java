@@ -98,8 +98,8 @@ public class AdministratorKlinickogCentraController {
         return  new ResponseEntity(new AdministratorKlinickogCentraDTO(administratorKlinickogCentra), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/addKlinika", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Klinika> addMedicinskoOsoblje(@Context HttpServletRequest request, @RequestBody Klinika klinika) throws Exception {
+    @PostMapping(value = "/add-klinika", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Klinika> addKlinika(@Context HttpServletRequest request, @RequestBody Klinika klinika) throws Exception {
         Klinika k = klinikaService.addKlinika(klinika);
         Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
         AdministratorKlinickogCentra administratorKlinickogCentra = administratorKlinickogCentraService.findOneById(korisnik.getId());

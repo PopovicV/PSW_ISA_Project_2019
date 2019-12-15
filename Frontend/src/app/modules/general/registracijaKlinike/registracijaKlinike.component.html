@@ -2,30 +2,30 @@
 
 <div class="container">
   <h4 class="m-y-2">Registracija klinike</h4>
-  <form role="form">
+  <form role="form" name = "forma" (ngSubmit)="onSubmit()" [formGroup]="forma">
     <div class="form-group row">
       <label class="col-lg-3 col-form-label form-control-label">Ime</label>
       <div class="col-lg-4">
-        <input class="form-control" name = "ime" id = "ime" type="text" [(ngModel)] = "this.klinika.ime">
+        <input formControlName="ime" class="form-control" id = "ime" type="text">
       </div>
     </div>
     <div class="form-group row">
       <label class="col-lg-3 col-form-label form-control-label">Adresa</label>
       <div class="col-lg-4">
-        <input class="form-control" type="text" name = "adresa" id = "adresa" [(ngModel)] = "this.klinika.adresa" >
+        <input class="form-control" type="text" formControlName= "adresa" id = "adresa" >
       </div>
     </div>
     <div class="form-group row">
       <label class="col-lg-3 col-form-label form-control-label">Opis</label>
       <div class="col-lg-4" >
-        <input style = "height:200px" class="form-control" type="text" name = "opis" id = "opis" [(ngModel)] = "this.klinika.opis" >
+        <input style = "height:200px" class="form-control" type="text" formControlName = "opis" id = "opis">
       </div>
     </div>
 
     <div class="form-group row">
       <label class="col-lg-3 col-form-label form-control-label">Kontakt telefon</label>
       <div class="col-lg-4">
-        <input class="form-control" type="text" name = "kontaktTelefon" id = "kontaktTelefon" [(ngModel)] = "this.klinika.kontaktTelefon" >
+        <input class="form-control" type="text" formControlName = "kontaktTelefon" id = "kontaktTelefon">
       </div>
     </div>
     <!--
@@ -38,7 +38,7 @@
       <div class="col-lg-9">
         <input type="reset" class="btn btn-secondary" value="Odustani">
         &nbsp;
-        <input type="submit" routerLink="/profil-administratora-klinickog-centra" class="btn btn-primary" value="Potvrdi">
+        <input type="submit" class="btn btn-primary" value="Potvrdi">
       </div>
     </div>
   </form>

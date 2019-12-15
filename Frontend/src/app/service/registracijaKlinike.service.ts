@@ -12,11 +12,12 @@ export class RegistracijaKlinikeService {
   private registracijaKlinikeUrl: string;
 
   constructor(private http: HttpClient) {
-    this.registracijaKlinikeUrl = '/server/api/registracija-klinike';
+    this.registracijaKlinikeUrl = '/server/api/klinika/add';
   }
 
   public registrujKliniku(klinika: Klinika) {
     const podaci = JSON.stringify(klinika);
+    alert(podaci);
     return this.http.post<Klinika>(this.registracijaKlinikeUrl, podaci, httpOptions);
   }
 
