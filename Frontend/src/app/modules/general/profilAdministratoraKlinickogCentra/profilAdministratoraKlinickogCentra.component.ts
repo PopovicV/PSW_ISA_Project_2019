@@ -42,8 +42,9 @@ export class ProfilAdministratoraKlinickogCentraComponent {
         this.ulogovanKorisnik = data;
       }
     );
+  }
 
-  onSubmit() {
+    onSubmit() {
     const lozinka = (document.getElementById('lozinka') as HTMLInputElement).value;
     const lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
 

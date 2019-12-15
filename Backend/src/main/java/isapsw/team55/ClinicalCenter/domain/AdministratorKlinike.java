@@ -5,6 +5,7 @@ import isapsw.team55.ClinicalCenter.dto.AdministratorKlinikeDTO;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "administrator_klinike")
 public class AdministratorKlinike extends Korisnik{
 
     @Column(name = "ime", nullable = false)
