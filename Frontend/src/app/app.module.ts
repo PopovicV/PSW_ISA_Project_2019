@@ -22,6 +22,8 @@ import {AdministratorKlinickogCentraService} from './service/administratorKlinic
 
 import { PacijentService } from './service/pacijent.service';
 import { ProfilPacijentaModule } from './modules/general/pacijent/profilPacijenta.module';
+import {RegistracijaKlinikeModule} from './modules/general/registracijaKlinike/registracijaKlinike.module';
+import {RegistracijaKlinikeService} from './service/registracijaKlinike.service';
 
 
 @NgModule({
@@ -40,10 +42,11 @@ import { ProfilPacijentaModule } from './modules/general/pacijent/profilPacijent
     ProfilAdministratoraKlinikeModule,
     ProfilAdministratoraKlinickogCentraModule,
     ProfilPacijentaModule,
-    HttpClientModule
+    HttpClientModule,
+    RegistracijaKlinikeModule
   ],
 
-  providers: [RegisterService, LoginService, AdministratorKlinikeService, AdministratorKlinickogCentraService, PacijentService],
+  providers: [RegisterService, LoginService, AdministratorKlinikeService, AdministratorKlinickogCentraService, PacijentService, RegistracijaKlinikeService],
 
   bootstrap: [AppComponent]
 })
