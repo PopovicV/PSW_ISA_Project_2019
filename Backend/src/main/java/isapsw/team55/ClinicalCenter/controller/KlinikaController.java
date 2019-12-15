@@ -37,7 +37,7 @@ public class KlinikaController {
         return new ResponseEntity<>(klinikaList, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Klinika> addKlinika(@RequestBody Klinika klinika) throws Exception {
         Klinika klinika1 = klinikaService.addKlinika(klinika);
         if(klinika1 != null) {
