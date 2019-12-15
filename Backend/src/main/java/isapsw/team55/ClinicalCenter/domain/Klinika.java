@@ -1,8 +1,11 @@
 package isapsw.team55.ClinicalCenter.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@Table(name = "klinika")
 public class Klinika {
 
     @Id
@@ -18,10 +21,25 @@ public class Klinika {
     @Column(name = "opis", nullable = false)
     private String opis;
 
+    @OneToMany(mappedBy = "klinika", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<AdministratorKlinike> administratorKlinikeSet = new HashSet<AdministratorKlinike>();
+
     //slobodni termini za preglede
     //spisak lekara
     //spisak sala
     //cenovnik
+
+    public void setAdministratorKlinikeSet(Set<AdministratorKlinike> administratorKlinikeSet) {
+        this.administratorKlinikeSet = administratorKlinikeSet;
+    }
+
+    public Set<AdministratorKlinike> getAdministratoreKlinike() {
+        return administratorKlinikeSet;
+    }
+
+    public void addAdministratorKlinike(AdministratorKlinike administratorKlinike) {
+        this.administratorKlinikeSet.add(administratorKlinike);
+    }
 
     public Klinika() {
     }
