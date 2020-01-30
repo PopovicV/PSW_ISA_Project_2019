@@ -8,10 +8,10 @@ insert into pacijent(id, ime, prezime, kontakt_telefon, adresa, grad, drzava, jb
 insert into korisnik (email, lozinka, uloga) values ('mika@gmail.com', '1', 'PACIJENT')
 insert into pacijent(id, ime, prezime, kontakt_telefon, adresa, grad, drzava, jbo, admin_aktivirao, pacijent_aktivirao) values (4, 'Mika', 'Mikic', '06548759945', 'Rumenacka 46', 'Novi Sad', 'Srbija', '14875595554269', 'DA', 'DA')
 
-insert into klinika (id, ime, adresa, opis) values (1, 'Klinika 1', 'Mite Ruzica 76', 'Klinika za infektivne bolesti.')
-insert into klinika (id, ime, adresa, opis) values (2, 'Klinika 2', 'Rumenacka 475', 'Klinika za kardiovaskularne bolesti.')
-insert into klinika (id, ime, adresa, opis) values (3, 'Klinika 3', 'Bulevar Kralja Petra I 6', 'Klinika za plasticnu hirurgiju.')
-insert into klinika (id, ime, adresa, opis) values (4, 'Klinika 4', 'Sonje Marinkovic 76', 'Klinika za neuropsihijatriju.')
+insert into klinika (ime, adresa, opis) values ('Klinika 1', 'Mite Ruzica 76', 'Klinika za infektivne bolesti.')
+insert into klinika (ime, adresa, opis) values ('Klinika 2', 'Rumenacka 475', 'Klinika za kardiovaskularne bolesti.')
+insert into klinika (ime, adresa, opis) values ('Klinika 3', 'Bulevar Kralja Petra I 6', 'Klinika za plasticnu hirurgiju.')
+insert into klinika (ime, adresa, opis) values ('Klinika 4', 'Sonje Marinkovic 76', 'Klinika za neuropsihijatriju.')
 
 insert into korisnik (email, lozinka, uloga) values ('milan@gmail.com', '1', 'ADMINISTRATOR_KLINIKE')
 insert into administrator_klinike (id, ime, prezime, kontakt_telefon, klinika_id) values (5, 'Milan', 'Lukic', '1234567', 1)

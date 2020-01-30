@@ -23,8 +23,14 @@ import { ProfilPacijentaModule } from './modules/general/pacijent/profilPacijent
 import { LogoutService } from './service/logout.service';
 import {RegistracijaKlinikeModule} from './modules/general/registracijaKlinike/registracijaKlinike.module';
 import {RegistracijaKlinikeService} from './service/registracijaKlinike.service';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdministratorKlinikeNavigationComponent } from './modules/navigations/administrator-klinike-navigation/administrator-klinike-navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import {MatDrawerContent, MatSidenavModule} from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -43,9 +49,19 @@ import {RegistracijaKlinikeService} from './service/registracijaKlinike.service'
     ProfilAdministratoraKlinickogCentraModule,
     ProfilPacijentaModule,
     HttpClientModule,
-    RegistracijaKlinikeModule
+    RegistracijaKlinikeModule,
+    BrowserAnimationsModule
   ],
-  providers: [RegisterService, LoginService, AdministratorKlinikeService, AdministratorKlinickogCentraService, PacijentService, RegistracijaKlinikeService, LogoutService],
+
+  providers: [
+    RegisterService,
+    LoginService,
+    AdministratorKlinikeService,
+    AdministratorKlinickogCentraService,
+    PacijentService,
+    RegistracijaKlinikeService,
+    LogoutService,
+  ],
 
 
   bootstrap: [AppComponent]

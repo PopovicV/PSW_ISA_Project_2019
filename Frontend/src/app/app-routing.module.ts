@@ -11,10 +11,11 @@ import {ProfilAdministratoraKlinickogCentraComponent} from './modules/general/pr
 import {ProfilAdministratoraKlinikeComponent} from './modules/general/administratorKlinike/profilAdministratoraKlinike.component';
 import { ProfilPacijentaComponent } from './modules/general/pacijent/profilPacijenta.component';
 import {RegistracijaKlinikeComponent} from './modules/general/registracijaKlinike/registracijaKlinike.component';
+import {AdministratorKlinikeNavigationComponent} from './modules/navigations/administrator-klinike-navigation/administrator-klinike-navigation.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, },
-  { path: '', component: LoginComponent, },
+  { path: '', component: LoginComponent },
   {
     path: 'register', component: RegisterComponent,
   },

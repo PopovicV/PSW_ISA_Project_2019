@@ -5,6 +5,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AdministratorKlinikeService} from '../../../service/administratorKlinike.service';
 import {Klinika} from '../../../model/klinika';
 import {Pacijent} from '../../../model/pacijent';
+import {AdministratorKlinikeNavigationComponent} from '../../navigations/administrator-klinike-navigation/administrator-klinike-navigation.component';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
