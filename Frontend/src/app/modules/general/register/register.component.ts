@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import { RegisterService } from 'src/app/service/register.service';
 import {Pacijent} from '../../../model/pacijent';
 import {FormControl, FormGroup, AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './register.component.html',
@@ -21,7 +22,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private registerService: RegisterService) {
+  constructor(private router: Router, private registerService: RegisterService) {
     this.pacijent = new Pacijent();
   }
 
@@ -33,8 +34,8 @@ export class RegisterComponent implements OnInit {
     if (this.lozinkaOriginalna === this.lozinkaConfirm) {
       this.registerService.logIn(this.registerForm.value).subscribe(
         data => {
-          this.registerForm.reset();
-          return true;
+          alert("Uspesno ste se registrovali. Sacekajte da administrator odobri vas zahtev.");
+          this.router.navigate(['']);
         },
       );
     }
@@ -47,8 +48,8 @@ export class RegisterComponent implements OnInit {
       ime: new FormControl('', Validators.required),
       prezime: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
-      lozinka: new FormControl('', Validators.required),
-      lozinkaConfirm: new FormControl('', Validators.required),
+      lozinka: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      lozinkaConfirm: new FormControl('', [Validators.required, Validators.minLength(6)]),
       kontaktTelefon: new FormControl('', Validators.required),
       adresa: new FormControl('', Validators.required),
       grad: new FormControl('', Validators.required),
