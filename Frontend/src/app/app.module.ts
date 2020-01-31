@@ -36,7 +36,7 @@ import { MatListModule } from '@angular/material/list';
   declarations: [
     AppComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

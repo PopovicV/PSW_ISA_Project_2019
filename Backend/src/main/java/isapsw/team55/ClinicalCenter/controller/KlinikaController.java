@@ -33,7 +33,6 @@ public class KlinikaController {
     @GetMapping(value = "/all")
     public ResponseEntity<List<Klinika>> getAllKlinika() {
         List<Klinika> klinikaList = klinikaService.getAll();
-
         return new ResponseEntity<>(klinikaList, HttpStatus.OK);
     }
 
