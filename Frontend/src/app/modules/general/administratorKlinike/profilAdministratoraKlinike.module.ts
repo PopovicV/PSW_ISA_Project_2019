@@ -16,6 +16,7 @@ import { PacijentiTableComponent } from '../../../pacijenti-table/pacijenti-tabl
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import {PacijentService} from '../../../service/pacijent.service';
 
 @NgModule( {
   declarations: [
@@ -39,7 +40,8 @@ import { MatSortModule } from '@angular/material/sort';
   exports: [
     ProfilAdministratoraKlinikeComponent
   ],
-  bootstrap: [ProfilAdministratoraKlinikeComponent]
+  bootstrap: [ProfilAdministratoraKlinikeComponent],
+  providers: [PacijentService]
 })
 
 export class ProfilAdministratoraKlinikeModule {

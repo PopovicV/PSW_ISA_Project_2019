@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {LogoutService} from '../../../service/logout.service';
+import {Pacijent} from '../../../model/pacijent';
 
 @Component({
   selector: 'app-administrator-klinike-navigation',
@@ -10,6 +11,7 @@ import {LogoutService} from '../../../service/logout.service';
   styleUrls: ['./administrator-klinike-navigation.component.css']
 })
 export class AdministratorKlinikeNavigationComponent {
+  @Input() pacijenti: Array<Pacijent>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
