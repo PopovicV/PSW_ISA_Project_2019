@@ -21,4 +21,9 @@ export class PacijentService {
     console.log(podaci)
     return this.http.post<Pacijent>(this.requestUrl, podaci, httpOptions);
   }
+
+  public getAll() {
+    this.requestUrl = '/server/api/pacijent/all';
+    return this.http.get<Array<Pacijent>>(this.requestUrl, httpOptions);
+  }
 }

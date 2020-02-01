@@ -19,9 +19,7 @@ const httpOptions = {
 export class ProfilAdministratoraKlinikeComponent implements OnInit {
 
   ulogovanKorisnik: AdministratorKlinike;
-  pacijentiUrl: string;
   izmeniProfilForm: FormGroup;
-  pacijenti: Array<Pacijent>;
 
   ngOnInit(): void {
     this.izmeniProfilForm = new FormGroup({
@@ -37,12 +35,6 @@ export class ProfilAdministratoraKlinikeComponent implements OnInit {
     administratorService.getUlogovanKorisnik().subscribe(
       data => {
         this.ulogovanKorisnik = data;
-      }
-    );
-    this.pacijentiUrl = '/server/api/pacijent/all';
-    this.http.get<Array<Pacijent>>(this.pacijentiUrl, httpOptions).subscribe(
-      data => {
-        this.pacijenti = data;
       }
     );
   }
