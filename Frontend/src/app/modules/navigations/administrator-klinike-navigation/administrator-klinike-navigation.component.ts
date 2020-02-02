@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {LogoutService} from '../../../service/logout.service';
 import {Pacijent} from '../../../model/pacijent';
+import {AdministratorKlinike} from '../../../model/administratorKlinike';
 
 @Component({
   selector: 'app-administrator-klinike-navigation',
@@ -12,6 +13,9 @@ import {Pacijent} from '../../../model/pacijent';
 })
 export class AdministratorKlinikeNavigationComponent {
   @Input() pacijenti: Array<Pacijent>;
+
+  @Input()
+  ulogovanKorisnik: AdministratorKlinike;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(

@@ -3,6 +3,7 @@ package isapsw.team55.ClinicalCenter.dto;
 import isapsw.team55.ClinicalCenter.domain.Lekar;
 
 public class LekarDTO {
+    private Long id;
     private String ime;
     private String prezime;
     private String kontaktTelefon;
@@ -16,6 +17,7 @@ public class LekarDTO {
     }
 
     public LekarDTO(Lekar lekar) {
+        this.id = lekar.getId();
         this.ime = lekar.getIme();
         this.prezime = lekar.getPrezime();
         this.kontaktTelefon = lekar.getKontaktTelefon();
@@ -23,6 +25,14 @@ public class LekarDTO {
         this.ocena = lekar.getOcena();
         this.specijalizacija = lekar.getSpecijalizacija();
         this.smena = lekar.getSmena();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getIme() {

@@ -21,6 +21,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ProfilKlinikeComponent } from '../profilKlinike/profilKlinike.component';
 import {KlinikaService} from '../../../service/klinika.service';
+import { LekariTableComponent } from '../../../lekari-table/lekari-table/lekari-table.component';
 
 @NgModule( {
   declarations: [
@@ -28,6 +29,7 @@ import {KlinikaService} from '../../../service/klinika.service';
     AdministratorKlinikeNavigationComponent,
     PacijentiTableComponent,
     ProfilKlinikeComponent,
+    LekariTableComponent,
   ],
   imports: [
     AppRoutingModule,
