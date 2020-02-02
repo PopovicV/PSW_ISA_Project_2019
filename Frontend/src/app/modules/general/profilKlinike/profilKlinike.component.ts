@@ -1,4 +1,8 @@
 import {Component} from '@angular/core';
+import {Klinika} from '../../../model/klinika';
+import {AdministratorKlinike} from '../../../model/administratorKlinike';
+import {AdministratorKlinikeService} from '../../../service/administratorKlinike.service';
+import {KlinikaService} from '../../../service/klinika.service';
 
 @Component({
   selector: 'app-profil-klinike',
@@ -6,8 +10,18 @@ import {Component} from '@angular/core';
 })
 
 export class ProfilKlinikeComponent {
-  id = '123';
-  ime = 'Klinicki centar Vojvodine';
-  opis = 'Neki opis';
-  kontaktTelefon = '4444';
+  klinika: Klinika;
+
+  constructor(private administratorKlinikeService: AdministratorKlinikeService, private klinikaService: KlinikaService) {
+    administratorKlinikeService.getUlogovanKorisnik().subscribe(
+      data => {
+        klinikaService.getKlinika(data.klinika.toString()).subscribe(
+          data1 => {
+            this.klinika = data1;
+            alert(JSON.stringify(data1));
+          }
+        );
+      }
+    );
+  }
 }

@@ -17,9 +17,8 @@ export class PacijentiTableComponent implements AfterViewInit, OnInit {
   @ViewChild(MatTable, {static: false}) table: MatTable<PacijentiTableItem>;
   dataSource: PacijentiTableDataSource;
   pacijenti: Pacijent[];
-  temp: Pacijent[] = new Array();
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'ime'];
+  displayedColumns = ['Id', 'ime', 'prezime'];
 
   constructor(private pacijentService: PacijentService) {
     this.dataSource = new PacijentiTableDataSource(null);
@@ -29,6 +28,7 @@ export class PacijentiTableComponent implements AfterViewInit, OnInit {
     this.pacijentService.getAll().subscribe(
       data => {
         this.pacijenti = data;
+
         this.dataSource = new PacijentiTableDataSource(this.pacijenti);
       }
     );

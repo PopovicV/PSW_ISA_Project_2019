@@ -12,6 +12,7 @@ import {ProfilAdministratoraKlinikeComponent} from './modules/general/administra
 import { ProfilPacijentaComponent } from './modules/general/pacijent/profilPacijenta.component';
 import {RegistracijaKlinikeComponent} from './modules/general/registracijaKlinike/registracijaKlinike.component';
 import {AdministratorKlinikeNavigationComponent} from './modules/navigations/administrator-klinike-navigation/administrator-klinike-navigation.component';
+import {PacijentiTableComponent} from './pacijenti-table/pacijenti-table.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, },
@@ -20,7 +21,18 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent,
   },
   { path: 'profile', component: ProfileComponent},
-  { path: 'profil-administratora-klinike', component: ProfilAdministratoraKlinikeComponent},
+  { path: 'profil-administratora-klinike', component: ProfilAdministratoraKlinikeComponent,
+    children: [
+      {
+        path: '',
+        component: PacijentiTableComponent,
+      },
+      {
+        path: 'profilKlinike',
+        component: ProfilKlinikeComponent,
+      }
+    ]
+  },
   { path: 'profil-klinike', component: ProfilKlinikeComponent},
   { path: 'profil-administratora-klinickog-centra', component: ProfilAdministratoraKlinickogCentraComponent},
   { path: 'profil-pacijenta', component: ProfilPacijentaComponent},

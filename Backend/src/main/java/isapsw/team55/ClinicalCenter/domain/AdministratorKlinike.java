@@ -31,7 +31,6 @@ public class AdministratorKlinike extends Korisnik{
         this.id = ak.getId();
         this.email = ak.getEmail();
         this.ime = ak.getIme();
-        this.klinika = ak.getKlinika();
         this.kontaktTelefon = ak.getKontaktTelefon();
         this.prezime = ak.getPrezime();
         this.lozinka = ak. getLozinka();

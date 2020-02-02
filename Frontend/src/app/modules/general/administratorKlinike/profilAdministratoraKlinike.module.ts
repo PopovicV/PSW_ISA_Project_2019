@@ -17,12 +17,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {PacijentService} from '../../../service/pacijent.service';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ProfilKlinikeComponent } from '../profilKlinike/profilKlinike.component';
+import {KlinikaService} from '../../../service/klinika.service';
 
 @NgModule( {
   declarations: [
     ProfilAdministratoraKlinikeComponent,
     AdministratorKlinikeNavigationComponent,
-    PacijentiTableComponent
+    PacijentiTableComponent,
+    ProfilKlinikeComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -36,12 +41,14 @@ import {PacijentService} from '../../../service/pacijent.service';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTreeModule,
+    MatExpansionModule,
   ],
   exports: [
     ProfilAdministratoraKlinikeComponent
   ],
   bootstrap: [ProfilAdministratoraKlinikeComponent],
-  providers: [PacijentService]
+  providers: [PacijentService, KlinikaService]
 })
 
 export class ProfilAdministratoraKlinikeModule {

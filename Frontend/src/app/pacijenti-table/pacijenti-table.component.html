@@ -1,7 +1,7 @@
 <div class="mat-elevation-z8 data-table">
-  <table mat-table class="full-width-table" matSort aria-label="Elements">
+  <table mat-table class="full-width-table" matSort aria-label="Pacijenti">
     <!-- Id Column -->
-    <ng-container matColumnDef="id">
+    <ng-container matColumnDef="Id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
       <td mat-cell *matCellDef="let row">{{row.id}}</td>
     </ng-container>
@@ -12,6 +12,12 @@
       <td mat-cell *matCellDef="let row">{{row.ime}}</td>
     </ng-container>
 
+    <!-- Prezime Column -->
+    <ng-container matColumnDef="prezime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Prezime</th>
+      <td mat-cell *matCellDef="let row">{{row.prezime}}</td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
@@ -19,7 +25,7 @@
   <mat-paginator #paginator
       [length]="dataSource?.data.length"
       [pageIndex]="0"
-      [pageSize]="50"
-      [pageSizeOptions]="[25, 50, 100, 250]">
+      [pageSize]="20"
+      [pageSizeOptions]="[20, 50, 100]">
   </mat-paginator>
 </div>
