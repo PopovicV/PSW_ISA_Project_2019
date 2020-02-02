@@ -37,4 +37,28 @@ public class LekarService {
     public List<Lekar> getAllFromKlinika(Long id) {
         return lekarRepository.getAllFromKlinika(id);
     }
+
+    public Lekar save(Lekar lekar) {
+        return lekarRepository.save(lekar);
+    }
+
+    public void remove(Long id) {
+        lekarRepository.deleteById(id);
+    }
+
+    public Lekar update(Lekar lekar) {
+        Lekar p = lekarRepository.findOneById(lekar.getId());
+        p.setIme(lekar.getIme());
+        p.setPrezime(lekar.getPrezime());
+        p.setEmail(lekar.getEmail());
+        p.setLozinka(lekar.getLozinka());
+        p.setKlinika(lekar.getKlinika());
+        p.setOcena(lekar.getOcena());
+        p.setSpecijalizacija(lekar.getSpecijalizacija());
+        p.setKontaktTelefon(lekar.getKontaktTelefon());
+        p.setSmena(lekar.getSmena());
+        p.setUloga(lekar.getUloga());
+
+        return save(p);
+    }
 }

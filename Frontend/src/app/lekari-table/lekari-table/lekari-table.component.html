@@ -1,11 +1,16 @@
+
 <div class="mat-elevation-z8 data-table">
+  <ol>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Dodaj lekara</button>
+    </li>
+  </ol>
   <table mat-table class="full-width-table" matSort aria-label="Lekari">
     <!-- Id Column
     <ng-container matColumnDef="Id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
       <td mat-cell *matCellDef="let row">{{row.id}}</td>
     </ng-container>-->
-
     <!-- Name Column -->
     <ng-container matColumnDef="ime">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Ime</th>
@@ -28,4 +33,3 @@
                  [pageSize]="20"
                  [pageSizeOptions]="[20, 50, 100]">
   </mat-paginator>
-</div>

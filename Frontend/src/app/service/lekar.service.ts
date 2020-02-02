@@ -18,4 +18,10 @@ export class LekarService {
     this.requestUrl = '/server/api/lekar/allFromKlinika/' + idKlinike;
     return this.http.get<Array<Lekar>>(this.requestUrl, httpOptions);
   }
+
+  public registerLekar(lekar: Lekar) {
+    this.requestUrl = 'server/api/lekar/addLekar';
+    console.log(JSON.stringify(lekar));
+    return this.http.post<Lekar>(this.requestUrl, JSON.stringify(lekar), httpOptions);
+  }
 }

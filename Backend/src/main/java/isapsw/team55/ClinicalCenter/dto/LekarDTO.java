@@ -11,6 +11,7 @@ public class LekarDTO {
     private float ocena;
     private String specijalizacija;
     private int smena;
+    private String email;
 
     public LekarDTO() {
 
@@ -25,6 +26,7 @@ public class LekarDTO {
         this.ocena = lekar.getOcena();
         this.specijalizacija = lekar.getSpecijalizacija();
         this.smena = lekar.getSmena();
+        this.email = lekar.getEmail();
     }
 
     public Long getId() {
@@ -89,5 +91,13 @@ public class LekarDTO {
 
     public void setSmena(int smena) {
         this.smena = smena;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

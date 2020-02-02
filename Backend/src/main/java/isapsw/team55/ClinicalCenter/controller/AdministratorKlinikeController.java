@@ -70,7 +70,6 @@ public class AdministratorKlinikeController {
         Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
         AdministratorKlinike administratorKlinike = administratorKlinikeService.findOneById(korisnik.getId());
 
-
         if(administratorKlinike == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

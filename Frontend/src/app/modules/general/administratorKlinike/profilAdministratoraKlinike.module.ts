@@ -22,6 +22,12 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { ProfilKlinikeComponent } from '../profilKlinike/profilKlinike.component';
 import {KlinikaService} from '../../../service/klinika.service';
 import { LekariTableComponent } from '../../../lekari-table/lekari-table/lekari-table.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {AddLekarDialogComponent} from '../../../lekari-table/lekari-table/lekari-table.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {LekarService} from '../../../service/lekar.service';
+
 
 @NgModule( {
   declarations: [
@@ -30,6 +36,7 @@ import { LekariTableComponent } from '../../../lekari-table/lekari-table/lekari-
     PacijentiTableComponent,
     ProfilKlinikeComponent,
     LekariTableComponent,
+    AddLekarDialogComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -45,12 +52,16 @@ import { LekariTableComponent } from '../../../lekari-table/lekari-table/lekari-
     MatSortModule,
     MatTreeModule,
     MatExpansionModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     ProfilAdministratoraKlinikeComponent
   ],
   bootstrap: [ProfilAdministratoraKlinikeComponent],
-  providers: [PacijentService, KlinikaService]
+  providers: [PacijentService, KlinikaService, LekarService],
+  entryComponents: [AddLekarDialogComponent]
 })
 
 export class ProfilAdministratoraKlinikeModule {

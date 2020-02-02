@@ -1,4 +1,5 @@
 export class Lekar {
+  id: number;
   ime: string;
   prezime: string;
   kontaktTelefon: string;
@@ -6,4 +7,5 @@ export class Lekar {
   ocena: number;
   specijalizacija: string;
   smena: number;
+  email: string;
 }

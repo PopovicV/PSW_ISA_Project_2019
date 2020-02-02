@@ -1,24 +1,26 @@
 package isapsw.team55.ClinicalCenter.controller;
 
+import isapsw.team55.ClinicalCenter.domain.Klinika;
 import isapsw.team55.ClinicalCenter.domain.Lekar;
 import isapsw.team55.ClinicalCenter.dto.LekarDTO;
+import isapsw.team55.ClinicalCenter.service.KlinikaService;
 import isapsw.team55.ClinicalCenter.service.LekarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
 @RestController
-@RequestMapping(value = "api/lekar")
+@RequestMapping("api/lekar")
 public class LekarController {
     @Autowired
     private LekarService lekarService;
+
+    @Autowired
+    private KlinikaService klinikaService;
 
     @GetMapping(value = "/allFromKlinika/{idKlinike}",  produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<LekarDTO>> getAllLekar(@PathVariable Long idKlinike) {
@@ -36,5 +38,21 @@ public class LekarController {
         }
 
         return new ResponseEntity<List<LekarDTO>>(lekarDTOList, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/addLekar",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<LekarDTO> addLekar(@RequestBody LekarDTO lekarDTO) throws Exception {
+        Lekar lekar = new Lekar(lekarDTO);
+
+        lekar.setKlinika(klinikaService.findOneById(lekarDTO.getId()));
+        System.out.println("STIGNE ZAHTEV");
+        System.out.println(lekar.getIme());
+
+        if(lekarService.findOneByEmail(lekarDTO.getEmail())==null) {
+            lekarService.save(lekar);
+            return new ResponseEntity<LekarDTO>(lekarDTO, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<LekarDTO>(HttpStatus.NOT_ACCEPTABLE);
+        }
     }
 }
