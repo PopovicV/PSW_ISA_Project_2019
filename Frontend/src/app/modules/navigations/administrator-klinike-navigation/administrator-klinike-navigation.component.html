@@ -1,13 +1,28 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" >
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'push' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item (click)="logout()" routerLink="">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item routerLink="/">
+        Moj profil
+      </a>
+      <a mat-list-item routerLink="profilKlinike">
+        Klinika
+      </a>
+      <a mat-list-item routerLink="/">
+        Sale
+      </a>
+      <a mat-list-item routerLink="lekari">
+        Lekari
+      </a>
+      <a mat-list-item routerLink="/">
+        Pregledi
+      </a>
+      <a mat-list-item routerLink="/">
+        Cenovnik
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,7 +35,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>angular-starter</span>
+      <span>Klinicki centar Srbije</span>
       <span class="spacer"></span>
       <a routerLink = ""
         mat-icon-button
@@ -29,6 +44,6 @@
         <mat-icon aria-label="Logout">child_care</mat-icon>
       </a>
     </mat-toolbar>
-    <app-pacijenti-table></app-pacijenti-table>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

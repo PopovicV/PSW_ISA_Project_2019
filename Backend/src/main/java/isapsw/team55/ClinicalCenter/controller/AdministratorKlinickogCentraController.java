@@ -103,6 +103,7 @@ public class AdministratorKlinickogCentraController {
         Klinika k = klinikaService.addKlinika(klinika);
         Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
         AdministratorKlinickogCentra administratorKlinickogCentra = administratorKlinickogCentraService.findOneById(korisnik.getId());
+
         if(k != null) {
             administratorKlinickogCentra.addKlinika(k);
             return new ResponseEntity<Klinika>(klinika, HttpStatus.OK);

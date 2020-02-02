@@ -13,6 +13,8 @@ import { ProfilPacijentaComponent } from './modules/general/pacijent/profilPacij
 import {RegistracijaKlinikeComponent} from './modules/general/registracijaKlinike/registracijaKlinike.component';
 import {AdministratorKlinikeNavigationComponent} from './modules/navigations/administrator-klinike-navigation/administrator-klinike-navigation.component';
 import {KlinikeTableComponent} from './klinike-table/klinike-table.component';
+import {PacijentiTableComponent} from './pacijenti-table/pacijenti-table.component';
+import {LekariTableComponent} from './lekari-table/lekari-table/lekari-table.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, },
@@ -21,7 +23,22 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent,
   },
   { path: 'profile', component: ProfileComponent},
-  { path: 'profil-administratora-klinike', component: ProfilAdministratoraKlinikeComponent},
+  { path: 'profil-administratora-klinike', component: ProfilAdministratoraKlinikeComponent,
+    children: [
+      {
+        path: '',
+        component: PacijentiTableComponent,
+      },
+      {
+        path: 'profilKlinike',
+        component: ProfilKlinikeComponent,
+      },
+      {
+        path: 'lekari',
+        component: LekariTableComponent,
+      }
+    ]
+  },
   { path: 'profil-klinike', component: ProfilKlinikeComponent},
   { path: 'profil-administratora-klinickog-centra', component: ProfilAdministratoraKlinickogCentraComponent,
     children: [
