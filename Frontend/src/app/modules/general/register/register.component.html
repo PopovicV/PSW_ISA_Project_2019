@@ -34,7 +34,7 @@
       <div class="col-sm-9">
         <input formControlName="lozinka" type="password" id="lozinka" placeholder="Lozinka" [ngClass]="{ 'is-invalid': submitted && f.lozinka.errors }" class="form-control">
         <div *ngIf="submitted && f.lozinka.errors" class="invalid-feedback">
-          <div *ngIf="f.lozinka.errors.required">Lozinka je obavezna</div>
+          <div *ngIf="f.lozinka.errors.required || f.lozinka.errors.minlenght" >Lozinka je obavezna i mora imati barem 6 karaktera.</div>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
       <div class="col-sm-9">
         <input formControlName="lozinkaConfirm" type="password" id="lozinkaConfirm" placeholder="Lozinka" [ngClass]="{ 'is-invalid': submitted && f.lozinkaConfirm.errors }" class="form-control">
         <div *ngIf="submitted && f.lozinkaConfirm.errors" class="invalid-feedback">
-          <div *ngIf="f.lozinkaConfirm.errors.required">Lozinka je obavezna</div>
+          <div *ngIf="f.lozinkaConfirm.errors.required || f.lozinka.errors.minlenght">Lozinka je obavezna i mora imati barem 6 karaktera.</div>
         </div>
       </div>
     </div>

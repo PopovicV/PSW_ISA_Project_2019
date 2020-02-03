@@ -40,34 +40,34 @@ export class ProfilPacijentaComponent {
         })
     }
 
-    constructor(private http: HttpClient, private pacijentService: PacijentService) {
-        this.ulogovanUrl = '/server/api/pacijent/ulogovanKorisnik';
-        this.http.get<Pacijent>(this.ulogovanUrl, httpOptions).subscribe(
-          data => {
-            this.ulogovanKorisnik = data;
-          }
-        );
+    // constructor(private http: HttpClient, private pacijentService: PacijentService) {
+    //     this.ulogovanUrl = '/server/api/pacijent/ulogovanKorisnik';
+    //     this.http.get<Pacijent>(this.ulogovanUrl, httpOptions).subscribe(
+    //       data => {
+    //         this.ulogovanKorisnik = data;
+    //       }
+    //     );
         
-        this.klinikeUrl = '/server/api/klinika/all';
-        this.http.get<Array<Klinika>>(this.klinikeUrl, httpOptions).subscribe(
-          data => {
-            this.klinike = data;
-          }
-        )
+      //   this.klinikeUrl = '/server/api/klinika/all';
+      //   this.http.get<Array<Klinika>>(this.klinikeUrl, httpOptions).subscribe(
+      //     data => {
+      //       this.klinike = data;
+      //     }
+      //   )
 
-      }
+      // }
 
-      onSubmit() {
-        const lozinka = (document.getElementById('lozinka') as HTMLInputElement).value;
-        const lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
+      // onSubmit() {
+      //   const lozinka = (document.getElementById('lozinka') as HTMLInputElement).value;
+      //   const lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
     
-        if (lozinka === lozinkaConfirm) {
-          this.pacijentService.izmeniProfil(this.ulogovanKorisnik).subscribe(
-            data => {
-              this.izmenaForm.reset();
-              return true;
-            },
-          );
-        }
-      }
+      //   if (lozinka === lozinkaConfirm) {
+      //     this.pacijentService.izmeniProfil(this.ulogovanKorisnik).subscribe(
+      //       data => {
+      //         this.izmenaForm.reset();
+      //         return true;
+      //       },
+      //     );
+      //   }
+      // }
 }

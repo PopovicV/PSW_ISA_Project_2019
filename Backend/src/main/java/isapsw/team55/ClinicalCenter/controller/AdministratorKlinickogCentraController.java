@@ -77,14 +77,15 @@ public class AdministratorKlinickogCentraController {
         }
 
     @PostMapping(value="/odobriZahtev", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-        public ResponseEntity<Pacijent> odobriZahtev(@RequestBody Pacijent pacijent) throws Exception {
-            Pacijent p = administratorKlinickogCentraService.aktivirajNalog(pacijent);
+    public ResponseEntity<Pacijent> odobriZahtev(@RequestBody Pacijent pacijent) throws Exception {
+        Pacijent p = administratorKlinickogCentraService.aktivirajNalog(pacijent);
         if(p != null) {
-            emailService.sendNotificationAsync(p.getEmail(), "Dobrodosli!", "Vas zahtev za registraciju je odobren.");
-            return new ResponseEntity<Pacijent>(p, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<Pacijent>(HttpStatus.NOT_ACCEPTABLE);
+            emailService.sendVerificationMail(p, "Vaš nalog je odobren!");
+            return new ResponseEntity<>(p, HttpStatus.OK);
         }
+
+        return new ResponseEntity<>(p, HttpStatus.NOT_ACCEPTABLE);
+
     }
 
     @GetMapping(value = "/ulogovanKorisnik", produces = MediaType.APPLICATION_JSON_VALUE)

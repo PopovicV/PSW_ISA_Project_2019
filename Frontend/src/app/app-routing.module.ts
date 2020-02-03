@@ -12,6 +12,9 @@ import {ProfilAdministratoraKlinikeComponent} from './modules/general/administra
 import { ProfilPacijentaComponent } from './modules/general/pacijent/profilPacijenta.component';
 import {RegistracijaKlinikeComponent} from './modules/general/registracijaKlinike/registracijaKlinike.component';
 import {AdministratorKlinikeNavigationComponent} from './modules/navigations/administrator-klinike-navigation/administrator-klinike-navigation.component';
+import { ZapravoProfilComponent } from './modules/general/pacijent/zapravo-profil/zapravo-profil.component';
+import { PacijentListaKlinikaComponent } from './modules/general/pacijent/pacijent-lista-klinika/pacijent-lista-klinika.component';
+import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
 import {KlinikeTableComponent} from './klinike-table/klinike-table.component';
 import {PacijentiTableComponent} from './pacijenti-table/pacijenti-table.component';
 import {LekariTableComponent} from './lekari-table/lekari-table/lekari-table.component';
@@ -51,7 +54,18 @@ const routes: Routes = [
       { path: 'app-klinike-table', component: KlinikeTableComponent}
     ]
   },
-  { path: 'profil-pacijenta', component: ProfilPacijentaComponent},
+  { path: 'registrationConfirm', component: RegisterConfirmComponent},
+  { path: 'profil-pacijenta', component: ProfilPacijentaComponent, 
+  children:[
+    {
+      path: '',
+      component: ZapravoProfilComponent
+    }, 
+    {
+      path: 'pacijent-lista-klinika',
+      component: PacijentListaKlinikaComponent
+    }
+  ]},
   { path: 'registracija-klinike', component: RegistracijaKlinikeComponent},
   {
     path: 'about',
