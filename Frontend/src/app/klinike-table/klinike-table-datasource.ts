@@ -7,7 +7,7 @@ import {Klinika} from '../model/klinika';
 
 // TODO: Replace this with your own data model type
 export interface KlinikeTableItem {
-  id: string;
+  id: number;
   ime: string;
   adresa: string;
   opis: string;

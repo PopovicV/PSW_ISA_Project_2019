@@ -15,6 +15,7 @@ import {AdministratorKlinikeNavigationComponent} from './modules/navigations/adm
 import {KlinikeTableComponent} from './klinike-table/klinike-table.component';
 import {PacijentiTableComponent} from './pacijenti-table/pacijenti-table.component';
 import {LekariTableComponent} from './lekari-table/lekari-table/lekari-table.component';
+import {AdministratorKlinikeProfilPageComponent} from './modules/general/administratorKlinike/profil/administrator-klinike-profil-page/administrator-klinike-profil-page.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, },
@@ -27,7 +28,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: PacijentiTableComponent,
+        component: AdministratorKlinikeProfilPageComponent,
       },
       {
         path: 'profilKlinike',
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'lekari',
         component: LekariTableComponent,
+      },
+      {
+        path: 'profilPage',
+        component: AdministratorKlinikeProfilPageComponent,
       }
     ]
   },

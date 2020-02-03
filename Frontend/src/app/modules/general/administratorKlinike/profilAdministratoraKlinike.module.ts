@@ -27,6 +27,8 @@ import {AddLekarDialogComponent} from '../../../lekari-table/lekari-table/lekari
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {LekarService} from '../../../service/lekar.service';
+import {MatSelectModule} from "@angular/material/select";
+import { AdministratorKlinikeProfilPageComponent } from './profil/administrator-klinike-profil-page/administrator-klinike-profil-page.component';
 
 
 @NgModule( {
@@ -37,6 +39,7 @@ import {LekarService} from '../../../service/lekar.service';
     ProfilKlinikeComponent,
     LekariTableComponent,
     AddLekarDialogComponent,
+    AdministratorKlinikeProfilPageComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -55,6 +58,7 @@ import {LekarService} from '../../../service/lekar.service';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
   ],
   exports: [
     ProfilAdministratoraKlinikeComponent
