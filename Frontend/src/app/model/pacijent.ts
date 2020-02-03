@@ -1,5 +1,5 @@
 export class Pacijent {
-  id: string;
+  id: number;
   lozinka: string;
   ime: string;
   prezime: string;

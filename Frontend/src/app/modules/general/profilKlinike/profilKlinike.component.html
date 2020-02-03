@@ -1,5 +1,5 @@
 <div class="container">
-  <h4> {{ime}} </h4>
+  <h4> {{this.klinika.ime}} </h4>
   <div class="row m-y-2">
     <div class="col-lg-8 push-lg-4">
       <ul class="nav nav-tabs">
@@ -12,7 +12,6 @@
       </ul>
       <div class="tab-content p-b-3">
         <div class="tab-pane active" id="profile">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5617.6758520985995!2d19.818151246721108!3d45.25107006087583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1037d516e5af%3A0xfaf7d601cf416b90!2sClinical%20Center%20of%20Vojvodina!5e0!3m2!1sen!2srs!4v1574387524523!5m2!1sen!2srs" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
           <table class="table table-hover table-striped" >
             <tbody>
             <tr>
@@ -20,7 +19,7 @@
                 <strong>ID</strong>
               </td>
               <td>
-                {{id}}
+                {{this.klinika.id}}
               </td>
             </tr>
             <tr>
@@ -28,7 +27,7 @@
                 <strong>ADRESA</strong>
               </td>
               <td>
-                adresa klinike
+                {{this.klinika.adresa}}
               </td>
             </tr>
             <tr>
@@ -36,7 +35,7 @@
                 <strong>OPIS</strong>
               </td>
               <td>
-                {{opis}}
+                {{this.klinika.opis}}
               </td>
             </tr>
             <tr>
@@ -44,10 +43,12 @@
                 <strong>KONTAKT TELEFON</strong>
               </td>
               <td>
-                {{kontaktTelefon}}
+                neki telefon
               </td>
             </tr>
             </tbody>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5617.6758520985995!2d19.818151246721108!3d45.25107006087583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475b1037d516e5af%3A0xfaf7d601cf416b90!2sClinical%20Center%20of%20Vojvodina!5e0!3m2!1sen!2srs!4v1574387524523!5m2!1sen!2srs" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
           </table>
         </div>
 
@@ -59,7 +60,7 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Ime</label>
               <div class="col-lg-9">
-                <input class="form-control" type="text" value={{ime}}>
+                <input class="form-control" type="text" value={{this.klinika.ime}}>
               </div>
             </div>
             <div class="form-group row">
@@ -83,13 +84,13 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Opis</label>
               <div class="col-lg-9">
-                <input class="form-control" type="text" value = {{opis}} >
+                <input class="form-control" type="text" value = {{this.klinika.opis}} >
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Kontakt telefon</label>
               <div class="col-lg-9">
-                <input class="form-control" type="text" value = {{kontaktTelefon}} >
+                <input class="form-control" type="text" value = {{this.klinika.kontaktTelefon}} >
               </div>
             </div>
             <div class="form-group row">

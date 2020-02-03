@@ -15,3 +15,6 @@ insert into klinika (ime, adresa, opis) values ('Klinika 4', 'Sonje Marinkovic 7
 
 insert into korisnik (email, lozinka, uloga) values ('milan@gmail.com', '1', 'ADMINISTRATOR_KLINIKE')
 insert into administrator_klinike (id, ime, prezime, kontakt_telefon, klinika_id) values (5, 'Milan', 'Lukic', '1234567', 1)
+
+insert into korisnik (id, email, lozinka, uloga) values (10, 'random@gmail.com', '1', 'LEKAR')
+insert into lekar (id, ime, kontakt_telefon, ocena, prezime, smena, specijalizacija, klinika_id, promenio_sifru) values(10, 'Milan', '1111111', 5, 'Petrovic', 1, 'Strucnjak', 1, false)

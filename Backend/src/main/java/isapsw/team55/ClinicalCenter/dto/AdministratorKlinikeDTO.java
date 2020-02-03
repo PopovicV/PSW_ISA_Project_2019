@@ -10,7 +10,7 @@ public class AdministratorKlinikeDTO {
     private String prezime;
     private String email;
     private String kontaktTelefon;
-    private Klinika klinika;
+    private Long klinikaId;
 
     public AdministratorKlinikeDTO() {
 
@@ -28,7 +28,7 @@ public class AdministratorKlinikeDTO {
         this.prezime = prezime;
         this.email = email;
         this.kontaktTelefon = kontaktTelefon;
-        this.klinika = klinika;
+        this.klinikaId = klinika.getId();
     }
 
     public Long getId() {
@@ -79,11 +79,11 @@ public class AdministratorKlinikeDTO {
         this.kontaktTelefon = kontaktTelefon;
     }
 
-    public Klinika getKlinika() {
-        return klinika;
+    public Long getKlinika() {
+        return klinikaId;
     }
 
     public void setKlinika(Klinika klinika) {
-        this.klinika = klinika;
+        this.klinikaId = klinika.getId();
     }
 }

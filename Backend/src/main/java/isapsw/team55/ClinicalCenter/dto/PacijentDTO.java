@@ -19,7 +19,7 @@ public class PacijentDTO {
     }
 
     public PacijentDTO(Long id, String lozinka, String ime, String prezime, String email, String kontaktTelefon, String adresa, String grad, String drzava, String JBO) {
-        id = id;
+        this.id = id;
         this.lozinka = lozinka;
         this.ime = ime;
         this.prezime = prezime;

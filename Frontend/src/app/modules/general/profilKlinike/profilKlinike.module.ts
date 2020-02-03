@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../../../app-routing.module';
-import {ProfilKlinikeComponent} from './profilKlinike.component';
 
 @NgModule({
   imports: [
@@ -9,10 +8,8 @@ import {ProfilKlinikeComponent} from './profilKlinike.component';
     AppRoutingModule
   ],
   declarations: [
-    ProfilKlinikeComponent
   ]
 })
 
 export class ProfilKlinikeModule {
-
 }

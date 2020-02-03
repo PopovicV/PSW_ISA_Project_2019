@@ -39,7 +39,8 @@ import { RegisterConfirmComponent } from './register-confirm/register-confirm.co
     AppComponent,
     HomeComponent,
     NotFoundComponent,
-    RegisterConfirmComponent
+    Pacijent_pocetna,
+    RegisterConfirmComponent,
   ],
   imports: [
     BrowserModule,

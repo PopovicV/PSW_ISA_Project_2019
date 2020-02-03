@@ -17,12 +17,26 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {PacijentService} from '../../../service/pacijent.service';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { ProfilKlinikeComponent } from '../profilKlinike/profilKlinike.component';
+import {KlinikaService} from '../../../service/klinika.service';
+import { LekariTableComponent } from '../../../lekari-table/lekari-table/lekari-table.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {AddLekarDialogComponent} from '../../../lekari-table/lekari-table/lekari-table.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {LekarService} from '../../../service/lekar.service';
+
 
 @NgModule( {
   declarations: [
     ProfilAdministratoraKlinikeComponent,
     AdministratorKlinikeNavigationComponent,
-    PacijentiTableComponent
+    PacijentiTableComponent,
+    ProfilKlinikeComponent,
+    LekariTableComponent,
+    AddLekarDialogComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -36,12 +50,18 @@ import {PacijentService} from '../../../service/pacijent.service';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTreeModule,
+    MatExpansionModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     ProfilAdministratoraKlinikeComponent
   ],
   bootstrap: [ProfilAdministratoraKlinikeComponent],
-  providers: [PacijentService]
+  providers: [PacijentService, KlinikaService, LekarService],
+  entryComponents: [AddLekarDialogComponent]
 })
 
 export class ProfilAdministratoraKlinikeModule {
