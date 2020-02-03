@@ -78,8 +78,9 @@ public class AdministratorKlinickogCentraService {
     }
 
     public Pacijent aktivirajNalog(Pacijent pacijent) {
-        pacijent.setAdminAktiviraoNalog("DA");
-        return pacijentRepository.save(pacijent);
+        Pacijent pacijentAkt = pacijentRepository.findByEmail(pacijent.getEmail());
+        pacijentAkt.setAdminAktiviraoNalog("DA");
+        return pacijentRepository.save(pacijentAkt);
     }
 
     public Klinika addKlinika(Klinika klinika) {
