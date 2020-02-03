@@ -15,15 +15,14 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
   styleUrls: ['./pacijent-lista-klinika.component.css']
 })
 export class PacijentListaKlinikaComponent implements OnInit {
-
-  klinike : Klinika[]
-  dataSource : any
+  klinike: Klinika[];
+  dataSource: any;
   displayedColumns = ['id', 'ime', 'adresa', 'opis'];
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private klinikaService: KlinikaService) { 
-    this.dataSource = new MatTableDataSource<Klinika>(null)
+  constructor(private klinikaService: KlinikaService) {
+    this.dataSource = new MatTableDataSource<Klinika>(null);
   }
 
   ngOnInit() {
@@ -32,11 +31,11 @@ export class PacijentListaKlinikaComponent implements OnInit {
         this.klinike = data;
         this.dataSource = new MatTableDataSource<Klinika>(this.klinike);
         this.dataSource.sort = this.sort;
-      })
+      });
   }
 
-  public doFilter (value: string) {
+  public doFilter(value: string) {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
-  }  
+  }
 
 }

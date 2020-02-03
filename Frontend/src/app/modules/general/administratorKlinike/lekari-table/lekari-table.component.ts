@@ -1,13 +1,13 @@
 import {AfterViewInit, Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTable, MatTableDataSource} from '@angular/material/table';
-import {LekarService} from '../../service/lekar.service';
-import {AdministratorKlinikeService} from '../../service/administratorKlinike.service';
-import {Lekar} from '../../model/lekar';
+import {LekarService} from '../../../../service/lekar.service';
+import {AdministratorKlinikeService} from '../../../../service/administratorKlinike.service';
+import {Lekar} from '../../../../model/lekar';
 import {MatSort} from '@angular/material/sort';
 import {LekariTableDataSource} from './lekari-table-data-source';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {AdministratorKlinike} from '../../model/administratorKlinike';
+import {AdministratorKlinike} from '../../../../model/administratorKlinike';
 import {stringify} from 'querystring';
 
 
@@ -59,12 +59,14 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      result.klinikaId = this.ulogovanAdministratorKlinike.klinika;
-      this.lekarService.registerLekar(result).subscribe(data => {
-      },
-      error => {
-        alert('GRESKA!');
-      });
+      if (result != null) {
+        result.klinikaId = this.ulogovanAdministratorKlinike.klinika;
+        this.lekarService.registerLekar(result).subscribe(data => {
+          },
+          error => {
+            alert('GRESKA!');
+          });
+      }
     });
   }
 

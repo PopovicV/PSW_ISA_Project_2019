@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import {Klinika} from '../model/klinika';
+import {Klinika} from '../../../../model/klinika';
 
 // TODO: Replace this with your own data model type
 export interface KlinikeTableItem {

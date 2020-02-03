@@ -15,7 +15,7 @@ export class AdministratorKlinikeService {
   }
 
   public izmeniProfil(administratorKlinike: AdministratorKlinike) {
-    this.requestUrl = '/api/administratorKlinike/update';
+    this.requestUrl = 'server/api/administratorKlinike/update';
     const podaci = JSON.stringify(administratorKlinike);
     return this.http.post<AdministratorKlinike>(this.requestUrl, podaci, httpOptions);
   }

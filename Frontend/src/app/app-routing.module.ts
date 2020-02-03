@@ -15,10 +15,11 @@ import {AdministratorKlinikeNavigationComponent} from './modules/navigations/adm
 import { ZapravoProfilComponent } from './modules/general/pacijent/zapravo-profil/zapravo-profil.component';
 import { PacijentListaKlinikaComponent } from './modules/general/pacijent/pacijent-lista-klinika/pacijent-lista-klinika.component';
 import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
-import {KlinikeTableComponent} from './klinike-table/klinike-table.component';
+import {KlinikeTableComponent} from './modules/general/administratorKlinike/klinike-table/klinike-table.component';
 import {PacijentiTableComponent} from './pacijenti-table/pacijenti-table.component';
-import {LekariTableComponent} from './lekari-table/lekari-table/lekari-table.component';
-import {AdministratorKlinikeProfilPageComponent} from './modules/general/administratorKlinike/profil/administrator-klinike-profil-page/administrator-klinike-profil-page.component';
+import {LekariTableComponent} from './modules/general/administratorKlinike/lekari-table/lekari-table.component';
+import {AdministratorKlinikeProfilPageComponent} from './modules/general/administratorKlinike/administrator-klinike-profil-page/administrator-klinike-profil-page.component';
+import {SaleTableComponent} from './modules/general/administratorKlinike/sale-table/sale-table.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, },
@@ -44,7 +45,11 @@ const routes: Routes = [
       {
         path: 'profilPage',
         component: AdministratorKlinikeProfilPageComponent,
-      }
+      },
+      {
+        path: 'sale',
+        component: SaleTableComponent,
+      },
     ]
   },
   { path: 'profil-klinike', component: ProfilKlinikeComponent},
@@ -55,12 +60,12 @@ const routes: Routes = [
     ]
   },
   { path: 'registrationConfirm', component: RegisterConfirmComponent},
-  { path: 'profil-pacijenta', component: ProfilPacijentaComponent, 
+  { path: 'profil-pacijenta', component: ProfilPacijentaComponent,
   children:[
     {
       path: '',
       component: ZapravoProfilComponent
-    }, 
+    },
     {
       path: 'pacijent-lista-klinika',
       component: PacijentListaKlinikaComponent

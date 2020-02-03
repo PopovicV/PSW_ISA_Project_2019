@@ -21,14 +21,15 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { ProfilKlinikeComponent } from '../profilKlinike/profilKlinike.component';
 import {KlinikaService} from '../../../service/klinika.service';
-import { LekariTableComponent } from '../../../lekari-table/lekari-table/lekari-table.component';
+import { LekariTableComponent } from './lekari-table/lekari-table.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {AddLekarDialogComponent} from '../../../lekari-table/lekari-table/lekari-table.component';
+import {AddLekarDialogComponent} from './lekari-table/lekari-table.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {LekarService} from '../../../service/lekar.service';
 import {MatSelectModule} from "@angular/material/select";
-import { AdministratorKlinikeProfilPageComponent } from './profil/administrator-klinike-profil-page/administrator-klinike-profil-page.component';
+import { AdministratorKlinikeProfilPageComponent } from './administrator-klinike-profil-page/administrator-klinike-profil-page.component';
+import {AddSalaDialogComponent, SaleTableComponent} from './sale-table/sale-table.component';
 
 
 @NgModule( {
@@ -40,6 +41,8 @@ import { AdministratorKlinikeProfilPageComponent } from './profil/administrator-
     LekariTableComponent,
     AddLekarDialogComponent,
     AdministratorKlinikeProfilPageComponent,
+    SaleTableComponent,
+    AddSalaDialogComponent,
   ],
   imports: [
     AppRoutingModule,

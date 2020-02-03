@@ -3,8 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { KlinikeTableDataSource, KlinikeTableItem } from './klinike-table-datasource';
-import {Klinika} from '../model/klinika';
-import {KlinikaService} from '../service/klinika.service';
+import {Klinika} from '../../../../model/klinika';
+import {KlinikaService} from '../../../../service/klinika.service';
 
 @Component({
   selector: 'app-klinike-table',

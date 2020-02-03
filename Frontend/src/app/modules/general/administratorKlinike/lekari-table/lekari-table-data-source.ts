@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import {Lekar} from '../../model/lekar';
+import {Lekar} from '../../../../model/lekar';
 
 // TODO: Replace this with your own data model type
 export interface LekariTableItem {

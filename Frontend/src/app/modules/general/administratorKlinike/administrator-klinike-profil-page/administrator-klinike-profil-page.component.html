@@ -79,31 +79,31 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Ime</label>
               <div class="col-lg-9">
-                <input id="ime" name = "ime" class="form-control" type="text" [(ngModel)]="this.ulogovanKorisnik.ime">
+                <input id="ime" name = "ime" class="form-control" type="text" [(ngModel)]="this.izmenjenAdmin.ime">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Prezime</label>
               <div class="col-lg-9">
-                <input id="prezime" name = "prezime" class="form-control" type="text" [(ngModel)]="this.ulogovanKorisnik.prezime">
+                <input id="prezime" name = "prezime" class="form-control" type="text" [(ngModel)]="this.izmenjenAdmin.prezime">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Email</label>
               <div class="col-lg-9">
-                <input id="email" name = "email" class="form-control" type="email" [(ngModel)]="this.ulogovanKorisnik.email">
+                <input id="email" name = "email" class="form-control" type="email" [(ngModel)]="this.izmenjenAdmin.email">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Kontakt telefon</label>
               <div class="col-lg-9">
-                <input id="kontaktTelefon" name = "kontaktTelefon" class="form-control" type="text" [(ngModel)]="this.ulogovanKorisnik.kontaktTelefon">
+                <input id="kontaktTelefon" name = "kontaktTelefon" class="form-control" type="text" [(ngModel)]="this.izmenjenAdmin.kontaktTelefon">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label">Lozinka</label>
               <div class="col-lg-9">
-                <input class="form-control" type="password" id = "lozinka" name="lozinka" (ngModel)="this.ulogovanKorisnik.lozinka">
+                <input class="form-control" type="password" id = "lozinka" name="lozinka" (ngModel)="this.izmenjenAdmin.lozinka">
               </div>
             </div>
             <div class="form-group row">
@@ -115,50 +115,11 @@
             <div class="form-group row">
               <label class="col-lg-3 col-form-label form-control-label"></label>
               <div class="col-lg-9">
-                <input type="reset" class="btn btn-secondary" value="Odustani">
+                <button (click)="onCancel()" type="cancel" class="btn btn-secondary">Odustani</button>
                 &nbsp;
-                <input type="submit" class="btn btn-primary" value="Potvrdi">
+                <button (click)="onSubmit()" type="submit" class="btn btn-primary">Potvrdi</button>
               </div>
             </div>
-          </form>
-        </div>
-
-        <div class="tab-pane" id="editKlinika">
-          <h4 class="m-y-2">Izmena profila klinike</h4>
-          <form role="form">
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Ime</label>
-              <div class="col-lg-9">
-                <input class="form-control" type="text" value="" placeholder="Ime">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label">Adresa</label>
-              <div class="col-lg-7">
-                <input class="form-control" type="text" value="" placeholder="Ulica">
-              </div>
-              <div class="col-lg-2">
-                <input class="form-control" type="text" value="" placeholder="Broj">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label"></label>
-              <div class="col-lg-6">
-                <input class="form-control" type="text" value="" placeholder="Grad">
-              </div>
-              <div class="col-lg-3">
-                <input class="form-control" type="text" value="" placeholder="Drzava">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-lg-3 col-form-label form-control-label"></label>
-              <div class="col-lg-9">
-                <input type="reset" class="btn btn-secondary" value="Odustani">
-                &nbsp;
-                <input type="submit" class="btn btn-primary btn-block" value="Potvrdi">
-              </div>
-            </div>
-
           </form>
         </div>
       </div>
