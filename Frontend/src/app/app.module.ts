@@ -31,12 +31,15 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDrawerContent, MatSidenavModule} from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { PacijentNavigationComponent } from './modules/navigations/pacijent-navigation/pacijent-navigation.component';
+import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    RegisterConfirmComponent
   ],
   imports: [
     BrowserModule,
