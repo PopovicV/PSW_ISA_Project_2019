@@ -44,7 +44,7 @@ public class LekarController {
     public ResponseEntity<LekarDTO> addLekar(@RequestBody LekarDTO lekarDTO) throws Exception {
         Lekar lekar = new Lekar(lekarDTO);
 
-        lekar.setKlinika(klinikaService.findOneById(lekarDTO.getId()));
+        lekar.setKlinika(klinikaService.findOneById(lekarDTO.getKlinikaId()));
         System.out.println("STIGNE ZAHTEV");
         System.out.println(lekar.getIme());
 
@@ -54,5 +54,11 @@ public class LekarController {
         } else {
             return new ResponseEntity<LekarDTO>(HttpStatus.NOT_ACCEPTABLE);
         }
+    }
+
+    @PostMapping(value = "/removeLekar/{id}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<LekarDTO> addLekar(@RequestBody LekarDTO lekarDTO, @PathVariable Long id) throws Exception {
+            lekarService.remove(id);
+            return new ResponseEntity<>(HttpStatus.OK);
     }
 }

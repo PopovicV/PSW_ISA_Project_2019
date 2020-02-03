@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Lekar } from '../model/lekar';
+import {stringify} from "querystring";
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -20,8 +21,13 @@ export class LekarService {
   }
 
   public registerLekar(lekar: Lekar) {
-    this.requestUrl = 'server/api/lekar/addLekar';
+    this.requestUrl = '/server/api/lekar/addLekar';
     console.log(JSON.stringify(lekar));
     return this.http.post<Lekar>(this.requestUrl, JSON.stringify(lekar), httpOptions);
+  }
+
+  public remove(id: number) {
+    this.requestUrl =  '/server/api/lekar/removeLekar/' + id;
+    return this.http.post(this.requestUrl, httpOptions);
   }
 }

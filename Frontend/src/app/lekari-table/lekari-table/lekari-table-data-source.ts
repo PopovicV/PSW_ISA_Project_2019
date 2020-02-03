@@ -82,8 +82,10 @@ export class LekariTableDataSource extends DataSource<LekariTableItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'ime': return compare(a.ime, b.ime, isAsc);
+        case 'id': return compare(+a.ime, +b.ime, isAsc);
+        case 'ime' : return compare (a.prezime, b.prezime, isAsc);
         case 'prezime' : return compare (a.prezime, b.prezime, isAsc);
+        case 'action': return 1;
         default: return 0;
       }
     });

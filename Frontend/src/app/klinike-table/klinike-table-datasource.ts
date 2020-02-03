@@ -79,7 +79,7 @@ export class KlinikeTableDataSource extends DataSource<KlinikeTableItem> {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
         case 'name': return compare(a.ime, b.ime, isAsc);
-        case 'id': return compare(a.id, b.id, isAsc);
+        case 'id': return compare(+a.id, +b.id, isAsc);
         case 'adresa': return compare(a.adresa, b.adresa, isAsc);
         case 'opis': return compare(a.opis, b.opis, isAsc);
         default: return 0;
