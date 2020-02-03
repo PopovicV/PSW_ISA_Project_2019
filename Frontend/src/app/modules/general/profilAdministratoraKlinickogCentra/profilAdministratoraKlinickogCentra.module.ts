@@ -11,11 +11,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { KlinikeTableComponent } from '../../../klinike-table/klinike-table.component';
+import {AddKlinikaDialogComponent, KlinikeTableComponent} from '../../../klinike-table/klinike-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { KlinikaService} from '../../../service/klinika.service';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {LogoutService} from "../../../service/logout.service";
+import {Router} from "@angular/router";
 
 @NgModule({
   imports: [
@@ -33,11 +37,14 @@ import { KlinikaService} from '../../../service/klinika.service';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDialogModule,
+    MatFormFieldModule,
   ],
   declarations: [
     ProfilAdministratoraKlinickogCentraComponent,
     AdministratorKlinickogCentraNavigationComponent,
-    KlinikeTableComponent
+    KlinikeTableComponent,
+    AddKlinikaDialogComponent
   ],
   providers: [
     KlinikaService
@@ -45,5 +52,15 @@ import { KlinikaService} from '../../../service/klinika.service';
 })
 
 export class ProfilAdministratoraKlinickogCentraModule {
+  constructor(private logoutService: LogoutService, private router: Router ) {
 
+  }
+
+  public logout() {
+    this.logoutService.logout().subscribe(
+      data => {
+        return true;
+      }
+    );
+  }
 }

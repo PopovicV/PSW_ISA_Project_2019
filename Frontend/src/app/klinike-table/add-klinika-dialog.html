@@ -1,0 +1,19 @@
+<h1 mat-dialog-title >Dodavanje nove klinike</h1>
+<div mat-dialog-content style="display: flex; flex-direction: column;">
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="klinika.id" placeholder="Id">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="klinika.ime" placeholder="Ime">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="klinika.adresa" placeholder="Adresa">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="klinika.opis" placeholder="Opis">
+  </mat-form-field>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Odustani</button>
+  <button mat-button [mat-dialog-close]="this.klinika" (click)="onOkClick()" cdkFocusInitial>Dodaj</button>
+</div>

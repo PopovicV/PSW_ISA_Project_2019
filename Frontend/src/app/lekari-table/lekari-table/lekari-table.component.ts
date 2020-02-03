@@ -7,7 +7,7 @@ import {Lekar} from '../../model/lekar';
 import {MatSort} from '@angular/material/sort';
 import {LekariTableDataSource} from './lekari-table-data-source';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {AdministratorKlinike} from "../../model/administratorKlinike";
+import {AdministratorKlinike} from '../../model/administratorKlinike';
 
 
 @Component({

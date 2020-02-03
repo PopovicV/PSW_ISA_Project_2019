@@ -7,21 +7,12 @@ import {Klinika} from '../model/klinika';
 
 // TODO: Replace this with your own data model type
 export interface KlinikeTableItem {
-  id: string;
+  id: number;
   ime: string;
   adresa: string;
   opis: string;
 }
 
-// TODO: replace this with real data from your application
-const EXAMPLE_DATA: KlinikeTableItem[] = [
-];
-
-/**
- * Data source for the KlinikeTable view. This class should
- * encapsulate all logic for fetching and manipulating the displayed data
- * (including sorting, pagination, and filtering).
- */
 export class KlinikeTableDataSource extends DataSource<KlinikeTableItem> {
   data: Klinika[];
   paginator: MatPaginator;

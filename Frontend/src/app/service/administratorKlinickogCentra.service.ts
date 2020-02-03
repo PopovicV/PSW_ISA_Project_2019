@@ -29,4 +29,5 @@ export class AdministratorKlinickogCentraService {
     this.requestUrl = '/server/api/administratorKlinickogCentra/ulogovanKorisnik';
     return this.http.get<AdministratorKlinickogCentra>(this.requestUrl, httpOptions);
   }
+
 }

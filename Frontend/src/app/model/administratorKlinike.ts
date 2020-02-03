@@ -1,3 +1,5 @@
+import {Klinika} from './klinika';
+
 export class AdministratorKlinike {
   id: number;
   email: string;
@@ -6,5 +8,5 @@ export class AdministratorKlinike {
   ime: string;
   prezime: string;
   kontaktTelefon: string;
-  klinika: number;
+  klinika: Klinika;
 }
