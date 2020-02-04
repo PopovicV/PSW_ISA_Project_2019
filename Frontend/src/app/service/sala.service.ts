@@ -28,4 +28,9 @@ export class SalaService {
     this.requestUrl =  '/server/api/sala/removeSala/' + id;
     return this.http.post(this.requestUrl, httpOptions);
   }
+
+  public updateSala(sala: Sala) {
+    this.requestUrl = '/server/api/sala/updateSala';
+    return this.http.post(this.requestUrl, JSON.stringify(sala), httpOptions);
+  }
 }

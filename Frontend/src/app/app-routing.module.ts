@@ -15,7 +15,7 @@ import {AdministratorKlinikeNavigationComponent} from './modules/navigations/adm
 import { ZapravoProfilComponent } from './modules/general/pacijent/zapravo-profil/zapravo-profil.component';
 import { PacijentListaKlinikaComponent } from './modules/general/pacijent/pacijent-lista-klinika/pacijent-lista-klinika.component';
 import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
-import {KlinikeTableComponent} from './modules/general/administratorKlinike/klinike-table/klinike-table.component';
+import {KlinikeTableComponent} from './modules/general/profilAdministratoraKlinickogCentra/klinike-table/klinike-table.component';
 import {PacijentiTableComponent} from './pacijenti-table/pacijenti-table.component';
 import {LekariTableComponent} from './modules/general/administratorKlinike/lekari-table/lekari-table.component';
 import {AdministratorKlinikeProfilPageComponent} from './modules/general/administratorKlinike/administrator-klinike-profil-page/administrator-klinike-profil-page.component';

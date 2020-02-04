@@ -22,7 +22,7 @@
     </ng-container>
 
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Akcije</th>
+      <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let row"><button mat-raised-button class = "delete-button" (click)="obrisi(row.id)">Obrisi</button></td>
     </ng-container>
 
@@ -32,7 +32,7 @@
   </table>
 
   <mat-paginator #paginator
-                 [length]="dataSource?.data.length"
+                 [length]="dataSource? dataSource.data.length: 0"
                  [pageIndex]="0"
                  [pageSize]="20"
                  [pageSizeOptions]="[20, 50, 100]">

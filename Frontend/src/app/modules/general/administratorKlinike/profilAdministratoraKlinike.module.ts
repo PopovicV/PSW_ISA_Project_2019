@@ -27,9 +27,9 @@ import {AddLekarDialogComponent} from './lekari-table/lekari-table.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {LekarService} from '../../../service/lekar.service';
-import {MatSelectModule} from "@angular/material/select";
+import {MatSelectModule} from '@angular/material/select';
 import { AdministratorKlinikeProfilPageComponent } from './administrator-klinike-profil-page/administrator-klinike-profil-page.component';
-import {AddSalaDialogComponent, SaleTableComponent} from './sale-table/sale-table.component';
+import {AddSalaDialogComponent, SaleTableComponent, UpdateSalaDialogComponent} from './sale-table/sale-table.component';
 
 
 @NgModule( {
@@ -43,6 +43,7 @@ import {AddSalaDialogComponent, SaleTableComponent} from './sale-table/sale-tabl
     AdministratorKlinikeProfilPageComponent,
     SaleTableComponent,
     AddSalaDialogComponent,
+    UpdateSalaDialogComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -68,7 +69,7 @@ import {AddSalaDialogComponent, SaleTableComponent} from './sale-table/sale-tabl
   ],
   bootstrap: [ProfilAdministratoraKlinikeComponent],
   providers: [PacijentService, KlinikaService, LekarService],
-  entryComponents: [AddLekarDialogComponent]
+  entryComponents: [AddLekarDialogComponent, AddSalaDialogComponent, UpdateSalaDialogComponent]
 })
 
 export class ProfilAdministratoraKlinikeModule {
