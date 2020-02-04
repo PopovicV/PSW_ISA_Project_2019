@@ -21,20 +21,13 @@ public class ZdravstveniKarton {
     @JoinColumn(name = "id_pacijenta", referencedColumnName = "id")
     private Pacijent pacijent;
 
-    @ElementCollection
+    @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    @JoinTable(name = "zdravstveni_karton_dijagnoze",
+            joinColumns = {@JoinColumn(name = "id")},
+            inverseJoinColumns = { @JoinColumn( name = "dijagnoza_id", referencedColumnName = "id")})
     private List<Dijagnoza> dijagnoze = new ArrayList<Dijagnoza>();
 
-
-    public ZdravstveniKarton(Pacijent pacijent) {
-        this.pacijent = pacijent;
-    }
-
     public ZdravstveniKarton() {
-    }
-
-    public ZdravstveniKarton(Pacijent pacijent, List<Dijagnoza> dijagnoze) {
-        this.pacijent = pacijent;
-        this.dijagnoze = dijagnoze;
     }
 
     public Long getId() {
@@ -51,6 +44,11 @@ public class ZdravstveniKarton {
 
     public void setPacijent(Pacijent pacijent) {
         this.pacijent = pacijent;
+    }
+
+    public ZdravstveniKarton(Pacijent pacijent, List<Dijagnoza> dijagnoze) {
+        this.pacijent = pacijent;
+        this.dijagnoze = dijagnoze;
     }
 
     public List<Dijagnoza> getDijagnoze() {

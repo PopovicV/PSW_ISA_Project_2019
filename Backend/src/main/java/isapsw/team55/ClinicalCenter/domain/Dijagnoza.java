@@ -3,7 +3,7 @@ package isapsw.team55.ClinicalCenter.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="dijagnoze")
+@Table(name="dijagnoza")
 public class Dijagnoza {
 
     @Id
@@ -36,7 +36,7 @@ public class Dijagnoza {
         return nazivDijagnoze;
     }
 
-    public void setId(Long id) {
+    public void setId(Long dijagnoza_id) {
         this.id = id;
     }
 

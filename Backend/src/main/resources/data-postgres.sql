@@ -18,3 +18,12 @@ insert into administrator_klinike (id, ime, prezime, kontakt_telefon, klinika_id
 
 insert into korisnik (id, email, lozinka, uloga) values (10, 'random@gmail.com', '1', 'LEKAR')
 insert into lekar (id, ime, kontakt_telefon, ocena, prezime, smena, specijalizacija, klinika_id, promenio_sifru) values(10, 'Milan', '1111111', 5, 'Petrovic', 1, 'Strucnjak', 1, false)
+
+insert into zdravstveni_karton(id, id_pacijenta) values (1, 2)
+insert into dijagnoza(id, naziv, sifra_dijagnoze) values (1, 'Šizofrenija', 'F20')
+insert into dijagnoza(id, naziv, sifra_dijagnoze) values (2, 'Bipolarni poremećaj', 'F31')
+insert into dijagnoza(id, naziv, sifra_dijagnoze) values (3, 'Depresija', 'F32')
+
+insert into zdravstveni_karton_dijagnoze(id, dijagnoza_id) values (1, 1)
+insert into zdravstveni_karton_dijagnoze(id, dijagnoza_id) values (1, 2)
+insert into zdravstveni_karton_dijagnoze(id, dijagnoza_id) values (1, 3)
