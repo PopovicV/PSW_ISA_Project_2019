@@ -17,7 +17,10 @@ import { Router } from '@angular/router';
 import { ZapravoProfilComponent } from './zapravo-profil/zapravo-profil.component';
 import { PacijentListaKlinikaComponent } from './pacijent-lista-klinika/pacijent-lista-klinika.component';
 import { KlinikaService } from 'src/app/service/klinika.service';
-import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatExpansionModule } from '@angular/material';
+import { PacijentListaDijagnozaComponent } from './pacijent-lista-dijagnoza/pacijent-lista-dijagnoza.component';
+import { DijagnozaService } from 'src/app/service/dijagnoza.service';
+
 
 @NgModule({
     imports: [
@@ -33,13 +36,15 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
         MatPaginatorModule,
         MatSortModule,
         MatFormFieldModule,
-        MatInputModule
+        MatInputModule,
+        MatExpansionModule,
     ],
     declarations: [
         ProfilPacijentaComponent,
         PacijentNavigationComponent,
         ZapravoProfilComponent,
-        PacijentListaKlinikaComponent
+        PacijentListaKlinikaComponent,
+        PacijentListaDijagnozaComponent
     ],
     exports: [
         ProfilPacijentaComponent,
@@ -49,6 +54,7 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
     providers: [
         LogoutService,
         KlinikaService,
+        DijagnozaService
     ]
 
 })
