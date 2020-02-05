@@ -8,6 +8,7 @@ import { Pacijent } from 'src/app/model/pacijent';
 import { KlinikaService } from 'src/app/service/klinika.service';
 import { Klinika } from 'src/app/model/klinika';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pacijent-lista-klinika',
@@ -21,7 +22,7 @@ export class PacijentListaKlinikaComponent implements OnInit {
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private klinikaService: KlinikaService) {
+  constructor(private klinikaService: KlinikaService, private router: Router) {
     this.dataSource = new MatTableDataSource<Klinika>(null);
   }
 
@@ -36,6 +37,10 @@ export class PacijentListaKlinikaComponent implements OnInit {
 
   public doFilter(value: string) {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
+  }
+
+  public profilKlinike(id: number) {
+    this.router.navigate(['profil-pacijenta/pacijentKlinika', {id: id}]);
   }
 
 }
