@@ -30,6 +30,13 @@ import {LekarService} from '../../../service/lekar.service';
 import {MatSelectModule} from '@angular/material/select';
 import { AdministratorKlinikeProfilPageComponent } from './administrator-klinike-profil-page/administrator-klinike-profil-page.component';
 import {AddSalaDialogComponent, SaleTableComponent, UpdateSalaDialogComponent} from './sale-table/sale-table.component';
+import {AddPregledDialogComponent, PreglediKalendarComponent} from './pregledi-kalendar/pregledi-kalendar.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {ScheduleModule} from '@syncfusion/ej2-angular-schedule';
+import {AddTipPregledaDialogComponent, CenovnikComponent} from './cenovnik/cenovnik.component';
+import {CommonModule} from '@angular/common';
+
 
 
 @NgModule( {
@@ -44,6 +51,10 @@ import {AddSalaDialogComponent, SaleTableComponent, UpdateSalaDialogComponent} f
     SaleTableComponent,
     AddSalaDialogComponent,
     UpdateSalaDialogComponent,
+    PreglediKalendarComponent,
+    CenovnikComponent,
+    AddTipPregledaDialogComponent,
+    AddPregledDialogComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -63,13 +74,19 @@ import {AddSalaDialogComponent, SaleTableComponent, UpdateSalaDialogComponent} f
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ScheduleModule,
+    CommonModule,
   ],
   exports: [
     ProfilAdministratoraKlinikeComponent
   ],
   bootstrap: [ProfilAdministratoraKlinikeComponent],
   providers: [PacijentService, KlinikaService, LekarService],
-  entryComponents: [AddLekarDialogComponent, AddSalaDialogComponent, UpdateSalaDialogComponent]
+  entryComponents: [AddTipPregledaDialogComponent, AddLekarDialogComponent,
+                    AddSalaDialogComponent, UpdateSalaDialogComponent,
+                    AddPregledDialogComponent]
 })
 
 export class ProfilAdministratoraKlinikeModule {
