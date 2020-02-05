@@ -16,7 +16,7 @@ public class Lekar extends Korisnik {
     @Column(name = "kontaktTelefon", nullable = false)
     private String kontaktTelefon;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     @JsonIgnore
     private Klinika klinika;
 

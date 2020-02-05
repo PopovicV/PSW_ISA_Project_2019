@@ -3,36 +3,24 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import {Lekar} from '../../model/lekar';
+import {Klinika} from '../../../../model/klinika';
 
 // TODO: Replace this with your own data model type
-export interface LekariTableItem {
+export interface KlinikeTableItem {
+  id: number;
   ime: string;
-  prezime: string;
-  kontaktTelefon: string;
-  klinikaId: number;
-  ocena: number;
-  specijalizacija: string;
-  smena: number;
+  adresa: string;
+  opis: string;
 }
 
-// TODO: replace this with real data from your application
-
-/**
- * Data source for the PacijentiTable view. This class should
- * encapsulate all logic for fetching and manipulating the displayed data
- * (including sorting, pagination, and filtering).
- */
-export class LekariTableDataSource extends DataSource<LekariTableItem> {
-
-  data: Lekar[];
-
+export class KlinikeTableDataSource extends DataSource<KlinikeTableItem> {
+  data: Klinika[];
   paginator: MatPaginator;
   sort: MatSort;
 
-  constructor(lekari: Array<Lekar>) {
+  constructor(klinike: Array<Klinika>) {
     super();
-    this.data = lekari;
+    this.data = klinike;
   }
 
   /**
@@ -40,7 +28,7 @@ export class LekariTableDataSource extends DataSource<LekariTableItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<Lekar[]> {
+  connect(): Observable<KlinikeTableItem[]> {
     // Combine everything that affects the rendered data into one update
     // stream for the data-table to consume.
     const dataMutations = [
@@ -64,7 +52,7 @@ export class LekariTableDataSource extends DataSource<LekariTableItem> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: Lekar[]) {
+  private getPagedData(data: KlinikeTableItem[]) {
     const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
     return data.splice(startIndex, this.paginator.pageSize);
   }
@@ -72,9 +60,8 @@ export class LekariTableDataSource extends DataSource<LekariTableItem> {
   /**
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
-   * //case 'id': return compare(+a.id, +b.id, isAsc);
    */
-  private getSortedData(data: Lekar[]) {
+  private getSortedData(data: KlinikeTableItem[]) {
     if (!this.sort.active || this.sort.direction === '') {
       return data;
     }
@@ -82,8 +69,10 @@ export class LekariTableDataSource extends DataSource<LekariTableItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'ime': return compare(a.ime, b.ime, isAsc);
-        case 'prezime' : return compare (a.prezime, b.prezime, isAsc);
+        case 'name': return compare(a.ime, b.ime, isAsc);
+        case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'adresa': return compare(a.adresa, b.adresa, isAsc);
+        case 'opis': return compare(a.opis, b.opis, isAsc);
         default: return 0;
       }
     });

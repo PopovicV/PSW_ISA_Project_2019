@@ -1,9 +1,6 @@
 package isapsw.team55.ClinicalCenter.controller;
 
-import isapsw.team55.ClinicalCenter.domain.AdministratorKlinickogCentra;
-import isapsw.team55.ClinicalCenter.domain.Klinika;
-import isapsw.team55.ClinicalCenter.domain.Korisnik;
-import isapsw.team55.ClinicalCenter.domain.Pacijent;
+import isapsw.team55.ClinicalCenter.domain.*;
 import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.dto.AdministratorKlinickogCentraDTO;
 import isapsw.team55.ClinicalCenter.service.AdministratorKlinickogCentraService;
@@ -77,14 +74,15 @@ public class AdministratorKlinickogCentraController {
         }
 
     @PostMapping(value="/odobriZahtev", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-        public ResponseEntity<Pacijent> odobriZahtev(@RequestBody Pacijent pacijent) throws Exception {
-            Pacijent p = administratorKlinickogCentraService.aktivirajNalog(pacijent);
+    public ResponseEntity<Pacijent> odobriZahtev(@RequestBody Pacijent pacijent) throws Exception {
+        Pacijent p = administratorKlinickogCentraService.aktivirajNalog(pacijent);
         if(p != null) {
-            emailService.sendNotificationAsync(p.getEmail(), "Dobrodosli!", "Vas zahtev za registraciju je odobren.");
-            return new ResponseEntity<Pacijent>(p, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<Pacijent>(HttpStatus.NOT_ACCEPTABLE);
+            emailService.sendVerificationMail(p, "Vaš nalog je odobren!");
+            return new ResponseEntity<>(p, HttpStatus.OK);
         }
+
+        return new ResponseEntity<>(p, HttpStatus.NOT_ACCEPTABLE);
+
     }
 
     @GetMapping(value = "/ulogovanKorisnik", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -100,7 +98,7 @@ public class AdministratorKlinickogCentraController {
 
     @PostMapping(value = "/add-klinika", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Klinika> addKlinika(@Context HttpServletRequest request, @RequestBody Klinika klinika) throws Exception {
-        Klinika k = klinikaService.addKlinika(klinika);
+        Klinika k = administratorKlinickogCentraService.addKlinika(klinika);
         Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
         AdministratorKlinickogCentra administratorKlinickogCentra = administratorKlinickogCentraService.findOneById(korisnik.getId());
 

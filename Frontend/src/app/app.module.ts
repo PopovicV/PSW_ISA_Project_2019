@@ -31,13 +31,20 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDrawerContent, MatSidenavModule} from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {AddKlinikaDialogComponent} from "./klinike-table/klinike-table.component";
+import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
+import { SalaService } from './service/sala.service';
+import {
+  AddAdministratorKlinikeDialogComponent,
+  AddKlinikaDialogComponent
+} from './modules/general/administratorKlinike/klinike-table/klinike-table.component';
+import {KlinikaService} from './service/klinika.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NotFoundComponent,
+    RegisterConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,9 +69,11 @@ import {AddKlinikaDialogComponent} from "./klinike-table/klinike-table.component
     PacijentService,
     RegistracijaKlinikeService,
     LogoutService,
+    SalaService,
+    KlinikaService
   ],
 
-  entryComponents: [AddKlinikaDialogComponent],
+  entryComponents: [AddKlinikaDialogComponent, AddAdministratorKlinikeDialogComponent],
 
   bootstrap: [AppComponent]
 })

@@ -8,5 +8,5 @@ export class AdministratorKlinike {
   ime: string;
   prezime: string;
   kontaktTelefon: string;
-  klinika: Klinika;
+  klinika: number;
 }

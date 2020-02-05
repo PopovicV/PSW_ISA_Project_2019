@@ -13,6 +13,7 @@
   <mat-form-field>
     <input matInput [(ngModel)]="klinika.opis" placeholder="Opis">
   </mat-form-field>
+</div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Odustani</button>
   <button mat-button [mat-dialog-close]="this.klinika" (click)="onOkClick()" cdkFocusInitial>Dodaj</button>

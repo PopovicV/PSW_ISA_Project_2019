@@ -19,4 +19,8 @@ export class RegisterService {
     let podaci = JSON.stringify(pacijent);
     return this.http.post<Pacijent>(this.registerUrl, podaci, httpOptions);
   }
+  public verify(token: String) {
+    this.registerUrl = '/server/api/register/registrationConfirm?' + token;
+    return this.http.get<String>(this.registerUrl, httpOptions)
+  } 
 }

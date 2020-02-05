@@ -15,7 +15,7 @@ export class AdministratorKlinikeService {
   }
 
   public izmeniProfil(administratorKlinike: AdministratorKlinike) {
-    this.requestUrl = '/api/administratorKlinike/update';
+    this.requestUrl = 'server/api/administratorKlinike/update';
     const podaci = JSON.stringify(administratorKlinike);
     return this.http.post<AdministratorKlinike>(this.requestUrl, podaci, httpOptions);
   }
@@ -23,5 +23,14 @@ export class AdministratorKlinikeService {
   public getUlogovanKorisnik() {
     this.requestUrl = 'server/api/administratorKlinike/ulogovanKorisnik';
     return this.http.get<AdministratorKlinike>(this.requestUrl, httpOptions);
+  }
+  public getAll() {
+    this.requestUrl = 'server/api/administratorKlinike/all';
+    return this.http.get<Array<AdministratorKlinike>>(this.requestUrl, httpOptions);
+  }
+
+  public getAllFromKlinika(id: number) {
+    this.requestUrl = '/server/api/administratorKlinike/getAllFromKlinika/' + id;
+    return this.http.get<Array<AdministratorKlinike>>(this.requestUrl, httpOptions);
   }
 }

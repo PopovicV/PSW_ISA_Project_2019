@@ -3,6 +3,7 @@ package isapsw.team55.ClinicalCenter.service;
 import java.util.List;
 
 import isapsw.team55.ClinicalCenter.domain.AdministratorKlinickogCentra;
+import isapsw.team55.ClinicalCenter.domain.AdministratorKlinike;
 import isapsw.team55.ClinicalCenter.domain.Klinika;
 import isapsw.team55.ClinicalCenter.domain.Pacijent;
 import isapsw.team55.ClinicalCenter.repository.AdministratorKlinickogCentraRepository;
@@ -78,12 +79,13 @@ public class AdministratorKlinickogCentraService {
     }
 
     public Pacijent aktivirajNalog(Pacijent pacijent) {
-        pacijent.setAdminAktiviraoNalog("DA");
-        return pacijentRepository.save(pacijent);
+        Pacijent pacijentAkt = pacijentRepository.findByEmail(pacijent.getEmail());
+        pacijentAkt.setAdminAktiviraoNalog("DA");
+        return pacijentRepository.save(pacijentAkt);
     }
 
     public Klinika addKlinika(Klinika klinika) {
-        Klinika k = klinikaRepository.findOneByIme(klinika.getIme());
+        Klinika k = klinikaRepository.findOneById(klinika.getId());
         if(k == null) {
             klinikaRepository.save(klinika);
             return  klinika;

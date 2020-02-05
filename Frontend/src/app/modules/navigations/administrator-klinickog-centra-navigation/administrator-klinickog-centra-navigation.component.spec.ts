@@ -9,7 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AdministratorKlinickogCentraNavigationComponent } from './administrator-klinickog-centra-navigation.component';
 import {AppRoutingModule} from '../../../app-routing.module';
-import {KlinikeTableComponent} from '../../../klinike-table/klinike-table.component';
+import {KlinikeTableComponent} from '../../general/administratorKlinike/klinike-table/klinike-table.component';
 
 describe('AdministratorKlinickogCentraNavigationComponent', () => {
   let component: AdministratorKlinickogCentraNavigationComponent;

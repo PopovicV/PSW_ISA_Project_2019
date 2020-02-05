@@ -1,14 +1,14 @@
 import {AfterViewInit, Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTable, MatTableDataSource} from '@angular/material/table';
-import {LekarService} from '../../service/lekar.service';
-import {AdministratorKlinikeService} from '../../service/administratorKlinike.service';
-import {Lekar} from '../../model/lekar';
+import {LekarService} from '../../../../service/lekar.service';
+import {AdministratorKlinikeService} from '../../../../service/administratorKlinike.service';
+import {Lekar} from '../../../../model/lekar';
 import {MatSort} from '@angular/material/sort';
 import {LekariTableDataSource} from './lekari-table-data-source';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {AdministratorKlinike} from '../../model/administratorKlinike';
-
+import {AdministratorKlinike} from '../../../../model/administratorKlinike';
+import {stringify} from 'querystring';
 
 @Component({
   selector: 'app-lekari-table',
@@ -17,7 +17,7 @@ import {AdministratorKlinike} from '../../model/administratorKlinike';
 })
 
 export class LekariTableComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['ime', 'prezime'];
+  displayedColumns: string[] = ['id', 'ime', 'prezime', 'actions'];
   dataSource: LekariTableDataSource;
   lekarList: Lekar[];
   dialogData: Lekar;
@@ -40,7 +40,6 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
           data1 => {
             this.lekarList = data1;
             this.dataSource = new LekariTableDataSource(this.lekarList);
-            alert(JSON.stringify(data1));
           }
         );
       }
@@ -59,11 +58,19 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      alert(JSON.stringify(result));
-      result.klinikaId = this.ulogovanAdministratorKlinike.klinika;
-      this.lekarService.registerLekar(result);
-      this.lekarList.push(result);
+      if (result != null) {
+        result.klinikaId = this.ulogovanAdministratorKlinike.klinika;
+        this.lekarService.registerLekar(result).subscribe(data => {
+          },
+          error => {
+            alert('GRESKA!');
+          });
+      }
     });
+  }
+
+  obrisi(id: number): void {
+    this.lekarService.remove(id).subscribe();
   }
 }
 
@@ -75,12 +82,30 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
 })
 export class AddLekarDialogComponent {
   lekar: Lekar = new Lekar();
+  ime: string;
+  prezime: string;
+  email: string;
+  smena: string;
+  specijalizacija: string;
+  kontaktTelefon: string;
   constructor(
     public dialogRef: MatDialogRef<AddLekarDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Lekar) {
+    this.ime = data.ime;
+    this.prezime = data.prezime;
+    this.email = data.email;
+    this.smena = stringify(data.smena);
+    this.specijalizacija = data.specijalizacija;
+    this.kontaktTelefon = data.kontaktTelefon;
   }
 
   onOkClick(): void {
+    this.lekar.ime = this.ime;
+    this.lekar.prezime = this.prezime;
+    this.lekar.email = this.email;
+    this.lekar.specijalizacija = this.specijalizacija;
+    this.lekar.kontaktTelefon = this.kontaktTelefon;
+    this.lekar.smena = Number(this.smena);
     this.dialogRef.close(this.lekar);
   }
 

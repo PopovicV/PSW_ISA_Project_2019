@@ -20,8 +20,13 @@ export class LekarService {
   }
 
   public registerLekar(lekar: Lekar) {
-    this.requestUrl = 'server/api/lekar/addLekar';
+    this.requestUrl = '/server/api/lekar/addLekar';
     console.log(JSON.stringify(lekar));
     return this.http.post<Lekar>(this.requestUrl, JSON.stringify(lekar), httpOptions);
+  }
+
+  public remove(id: number) {
+    this.requestUrl =  '/server/api/lekar/removeLekar/' + id;
+    return this.http.post(this.requestUrl, httpOptions);
   }
 }

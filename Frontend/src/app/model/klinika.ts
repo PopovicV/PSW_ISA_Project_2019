@@ -1,9 +1,9 @@
-// import { AdministratorKlinike } from './administratorKlinike';
+import { AdministratorKlinike } from './administratorKlinike';
 
 export class Klinika {
   id: number;
   ime: string;
   adresa: string;
   opis: string;
-  // administratorKlinike: AdministratorKlinike;
+  administratori: AdministratorKlinike[];
 }
