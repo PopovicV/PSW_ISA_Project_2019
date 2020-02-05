@@ -14,7 +14,7 @@
       <!-- Name Column -->
       <ng-container matColumnDef="ime">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Ime</th>
-        <td mat-cell *matCellDef="let row">{{row.ime}}</td>
+        <td mat-cell *matCellDef="let row"><a routerLink='' (click)='profilKlinike(row.id)'>{{row.ime}}</a></td>
       </ng-container>
 
       <!-- Name Column -->

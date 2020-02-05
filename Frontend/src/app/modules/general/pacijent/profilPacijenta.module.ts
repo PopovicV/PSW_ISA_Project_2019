@@ -20,6 +20,7 @@ import { KlinikaService } from 'src/app/service/klinika.service';
 import { MatFormFieldModule, MatInputModule, MatExpansionModule } from '@angular/material';
 import { PacijentListaDijagnozaComponent } from './pacijent-lista-dijagnoza/pacijent-lista-dijagnoza.component';
 import { DijagnozaService } from 'src/app/service/dijagnoza.service';
+import { PacijentProfilKlinikeComponent } from './pacijent-profil-klinike/pacijent-profil-klinike.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { DijagnozaService } from 'src/app/service/dijagnoza.service';
         PacijentNavigationComponent,
         ZapravoProfilComponent,
         PacijentListaKlinikaComponent,
-        PacijentListaDijagnozaComponent
+        PacijentListaDijagnozaComponent,
+        PacijentProfilKlinikeComponent
     ],
     exports: [
         ProfilPacijentaComponent,
