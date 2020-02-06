@@ -17,17 +17,17 @@
     <input matInput [(ngModel)]="specijalizacija" placeholder="Specijalizacija" required>
   </mat-form-field>
   <mat-form-field>
-    <mat-select placeholder="Smena" required>
-      <mat-option [(ngModel)]="smena" [value]="1">
+    <mat-select [(ngModel)]="smena" placeholder="Smena" required>
+      <mat-option  [value]="1">
         06:00-12:00
       </mat-option>
-      <mat-option [(ngModel)]="smena" [value]="2">
+      <mat-option [value]="2">
         12:00-18:00
       </mat-option>
-      <mat-option [(ngModel)]="smena" [value]="3">
+      <mat-option [value]="3">
         18:00-00:00
       </mat-option>
-      <mat-option [(ngModel)]="smena" [value]="4">
+      <mat-option [value]="4">
         00:00-06:00
       </mat-option>
     </mat-select>

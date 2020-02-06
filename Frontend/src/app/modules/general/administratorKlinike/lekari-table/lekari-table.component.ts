@@ -9,6 +9,7 @@ import {LekariTableDataSource} from './lekari-table-data-source';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {AdministratorKlinike} from '../../../../model/administratorKlinike';
 import {stringify} from 'querystring';
+import {PregledService} from '../../../../service/pregled.service';
 
 @Component({
   selector: 'app-lekari-table',
@@ -16,9 +17,9 @@ import {stringify} from 'querystring';
   styleUrls: ['./lekari-table.component.css']
 })
 
-export class LekariTableComponent implements OnInit, AfterViewInit {
+export class LekariTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'ime', 'prezime', 'actions'];
-  dataSource: LekariTableDataSource;
+  dataSource: any;
   lekarList: Lekar[];
   dialogData: Lekar;
   ulogovanAdministratorKlinike: AdministratorKlinike;
@@ -26,6 +27,7 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatTable, {static: false}) table: MatTable<Lekar>;
   constructor(public dialog: MatDialog, private lekarService: LekarService,
+              private pregledService: PregledService,
               private administratorKlinikeService: AdministratorKlinikeService) {
   }
 
@@ -36,19 +38,19 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
         this.lekarService.getAllFromKlinika(data.klinika.toString()).subscribe(
           data1 => {
             this.lekarList = data1;
-            this.dataSource = new LekariTableDataSource(this.lekarList);
+            this.dataSource = new MatTableDataSource<Lekar>(this.lekarList);
+            this.dataSource.sort = this.sort;
+            this.dataSource.paginator = this.paginator;
+            this.table.dataSource = this.dataSource;
           }
         );
       }
     );
   }
 
-  ngAfterViewInit() {
-    if (this.dataSource != null) {
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-      this.table.dataSource = this.dataSource;
-    }
+
+  public doFilter(value: string) {
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 
   openDialog(): void {
@@ -61,15 +63,19 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
         result.klinikaId = this.ulogovanAdministratorKlinike.klinika;
         this.lekarService.registerLekar(result).subscribe();
         this.ngOnInit();
-        this.ngAfterViewInit();
       }
     });
   }
 
   obrisi(id: number): void {
-    this.lekarService.remove(id).subscribe();
-    this.ngOnInit();
-    this.ngAfterViewInit();
+    this.pregledService.getAllFromKlinika(id).subscribe(data => {
+      if (data.length === 0) {
+        this.lekarService.remove(id).subscribe();
+        this.ngOnInit();
+      } else {
+        alert('Lekar ima rezervisane termine pregleda ili operacija i nije ga moguce izbrisati!');
+      }
+    });
   }
 }
 
