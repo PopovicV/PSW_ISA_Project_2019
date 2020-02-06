@@ -34,6 +34,11 @@ import {AddPregledDialogComponent, PreglediKalendarComponent} from './pregledi-k
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {AddTipPregledaDialogComponent, CenovnikComponent} from './cenovnik/cenovnik.component';
+import {
+  AddTipPregledaDialogComponent,
+  CenovnikComponent,
+  UpdateTipPregledaDialogComponent
+} from './cenovnik/cenovnik.component';
 import {CommonModule} from '@angular/common';
 
 
@@ -54,6 +59,7 @@ import {CommonModule} from '@angular/common';
     CenovnikComponent,
     AddTipPregledaDialogComponent,
     AddPregledDialogComponent,
+    UpdateTipPregledaDialogComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -85,7 +91,7 @@ import {CommonModule} from '@angular/common';
   providers: [PacijentService, KlinikaService, LekarService],
   entryComponents: [AddTipPregledaDialogComponent, AddLekarDialogComponent,
                     AddSalaDialogComponent, UpdateSalaDialogComponent,
-                    AddPregledDialogComponent]
+                    AddPregledDialogComponent, UpdateTipPregledaDialogComponent]
 })
 
 export class ProfilAdministratoraKlinikeModule {

@@ -50,4 +50,7 @@ public class PregledService {
         return pregledRepository.findAllByTipPregledaId(tipPregledaId);
     }
 
+    public List<Pregled> findAllByKlinikaId(Long klinikaId) {
+        return pregledRepository.getAllFromKlinika(klinikaId);
+    }
 }

@@ -23,4 +23,15 @@ export class TipPregledaService {
     this.requestUrl = '/server/api/tipPregleda/addTipPregleda';
     return this.http.post<TipPregleda>(this.requestUrl, JSON.stringify(tipPregleda), httpOptions);
   }
+
+  updateTipPregleda(tipPregleda: TipPregleda) {
+    this.requestUrl = '/server/api/tipPregleda/updateTipPregleda';
+    return this.http.post<TipPregleda>(this.requestUrl, JSON.stringify(tipPregleda), httpOptions);
+  }
+
+  removeTipPregleda(id: number) {
+    this.requestUrl = '/server/api/tipPregleda/removeTipPregleda/' + id;
+    alert(this.requestUrl);
+    return this.http.post<TipPregleda>(this.requestUrl, httpOptions);
+  }
 }
