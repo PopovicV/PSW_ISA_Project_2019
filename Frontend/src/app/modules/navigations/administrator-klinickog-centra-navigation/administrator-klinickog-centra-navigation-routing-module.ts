@@ -1,10 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {
-  KlinikeTableComponent
-} from '../../general/administratorKlinike/klinike-table/klinike-table.component';
 import {PacijentiTableComponent} from '../../../pacijenti-table/pacijenti-table.component';
 import {AddAdministratorKlinickogCentraDialogComponent} from './administrator-klinickog-centra-navigation.component';
+import {KlinikeTableComponent} from '../../general/profilAdministratoraKlinickogCentra/klinike-table/klinike-table.component';
 
 const routes: Routes = [
   { path: 'app-klinike-table', component: KlinikeTableComponent},

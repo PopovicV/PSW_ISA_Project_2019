@@ -21,7 +21,7 @@ export class KlinikeTableComponent implements AfterViewInit, OnInit {
   dataSource: KlinikeTableDataSource;
   klinike: Klinika[];
   dialogData: Klinika;
-  administratori: AdministratorKlinike[];
+  administratori: AdministratorKlinike[] = [];
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'ime', 'adresa', 'opis', 'administratori', 'akcije'];
@@ -36,12 +36,15 @@ export class KlinikeTableComponent implements AfterViewInit, OnInit {
       data => {
         this.klinike = data;
         this.dataSource = new KlinikeTableDataSource(this.klinike);
-        alert(JSON.stringify(data));
-        for (const k of this.klinike) {
+
+        for (let k of this.klinike) {
           this.administratorKlinikeService.getAllFromKlinika(k.id).subscribe(
             data1 => {
-              k.administratori = data1;
               alert(JSON.stringify(data1));
+              k.administratori = data1;
+              this.dataSource.sort = this.sort;
+              this.dataSource.paginator = this.paginator;
+              this.table.dataSource = this.dataSource;
             }
           );
         }

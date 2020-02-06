@@ -7,3 +7,6 @@
   margin: 20px auto;
 }
 
+.delete-button {
+  background: red;
+}

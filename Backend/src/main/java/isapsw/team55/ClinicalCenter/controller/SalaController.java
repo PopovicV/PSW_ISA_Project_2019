@@ -22,12 +22,8 @@ public class SalaController {
     private KlinikaService klinikaService;
 
     @GetMapping(value = "/allFromKlinika/{idKlinike}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<SalaDTO>> getAllKlinika(@PathVariable Long idKlinike) {
+    public ResponseEntity<List<SalaDTO>> getAllFromKlinika(@PathVariable Long idKlinike) {
         List<Sala> salaList = salaService.getAllFromKlinika(idKlinike);
-
-        if(salaList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
 
         List<SalaDTO> salaDTOList = new ArrayList<>();
 
@@ -40,7 +36,7 @@ public class SalaController {
     }
 
     @PostMapping(value = "/addSala",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<SalaDTO> addLekar(@RequestBody SalaDTO salaDTO) throws Exception {
+    public ResponseEntity<SalaDTO> addSala(@RequestBody SalaDTO salaDTO) throws Exception {
         Sala sala = new Sala(salaDTO);
 
         sala.setKlinika(klinikaService.findOneById(salaDTO.getKlinikaId()));
@@ -55,9 +51,17 @@ public class SalaController {
         }
     }
 
-    @PostMapping(value = "/removeSala/{id}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<SalaDTO> addLekar(@RequestBody SalaDTO salaDTO, @PathVariable Long id) throws Exception {
-        salaService.remove(id);
+    @PostMapping(value = "/updateSala",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity updateSala(@RequestBody SalaDTO salaDTO) throws Exception {
+        Sala sala = salaService.findOneById(salaDTO.getId());
+        sala.setNaziv(salaDTO.getNaziv());
+        salaService.update(sala);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/removeSala/{id}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity addLekar(@PathVariable Long id) throws Exception {
+        salaService.remove(id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

@@ -24,21 +24,13 @@ import { LogoutService } from './service/logout.service';
 import {RegistracijaKlinikeModule} from './modules/general/registracijaKlinike/registracijaKlinike.module';
 import {RegistracijaKlinikeService} from './service/registracijaKlinike.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdministratorKlinikeNavigationComponent } from './modules/navigations/administrator-klinike-navigation/administrator-klinike-navigation.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import {MatDrawerContent, MatSidenavModule} from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
 import { SalaService } from './service/sala.service';
-import {
-  AddAdministratorKlinikeDialogComponent,
-  AddKlinikaDialogComponent
-} from './modules/general/administratorKlinike/klinike-table/klinike-table.component';
 import {KlinikaService} from './service/klinika.service';
-import {AddAdministratorKlinickogCentraDialogComponent} from './modules/navigations/administrator-klinickog-centra-navigation/administrator-klinickog-centra-navigation.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import {TipPregledaService} from './service/tip-pregleda.service';
+import {PregledService} from './service/pregled.service';
 
 @NgModule({
   declarations: [
@@ -59,7 +51,9 @@ import {AddAdministratorKlinickogCentraDialogComponent} from './modules/navigati
     ProfilPacijentaModule,
     HttpClientModule,
     RegistracijaKlinikeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CommonModule,
+    FormsModule,
   ],
 
   providers: [
@@ -71,11 +65,10 @@ import {AddAdministratorKlinickogCentraDialogComponent} from './modules/navigati
     RegistracijaKlinikeService,
     LogoutService,
     SalaService,
-    KlinikaService
+    KlinikaService,
+    TipPregledaService,
+    PregledService,
   ],
-
-  entryComponents: [AddKlinikaDialogComponent, AddAdministratorKlinikeDialogComponent, AddAdministratorKlinickogCentraDialogComponent],
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }

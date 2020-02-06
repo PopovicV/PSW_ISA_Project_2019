@@ -30,7 +30,7 @@ export class AdministratorKlinikeService {
   }
 
   public getAllFromKlinika(id: number) {
-    this.requestUrl = '/server/api/administratorKlinike/getAllFromKlinika/' + id;
+    this.requestUrl = '/server/api/administratorKlinike/getAdministratoriKlinike/' + id;
     return this.http.get<Array<AdministratorKlinike>>(this.requestUrl, httpOptions);
   }
 }

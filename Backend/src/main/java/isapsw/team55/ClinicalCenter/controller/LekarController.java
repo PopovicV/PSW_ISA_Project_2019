@@ -26,10 +26,6 @@ public class LekarController {
     public ResponseEntity<List<LekarDTO>> getAllLekar(@PathVariable Long idKlinike) {
         List<Lekar> lekarList = lekarService.getAllFromKlinika(idKlinike);
 
-        if(lekarList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-
         List<LekarDTO> lekarDTOList = new ArrayList<LekarDTO>();
 
         for (Lekar lekar: lekarList

@@ -19,11 +19,18 @@ import {AdministratorKlinikeNavigationComponent} from './modules/navigations/adm
 import { ZapravoProfilComponent } from './modules/general/pacijent/zapravo-profil/zapravo-profil.component';
 import { PacijentListaKlinikaComponent } from './modules/general/pacijent/pacijent-lista-klinika/pacijent-lista-klinika.component';
 import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
-import {KlinikeTableComponent} from './modules/general/administratorKlinike/klinike-table/klinike-table.component';
+import {KlinikeTableComponent} from './modules/general/profilAdministratoraKlinickogCentra/klinike-table/klinike-table.component';
 import {PacijentiTableComponent} from './pacijenti-table/pacijenti-table.component';
 import {LekariTableComponent} from './modules/general/administratorKlinike/lekari-table/lekari-table.component';
 import {AdministratorKlinikeProfilPageComponent} from './modules/general/administratorKlinike/administrator-klinike-profil-page/administrator-klinike-profil-page.component';
 import {SaleTableComponent} from './modules/general/administratorKlinike/sale-table/sale-table.component';
+import {PreglediKalendarComponent} from "./modules/general/administratorKlinike/pregledi-kalendar/pregledi-kalendar.component";
+import {CenovnikComponent} from "./modules/general/administratorKlinike/cenovnik/cenovnik.component";
+import { PacijentListaDijagnozaComponent } from './modules/general/pacijent/pacijent-lista-dijagnoza/pacijent-lista-dijagnoza.component';
+import { PacijentProfilKlinikeComponent } from './modules/general/pacijent/pacijent-profil-klinike/pacijent-profil-klinike.component';
+import { PacijentIstorijaOperacijaComponent } from './modules/general/pacijent/pacijent-istorija-operacija/pacijent-istorija-operacija.component';
+import { PacijentIstorijaPregledaComponent } from './modules/general/pacijent/pacijent-istorija-pregleda/pacijent-istorija-pregleda.component';
+
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, },
@@ -54,6 +61,14 @@ const routes: Routes = [
         path: 'sale',
         component: SaleTableComponent,
       },
+      {
+        path: 'pregledi',
+        component: PreglediKalendarComponent,
+      },
+      {
+        path: 'cenovnik',
+        component: CenovnikComponent,
+      },
     ]
   },
   { path: 'profil-klinike', component: ProfilKlinikeComponent},
@@ -73,7 +88,23 @@ const routes: Routes = [
     },
     {
       path: 'pacijent-lista-klinika',
-      component: PacijentListaKlinikaComponent
+      component: PacijentListaKlinikaComponent,
+    },
+    {
+      path: 'pacijentKlinika',
+      component: PacijentProfilKlinikeComponent
+    },
+    {
+      path: 'pacijent-lista-dijagnoza',
+      component: PacijentListaDijagnozaComponent
+    },
+    {
+      path: 'pacijent-istorija-operacija',
+      component: PacijentIstorijaOperacijaComponent
+    },
+    {
+      path: 'pacijent-istorija-pregleda',
+      component: PacijentIstorijaPregledaComponent
     }
   ]},
   { path: 'registracija-klinike', component: RegistracijaKlinikeComponent},

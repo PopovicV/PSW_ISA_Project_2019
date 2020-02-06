@@ -25,14 +25,11 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatTable, {static: false}) table: MatTable<Lekar>;
-
-  // tslint:disable-next-line:max-line-length
-  constructor(public dialog: MatDialog, private lekarService: LekarService, private administratorKlinikeService: AdministratorKlinikeService) {
-    this.dataSource = new LekariTableDataSource(null);
+  constructor(public dialog: MatDialog, private lekarService: LekarService,
+              private administratorKlinikeService: AdministratorKlinikeService) {
   }
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
     this.administratorKlinikeService.getUlogovanKorisnik().subscribe(
       data => {
         this.ulogovanAdministratorKlinike = data;
@@ -47,9 +44,11 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
+    if (this.dataSource != null) {
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      this.table.dataSource = this.dataSource;
+    }
   }
 
   openDialog(): void {
@@ -60,17 +59,17 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result != null) {
         result.klinikaId = this.ulogovanAdministratorKlinike.klinika;
-        this.lekarService.registerLekar(result).subscribe(data => {
-          },
-          error => {
-            alert('GRESKA!');
-          });
+        this.lekarService.registerLekar(result).subscribe();
+        this.ngOnInit();
+        this.ngAfterViewInit();
       }
     });
   }
 
   obrisi(id: number): void {
     this.lekarService.remove(id).subscribe();
+    this.ngOnInit();
+    this.ngAfterViewInit();
   }
 }
 

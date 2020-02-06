@@ -1,0 +1,11 @@
+<h1 mat-dialog-title >Izmenjivanje sale</h1>
+<div mat-dialog-content style="display: flex; flex-direction: column;">
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="newSala.naziv" required>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Odustani</button>
+  <button mat-button [mat-dialog-close]="this.newSala" (click)="onOkClick()" cdkFocusInitial>Izmeni</button>
+</div>

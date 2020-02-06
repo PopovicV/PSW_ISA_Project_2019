@@ -14,6 +14,7 @@ public interface LekarRepository extends JpaRepository<Lekar, Long> {
     List<Lekar> findAllByPrezime(String prezime);
     List<Lekar> findAllByIme(String ime);
     List<Lekar> findAllByImeAndPrezime(String ime, String prezime);
+    List<Lekar> findAllBySpecijalizacija(String specijalizacija);
     Lekar findOneByEmail(String email);
 
     @Query("SELECT lekar from Lekar lekar where lekar.klinika.id=?1")

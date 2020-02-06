@@ -16,11 +16,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {
-  AddAdministratorKlinikeDialogComponent,
-  AddKlinikaDialogComponent,
-  KlinikeTableComponent
-} from '../administratorKlinike/klinike-table/klinike-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -29,6 +24,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {LogoutService} from '../../../service/logout.service';
 import {Router} from '@angular/router';
+import {
+  AddAdministratorKlinikeDialogComponent,
+  AddKlinikaDialogComponent,
+  KlinikeTableComponent
+} from './klinike-table/klinike-table.component';
 
 @NgModule({
   imports: [
@@ -55,11 +55,12 @@ import {Router} from '@angular/router';
     KlinikeTableComponent,
     AddKlinikaDialogComponent,
     AddAdministratorKlinikeDialogComponent,
-    AddAdministratorKlinickogCentraDialogComponent
+    AddAdministratorKlinickogCentraDialogComponent,
   ],
   providers: [
     KlinikaService
-  ]
+  ],
+  entryComponents: [AddKlinikaDialogComponent, AddAdministratorKlinikeDialogComponent, AddAdministratorKlinickogCentraDialogComponent],
 })
 
 export class ProfilAdministratoraKlinickogCentraModule {

@@ -25,10 +25,6 @@ public class SalaService {
     public void remove(Long id) {salaRepository.deleteById(id);}
 
     public Sala update(Sala sala) {
-        Sala sala1 = salaRepository.findOneById(sala.getId());
-        sala1.setNaziv(sala.getNaziv());
-        sala1.setKlinika(sala.getKlinika());
-
-        return save(sala1);
+        return salaRepository.save(sala);
     }
 }
