@@ -28,14 +28,6 @@ import { RegisterConfirmComponent } from './register-confirm/register-confirm.co
 import { SalaService } from './service/sala.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  AgendaService,
-  DayService, DragAndDropService,
-  MonthService,
-  ResizeService,
-  WeekService,
-  WorkWeekService
-} from '@syncfusion/ej2-angular-schedule';
 import {TipPregledaService} from './service/tip-pregleda.service';
 import {PregledService} from './service/pregled.service';
 
@@ -72,13 +64,6 @@ import {PregledService} from './service/pregled.service';
     RegistracijaKlinikeService,
     LogoutService,
     SalaService,
-    DayService,
-    WeekService,
-    WorkWeekService,
-    MonthService,
-    AgendaService,
-    ResizeService,
-    DragAndDropService,
     TipPregledaService,
     PregledService,
   ],

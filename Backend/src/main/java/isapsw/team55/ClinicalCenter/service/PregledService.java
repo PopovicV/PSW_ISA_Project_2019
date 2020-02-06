@@ -40,6 +40,8 @@ public class PregledService {
         return  pregledRepository.findAllByLekarId(lekarId);
     }
 
+    public List<Pregled> getPacijentPregledi(long pacijentId) { return pregledRepository.findAllByPacijent_Id(pacijentId); }
+
     public List<Pregled> findAllByTipPregledaNaziv(String tipPregeldaNaziv) {
         return pregledRepository.findAllByTipPregledaNaziv(tipPregeldaNaziv);
     }

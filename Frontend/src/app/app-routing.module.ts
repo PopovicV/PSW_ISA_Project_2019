@@ -25,6 +25,7 @@ import {CenovnikComponent} from "./modules/general/administratorKlinike/cenovnik
 import { PacijentListaDijagnozaComponent } from './modules/general/pacijent/pacijent-lista-dijagnoza/pacijent-lista-dijagnoza.component';
 import { PacijentProfilKlinikeComponent } from './modules/general/pacijent/pacijent-profil-klinike/pacijent-profil-klinike.component';
 import { PacijentIstorijaOperacijaComponent } from './modules/general/pacijent/pacijent-istorija-operacija/pacijent-istorija-operacija.component';
+import { PacijentIstorijaPregledaComponent } from './modules/general/pacijent/pacijent-istorija-pregleda/pacijent-istorija-pregleda.component';
 
 
 const routes: Routes = [
@@ -95,7 +96,11 @@ const routes: Routes = [
     {
       path: 'pacijent-istorija-operacija',
       component: PacijentIstorijaOperacijaComponent
-    } 
+    },
+    {
+      path: 'pacijent-istorija-pregleda',
+      component: PacijentIstorijaPregledaComponent
+    }
   ]},
   { path: 'registracija-klinike', component: RegistracijaKlinikeComponent},
   {
