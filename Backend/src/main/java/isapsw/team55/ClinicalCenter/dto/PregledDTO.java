@@ -102,4 +102,19 @@ public class PregledDTO {
     public void setRezervisan(boolean rezervisan) {
         this.rezervisan = rezervisan;
     }
+
+    @Override
+    public String toString() {
+        return "PregledDTO{" +
+                "id=" + id +
+                ", datum='" + datum + '\'' +
+                ", lekarId=" + lekarId +
+                ", salaId=" + salaId +
+                ", salaNaziv='" + salaNaziv + '\'' +
+                ", tipPregledaNaziv='" + tipPregledaNaziv + '\'' +
+                ", tipPregledaId=" + tipPregledaId +
+                ", pacijentId=" + pacijentId +
+                ", rezervisan=" + rezervisan +
+                '}';
+    }
 }

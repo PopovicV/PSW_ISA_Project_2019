@@ -129,4 +129,17 @@ public class Pregled {
     public void setRezervisan(boolean rezervisan) {
         this.rezervisan = rezervisan;
     }
+
+    @Override
+    public String toString() {
+        return "Pregled{" +
+                "id=" + id +
+                ", datum='" + datum + '\'' +
+                ", lekar=" + lekar +
+                ", sala=" + sala +
+                ", tipPregleda=" + tipPregleda +
+                ", pacijent=" + pacijent +
+                ", rezervisan=" + rezervisan +
+                '}';
+    }
 }

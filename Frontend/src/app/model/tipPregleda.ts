@@ -2,7 +2,7 @@ export class TipPregleda {
   id: number;
   naziv: string;
   specijalizacija: string;
-  trajanje: string;
+  trajanje: number;
   klinikaId: number;
   cenaPregleda: number;
 }

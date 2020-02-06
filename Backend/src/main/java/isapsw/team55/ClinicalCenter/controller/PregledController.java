@@ -51,14 +51,18 @@ public class PregledController {
 
     @PostMapping(value = "/addPregled",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PregledDTO> addPregled(@RequestBody PregledDTO pregledDTO) throws Exception {
+        System.out.println(pregledDTO.toString());
         Pregled pregled = new Pregled();
         pregled.setDatum(pregledDTO.getDatum());
         pregled.setLekar(lekarService.findOneById(pregledDTO.getLekarId()));
         pregled.setRezervisan(pregledDTO.isRezervisan());
-        pregled.setPacijent(pacijentService.findOne(pregledDTO.getPacijentId()));
+        if(pregledDTO.getPacijentId()!=0) {
+            pregled.setPacijent(pacijentService.findOne(pregledDTO.getPacijentId()));
+        }
         pregled.setSala(salaService.findOneById(pregledDTO.getSalaId()));
         pregled.setTipPregleda(tipPregledaService.findOneById(pregledDTO.getTipPregledaId()));
 
+        System.out.println(pregled.toString());
 
         pregledService.save(pregled);
         return new ResponseEntity<PregledDTO>(pregledDTO, HttpStatus.OK);

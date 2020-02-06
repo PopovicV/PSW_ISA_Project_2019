@@ -20,6 +20,7 @@ export class PregledService {
 
   public addPregeled(pregled: Pregled) {
     this.requestUrl = '/server/api/pregled/addPregled';
+    alert(JSON.stringify(pregled));
     return this.http.post<Pregled>(this.requestUrl, JSON.stringify(pregled), httpOptions);
   }
 
