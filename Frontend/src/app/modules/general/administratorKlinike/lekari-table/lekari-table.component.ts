@@ -9,7 +9,7 @@ import {LekariTableDataSource} from './lekari-table-data-source';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {AdministratorKlinike} from '../../../../model/administratorKlinike';
 import {stringify} from 'querystring';
-import {PregledService} from "../../../../service/pregled.service";
+import {PregledService} from '../../../../service/pregled.service';
 
 
 @Component({
@@ -20,7 +20,7 @@ import {PregledService} from "../../../../service/pregled.service";
 
 export class LekariTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'ime', 'prezime', 'actions'];
-  dataSource: LekariTableDataSource;
+  dataSource: any;
   lekarList: Lekar[];
   dialogData: Lekar;
   ulogovanAdministratorKlinike: AdministratorKlinike;
@@ -39,7 +39,7 @@ export class LekariTableComponent implements OnInit {
         this.lekarService.getAllFromKlinika(data.klinika.toString()).subscribe(
           data1 => {
             this.lekarList = data1;
-            this.dataSource = new LekariTableDataSource(this.lekarList);
+            this.dataSource = new MatTableDataSource<Lekar>(this.lekarList);
             this.dataSource.sort = this.sort;
             this.dataSource.paginator = this.paginator;
             this.table.dataSource = this.dataSource;
@@ -47,6 +47,10 @@ export class LekariTableComponent implements OnInit {
         );
       }
     );
+  }
+
+  public doFilter(value: string) {
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 
   openDialog(): void {
