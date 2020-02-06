@@ -14,11 +14,13 @@ public class PacijentDTO {
     private String grad;
     private String drzava;
     private String JBO;
+    private String adminAktiviraoNalog;
+    private String pacijentAktiviraoNalog;
 
     public PacijentDTO() {
     }
 
-    public PacijentDTO(Long id, String lozinka, String ime, String prezime, String email, String kontaktTelefon, String adresa, String grad, String drzava, String JBO) {
+    public PacijentDTO(Long id, String lozinka, String ime, String prezime, String email, String kontaktTelefon, String adresa, String grad, String drzava, String JBO, String adminAktiviraoNalog, String pacijentAktiviraoNalog) {
         this.id = id;
         this.lozinka = lozinka;
         this.ime = ime;
@@ -29,10 +31,12 @@ public class PacijentDTO {
         this.grad = grad;
         this.drzava = drzava;
         this.JBO = JBO;
+        this.adminAktiviraoNalog = adminAktiviraoNalog;
+        this.pacijentAktiviraoNalog = pacijentAktiviraoNalog;
     }
 
     public PacijentDTO (Pacijent pacijent) {
-        this(pacijent.getId(), pacijent.getLozinka(), pacijent.getIme(), pacijent.getPrezime(), pacijent.getEmail(), pacijent.getKontaktTelefon(), pacijent.getAdresa(), pacijent.getGrad(), pacijent.getDrzava(), pacijent.getJbo());
+        this(pacijent.getId(), pacijent.getLozinka(), pacijent.getIme(), pacijent.getPrezime(), pacijent.getEmail(), pacijent.getKontaktTelefon(), pacijent.getAdresa(), pacijent.getGrad(), pacijent.getDrzava(), pacijent.getJbo(), pacijent.getAdminAktiviraoNalog(), pacijent.getPacijentAktiviraoNalog());
     }
 
     public Long getId() {
@@ -73,5 +77,61 @@ public class PacijentDTO {
 
     public String getJBO() {
         return JBO;
+    }
+
+    public String getAdminAktiviraoNalog() {
+        return adminAktiviraoNalog;
+    }
+
+    public String getPacijentAktiviraoNalog() {
+        return pacijentAktiviraoNalog;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setLozinka(String lozinka) {
+        this.lozinka = lozinka;
+    }
+
+    public void setIme(String ime) {
+        this.ime = ime;
+    }
+
+    public void setPrezime(String prezime) {
+        this.prezime = prezime;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setKontaktTelefon(String kontaktTelefon) {
+        this.kontaktTelefon = kontaktTelefon;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
+
+    public void setGrad(String grad) {
+        this.grad = grad;
+    }
+
+    public void setDrzava(String drzava) {
+        this.drzava = drzava;
+    }
+
+    public void setJBO(String JBO) {
+        this.JBO = JBO;
+    }
+
+    public void setAdminAktiviraoNalog(String adminAktiviraoNalog) {
+        this.adminAktiviraoNalog = adminAktiviraoNalog;
+    }
+
+    public void setPacijentAktiviraoNalog(String pacijentAktiviraoNalog) {
+        this.pacijentAktiviraoNalog = pacijentAktiviraoNalog;
     }
 }

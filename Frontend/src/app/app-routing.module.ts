@@ -7,8 +7,12 @@ import {ProfileComponent} from './modules/general/profile/profile.component';
 import {LoginComponent} from './modules/general/login/login.component';
 import {RegisterComponent} from './modules/general/register/register.component';
 import {ProfilKlinikeComponent} from './modules/general/profilKlinike/profilKlinike.component';
-import {ProfilAdministratoraKlinickogCentraComponent} from './modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.component';
-import {ProfilAdministratoraKlinikeComponent} from './modules/general/administratorKlinike/profilAdministratoraKlinike.component';
+import {
+  ProfilAdministratoraKlinickogCentraComponent
+} from './modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.component';
+import {
+  ProfilAdministratoraKlinikeComponent
+} from './modules/general/administratorKlinike/profilAdministratoraKlinike.component';
 import { ProfilPacijentaComponent } from './modules/general/pacijent/profilPacijenta.component';
 import {RegistracijaKlinikeComponent} from './modules/general/registracijaKlinike/registracijaKlinike.component';
 import {AdministratorKlinikeNavigationComponent} from './modules/navigations/administrator-klinike-navigation/administrator-klinike-navigation.component';
@@ -71,12 +75,13 @@ const routes: Routes = [
   { path: 'profil-administratora-klinickog-centra', component: ProfilAdministratoraKlinickogCentraComponent,
     children: [
       { path: '', redirectTo: '', pathMatch: 'full'},
-      { path: 'app-klinike-table', component: KlinikeTableComponent}
+      { path: 'app-klinike-table', component: KlinikeTableComponent},
+      { path: 'app-pacijenti-table', component: PacijentiTableComponent}
     ]
   },
   { path: 'registrationConfirm', component: RegisterConfirmComponent},
   { path: 'profil-pacijenta', component: ProfilPacijentaComponent,
-  children:[
+  children: [
     {
       path: '',
       component: ZapravoProfilComponent

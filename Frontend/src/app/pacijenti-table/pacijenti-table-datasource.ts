@@ -91,6 +91,7 @@ export class PacijentiTableDataSource extends DataSource<PacijentiTableItem>{
         case 'ime': return compare(a.ime, b.ime, isAsc);
         case 'id': return compare(+a.id, +b.id, isAsc);
         case 'prezime' : return compare (a.prezime, b.prezime, isAsc);
+        case 'email' : return compare (a.email, b.email, isAsc);
         default: return 0;
       }
     });

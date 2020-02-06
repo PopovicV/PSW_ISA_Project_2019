@@ -11,7 +11,6 @@ import {AdministratorKlinike} from '../../../../model/administratorKlinike';
 import {stringify} from 'querystring';
 import {PregledService} from '../../../../service/pregled.service';
 
-
 @Component({
   selector: 'app-lekari-table',
   templateUrl: './lekari-table.component.html',
@@ -48,6 +47,7 @@ export class LekariTableComponent implements OnInit {
       }
     );
   }
+
 
   public doFilter(value: string) {
     this.dataSource.filter = value.trim().toLocaleLowerCase();

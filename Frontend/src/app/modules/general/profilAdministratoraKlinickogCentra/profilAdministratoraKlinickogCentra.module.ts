@@ -1,21 +1,34 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../../../app-routing.module';
-import {ProfilAdministratoraKlinickogCentraComponent} from './profilAdministratoraKlinickogCentra.component';
+import {
+  ProfilAdministratoraKlinickogCentraComponent
+} from './profilAdministratoraKlinickogCentra.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegistracijaKlinikeModule} from '../registracijaKlinike/registracijaKlinike.module';
-import { AdministratorKlinickogCentraNavigationComponent } from '../../navigations/administrator-klinickog-centra-navigation/administrator-klinickog-centra-navigation.component';
+import {
+  AddAdministratorKlinickogCentraDialogComponent,
+  AdministratorKlinickogCentraNavigationComponent
+} from '../../navigations/administrator-klinickog-centra-navigation/administrator-klinickog-centra-navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { KlinikeTableComponent } from './klinike-table/klinike-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { KlinikaService} from '../../../service/klinika.service';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {LogoutService} from '../../../service/logout.service';
+import {Router} from '@angular/router';
+import {
+  AddAdministratorKlinikeDialogComponent,
+  AddKlinikaDialogComponent,
+  KlinikeTableComponent
+} from './klinike-table/klinike-table.component';
 
 @NgModule({
   imports: [
@@ -33,17 +46,33 @@ import { KlinikaService} from '../../../service/klinika.service';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDialogModule,
+    MatFormFieldModule,
   ],
   declarations: [
     ProfilAdministratoraKlinickogCentraComponent,
     AdministratorKlinickogCentraNavigationComponent,
-    KlinikeTableComponent
+    KlinikeTableComponent,
+    AddKlinikaDialogComponent,
+    AddAdministratorKlinikeDialogComponent,
+    AddAdministratorKlinickogCentraDialogComponent,
   ],
   providers: [
     KlinikaService
-  ]
+  ],
+  entryComponents: [AddKlinikaDialogComponent, AddAdministratorKlinikeDialogComponent, AddAdministratorKlinickogCentraDialogComponent],
 })
 
 export class ProfilAdministratoraKlinickogCentraModule {
+  constructor(private logoutService: LogoutService, private router: Router ) {
 
+  }
+
+  public logout() {
+    this.logoutService.logout().subscribe(
+      data => {
+        return true;
+      }
+    );
+  }
 }

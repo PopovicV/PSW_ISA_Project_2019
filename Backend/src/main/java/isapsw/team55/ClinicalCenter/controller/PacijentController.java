@@ -25,7 +25,6 @@ public class PacijentController {
     @GetMapping(value = "/all")
     public ResponseEntity<List<PacijentDTO>> getAllPacijenti() {
         List<Pacijent> pacijenti = pacijentService.findAll();
-
         List<PacijentDTO> pacijentDTO = new ArrayList<>();
         for (Pacijent s : pacijenti) {
             pacijentDTO.add(new PacijentDTO(s));

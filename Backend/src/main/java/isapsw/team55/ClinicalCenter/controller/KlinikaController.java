@@ -2,6 +2,7 @@ package isapsw.team55.ClinicalCenter.controller;
 
 import isapsw.team55.ClinicalCenter.domain.AdministratorKlinike;
 import isapsw.team55.ClinicalCenter.domain.Klinika;
+import isapsw.team55.ClinicalCenter.dto.AdministratorKlinikeDTO;
 import isapsw.team55.ClinicalCenter.dto.KlinikaAdministratorDTO;
 import isapsw.team55.ClinicalCenter.dto.KlinikaDTO;
 import isapsw.team55.ClinicalCenter.repository.KlinikaRepository;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,7 +39,7 @@ public class KlinikaController {
         return new ResponseEntity<>(klinikaList, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    /*@PostMapping(value = "/add", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Klinika> addKlinika(@RequestBody Klinika klinika) throws Exception {
         Klinika klinika1 = klinikaService.addKlinika(klinika);
         if(klinika1 != null) {
@@ -45,7 +47,7 @@ public class KlinikaController {
         } else {
             return new ResponseEntity<Klinika>(HttpStatus.NOT_ACCEPTABLE);
         }
-    }
+    }*/
 
     @PostMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Klinika> updateKlinika(@RequestBody Klinika klinika) throws Exception {
@@ -57,7 +59,7 @@ public class KlinikaController {
         }
     }
 
-    @PostMapping(value = "/dodeliAdministratora", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/dodeliAdministratora/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Klinika> dodeliAdministratora(@RequestBody KlinikaAdministratorDTO klinikaAdministratorDTO) throws Exception {
         Klinika klinika = klinikaService.findOneById(klinikaAdministratorDTO.klinikaId);
         AdministratorKlinike administratorKlinike = administratorKlinikeService.findOneById(klinikaAdministratorDTO.administratorId);
@@ -80,4 +82,19 @@ public class KlinikaController {
 
         return  new ResponseEntity<>(new KlinikaDTO(klinika), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/getAdministratoriKlinike/{id}",  produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<AdministratorKlinikeDTO>> getAdministratoriKlinike(@PathVariable Long id) {
+        List<AdministratorKlinike> administratori = klinikaService.getAdministratoriKlinike(id);
+        List<AdministratorKlinikeDTO> administratoriDTO = new ArrayList<AdministratorKlinikeDTO>();
+        System.out.println("kontroler");
+        for(AdministratorKlinike administrator: administratori) {
+            administratoriDTO.add(new AdministratorKlinikeDTO(administrator));
+            System.out.println(administrator.getIme());
+        }
+        return new ResponseEntity<List<AdministratorKlinikeDTO>>(administratoriDTO, HttpStatus.OK);
+    }
+
+
+
 }

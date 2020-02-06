@@ -24,6 +24,22 @@
       <td mat-cell *matCellDef="let row">{{row.opis}}</td>
     </ng-container>
 
+
+    <ng-container matColumnDef="administratori">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Administratori klinike</th>
+      <td mat-cell *matCellDef="let row">
+        <mat-list dense *ngFor = "let admin of row.administratori">
+          {{admin.ime}} {{admin.prezime}}
+        </mat-list>
+      </td>
+    </ng-container>
+
+    <!-- Pridruzivanje adminstratora klinike klinici -->
+    <ng-container matColumnDef="akcije">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Akcije</th>
+      <td mat-cell *matCellDef="let row"><button mat-raised-button (click) = "openDialogAddAministratorKlinike()">Dodaj administratora klinike</button></td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
@@ -35,7 +51,7 @@
       [pageSizeOptions]="[25, 50, 100, 250]">
   </mat-paginator>
   <ng-container >
-    <button mat-raised-button>Dodaj novu kliniku</button>
+    <button mat-raised-button (click) = "openDialog()">Dodaj novu kliniku</button>
   </ng-container>
 
 </div>
