@@ -9,6 +9,7 @@ import {LekariTableDataSource} from './lekari-table-data-source';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {AdministratorKlinike} from '../../../../model/administratorKlinike';
 import {stringify} from 'querystring';
+import {PregledService} from "../../../../service/pregled.service";
 
 
 @Component({
@@ -17,7 +18,7 @@ import {stringify} from 'querystring';
   styleUrls: ['./lekari-table.component.css']
 })
 
-export class LekariTableComponent implements OnInit, AfterViewInit {
+export class LekariTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'ime', 'prezime', 'actions'];
   dataSource: LekariTableDataSource;
   lekarList: Lekar[];
@@ -27,6 +28,7 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort, {static: false}) sort: MatSort;
   @ViewChild(MatTable, {static: false}) table: MatTable<Lekar>;
   constructor(public dialog: MatDialog, private lekarService: LekarService,
+              private pregledService: PregledService,
               private administratorKlinikeService: AdministratorKlinikeService) {
   }
 
@@ -62,8 +64,14 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
   }
 
   obrisi(id: number): void {
-    this.lekarService.remove(id).subscribe();
-    this.ngOnInit();
+    this.pregledService.getAllFromKlinika(id).subscribe(data => {
+      if (data.length === 0) {
+        this.lekarService.remove(id).subscribe();
+        this.ngOnInit();
+      } else {
+        alert('Lekar ima rezervisane termine pregleda ili operacija i nije ga moguce izbrisati!');
+      }
+    });
   }
 }
 
