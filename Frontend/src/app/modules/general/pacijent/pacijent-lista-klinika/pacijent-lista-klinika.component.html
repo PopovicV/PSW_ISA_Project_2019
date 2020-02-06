@@ -1,6 +1,6 @@
-<div fxLayout fxLayoutAlign="center center">
-  <mat-form-field fxFlex="40%">
-    <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+<div style="padding-left: 10%;">
+  <mat-form-field>
+    <input  matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
   </mat-form-field>
 </div>
 <div class="mat-elevation-z8 data-table">
@@ -14,7 +14,7 @@
       <!-- Name Column -->
       <ng-container matColumnDef="ime">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Ime</th>
-        <td mat-cell *matCellDef="let row">{{row.ime}}</td>
+        <td mat-cell *matCellDef="let row"><a routerLink='' (click)='profilKlinike(row.id)'>{{row.ime}}</a></td>
       </ng-container>
 
       <!-- Name Column -->
