@@ -7,6 +7,7 @@ import {AdministratorKlinikeService} from '../../../../service/administratorKlin
 import {AdministratorKlinike} from '../../../../model/administratorKlinike';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
+import {PregledService} from '../../../../service/pregled.service';
 
 @Component({
   selector: 'app-sale-table',
@@ -24,6 +25,7 @@ export class SaleTableComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatTable, {static: false}) table: MatTable<Sala>;
   constructor(public dialog: MatDialog, private salaService: SalaService,
+              private pregledService: PregledService,
               private administratorKlinikeService: AdministratorKlinikeService) {
   }
 
@@ -56,20 +58,36 @@ export class SaleTableComponent implements OnInit {
   }
 
   obrisi(id: number): void {
-    this.salaService.remove(id).subscribe();
-    this.ngOnInit();
+    this.pregledService.getAllFromSala(id).subscribe(data => {
+      for (const pregled of data) {
+        if (pregled.salaId === id) {
+          alert('Sala ne moze biti izbrisana jer ima zakazanih pregleda.');
+          return;
+        }
+      }
+      this.salaService.remove(id).subscribe();
+      this.ngOnInit();
+    });
   }
 
   izmeni(currSala: Sala): void {
-    const dialogRef = this.dialog.open(UpdateSalaDialogComponent, {
-      data: {sala: currSala}
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      if (result != null) {
-        this.salaService.updateSala(result).subscribe( data => {
-          this.ngOnInit();
+    this.pregledService.getAllFromSala(currSala.id).subscribe(data => {
+        for (const pregled of data) {
+          if (pregled.salaId === currSala.id) {
+            alert('Sala ne moze biti izmenjena jer ima zakazanih pregleda.');
+            return;
+          }
+        }
+        const dialogRef = this.dialog.open(UpdateSalaDialogComponent, {
+          data: {sala: currSala}
         });
-      }
+        dialogRef.afterClosed().subscribe(result => {
+          if (result != null) {
+            this.salaService.updateSala(result).subscribe( data1 => {
+              this.ngOnInit();
+            });
+          }
+        });
     });
   }
 }
@@ -85,7 +103,7 @@ export class AddSalaDialogComponent {
   naziv: string;
   constructor(
       public dialogRef: MatDialogRef<Sala>,
-    @Inject(MAT_DIALOG_DATA) public data) {
+      @Inject(MAT_DIALOG_DATA) public data) {
   }
 
   onOkClick(): void {
