@@ -7,5 +7,5 @@ export class Pregled {
   tipPregledaId: number;
   pacijentId: number;
   rezervisan: boolean;
-  salaNaziv: number;
+  salaNaziv: string;
 }

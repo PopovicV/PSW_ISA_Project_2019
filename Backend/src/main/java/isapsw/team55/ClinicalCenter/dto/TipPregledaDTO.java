@@ -78,4 +78,16 @@ public class TipPregledaDTO {
     public void setCenaPregleda(float cenaPregleda) {
         this.cenaPregleda = cenaPregleda;
     }
+
+    @Override
+    public String toString() {
+        return "TipPregledaDTO{" +
+                "id=" + id +
+                ", naziv='" + naziv + '\'' +
+                ", specijalizacija='" + specijalizacija + '\'' +
+                ", trajanje=" + trajanje +
+                ", klinikaId=" + klinikaId +
+                ", cenaPregleda=" + cenaPregleda +
+                '}';
+    }
 }

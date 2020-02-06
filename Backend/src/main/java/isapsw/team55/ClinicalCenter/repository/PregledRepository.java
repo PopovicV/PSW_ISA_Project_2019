@@ -2,6 +2,7 @@ package isapsw.team55.ClinicalCenter.repository;
 
 import isapsw.team55.ClinicalCenter.domain.Pregled;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface PregledRepository extends JpaRepository<Pregled, Long> {
     List<Pregled> findAllByLekarId(long lekarId);
     List<Pregled> findAllByTipPregledaNaziv(String tipPregeldaNaziv);
     List<Pregled> findAllByTipPregledaId(long tipPregledaId);
+
+    @Query("SELECT p from Pregled p where p.sala.klinika.id=?1")
+    List<Pregled> getAllFromKlinika(long klinikaId);
 }

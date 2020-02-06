@@ -25,6 +25,18 @@ public class PregledController {
     @Autowired
     private TipPregledaService tipPregledaService;
 
+    @GetMapping(value = "/allFromKlinika/{idKlinike}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<PregledDTO>> getAllFromKlinika(@PathVariable Long idKlinike) {
+        List<Pregled> pregledList = pregledService.findAllByKlinikaId(idKlinike);
+
+        List<PregledDTO> pregledDTOList = new ArrayList<>();
+        for(Pregled pregled: pregledList) {
+            pregledDTOList.add(new PregledDTO(pregled));
+        }
+
+        return new ResponseEntity<>(pregledDTOList, HttpStatus.OK);
+    }
+
     @GetMapping(value = "/allFromSala/{idSale}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<PregledDTO>> getAllFromSala(@PathVariable Long idSale) {
         List<Pregled> pregledList = pregledService.findAllBySalaId(idSale);
