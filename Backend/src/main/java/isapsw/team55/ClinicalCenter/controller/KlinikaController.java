@@ -3,6 +3,7 @@ package isapsw.team55.ClinicalCenter.controller;
 import isapsw.team55.ClinicalCenter.domain.AdministratorKlinike;
 import isapsw.team55.ClinicalCenter.domain.Klinika;
 import isapsw.team55.ClinicalCenter.dto.KlinikaAdministratorDTO;
+import isapsw.team55.ClinicalCenter.dto.KlinikaDTO;
 import isapsw.team55.ClinicalCenter.repository.KlinikaRepository;
 import isapsw.team55.ClinicalCenter.service.AdministratorKlinikeService;
 import isapsw.team55.ClinicalCenter.service.KlinikaService;
@@ -33,7 +34,6 @@ public class KlinikaController {
     @GetMapping(value = "/all")
     public ResponseEntity<List<Klinika>> getAllKlinika() {
         List<Klinika> klinikaList = klinikaService.getAll();
-
         return new ResponseEntity<>(klinikaList, HttpStatus.OK);
     }
 
@@ -68,5 +68,16 @@ public class KlinikaController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
+    }
+
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<KlinikaDTO> getAdministratorKlinike(@PathVariable Long id) {
+            Klinika klinika = klinikaService.findOneById(id);
+
+        if(klinika == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return  new ResponseEntity<>(new KlinikaDTO(klinika), HttpStatus.OK);
     }
 }

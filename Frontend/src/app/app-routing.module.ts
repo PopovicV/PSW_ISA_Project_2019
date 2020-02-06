@@ -11,18 +11,92 @@ import {ProfilAdministratoraKlinickogCentraComponent} from './modules/general/pr
 import {ProfilAdministratoraKlinikeComponent} from './modules/general/administratorKlinike/profilAdministratoraKlinike.component';
 import { ProfilPacijentaComponent } from './modules/general/pacijent/profilPacijenta.component';
 import {RegistracijaKlinikeComponent} from './modules/general/registracijaKlinike/registracijaKlinike.component';
+import {AdministratorKlinikeNavigationComponent} from './modules/navigations/administrator-klinike-navigation/administrator-klinike-navigation.component';
+import { ZapravoProfilComponent } from './modules/general/pacijent/zapravo-profil/zapravo-profil.component';
+import { PacijentListaKlinikaComponent } from './modules/general/pacijent/pacijent-lista-klinika/pacijent-lista-klinika.component';
+import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
+import {KlinikeTableComponent} from './modules/general/profilAdministratoraKlinickogCentra/klinike-table/klinike-table.component';
+import {PacijentiTableComponent} from './pacijenti-table/pacijenti-table.component';
+import {LekariTableComponent} from './modules/general/administratorKlinike/lekari-table/lekari-table.component';
+import {AdministratorKlinikeProfilPageComponent} from './modules/general/administratorKlinike/administrator-klinike-profil-page/administrator-klinike-profil-page.component';
+import {SaleTableComponent} from './modules/general/administratorKlinike/sale-table/sale-table.component';
+import {PreglediKalendarComponent} from "./modules/general/administratorKlinike/pregledi-kalendar/pregledi-kalendar.component";
+import {CenovnikComponent} from "./modules/general/administratorKlinike/cenovnik/cenovnik.component";
+import { PacijentListaDijagnozaComponent } from './modules/general/pacijent/pacijent-lista-dijagnoza/pacijent-lista-dijagnoza.component';
+import { PacijentProfilKlinikeComponent } from './modules/general/pacijent/pacijent-profil-klinike/pacijent-profil-klinike.component';
+import { PacijentIstorijaOperacijaComponent } from './modules/general/pacijent/pacijent-istorija-operacija/pacijent-istorija-operacija.component';
+
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, },
-  { path: '', component: LoginComponent, },
+  { path: '', component: LoginComponent },
   {
     path: 'register', component: RegisterComponent,
   },
   { path: 'profile', component: ProfileComponent},
-  { path: 'profil-administratora-klinike', component: ProfilAdministratoraKlinikeComponent},
+  { path: 'profil-administratora-klinike', component: ProfilAdministratoraKlinikeComponent,
+    children: [
+      {
+        path: '',
+        component: AdministratorKlinikeProfilPageComponent,
+      },
+      {
+        path: 'profilKlinike',
+        component: ProfilKlinikeComponent,
+      },
+      {
+        path: 'lekari',
+        component: LekariTableComponent,
+      },
+      {
+        path: 'profilPage',
+        component: AdministratorKlinikeProfilPageComponent,
+      },
+      {
+        path: 'sale',
+        component: SaleTableComponent,
+      },
+      {
+        path: 'pregledi',
+        component: PreglediKalendarComponent,
+      },
+      {
+        path: 'cenovnik',
+        component: CenovnikComponent,
+      },
+    ]
+  },
   { path: 'profil-klinike', component: ProfilKlinikeComponent},
-  { path: 'profil-administratora-klinickog-centra', component: ProfilAdministratoraKlinickogCentraComponent},
-  { path: 'profil-pacijenta', component: ProfilPacijentaComponent},
+  { path: 'profil-administratora-klinickog-centra', component: ProfilAdministratoraKlinickogCentraComponent,
+    children: [
+      { path: '', redirectTo: '', pathMatch: 'full'},
+      { path: 'app-klinike-table', component: KlinikeTableComponent}
+    ]
+  },
+  { path: 'registrationConfirm', component: RegisterConfirmComponent},
+  { path: 'profil-pacijenta', component: ProfilPacijentaComponent,
+  children:[
+    {
+      path: '',
+      component: ZapravoProfilComponent
+    },
+    {
+      path: 'pacijent-lista-klinika',
+      component: PacijentListaKlinikaComponent,
+    },
+    {
+      path: 'pacijentKlinika',
+      component: PacijentProfilKlinikeComponent
+    },
+    {
+      path: 'pacijent-lista-dijagnoza',
+      component: PacijentListaDijagnozaComponent
+    },
+    {
+      path: 'pacijent-istorija-operacija',
+      component: PacijentIstorijaOperacijaComponent
+    } 
+  ]},
   { path: 'registracija-klinike', component: RegistracijaKlinikeComponent},
   {
     path: 'about',

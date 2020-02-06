@@ -57,7 +57,7 @@ public class EmailService {
 
         mail.setText("Administrator je prihvation vaš zahtev za registraciju. Možete aktiviriti vaš nalog odlaskom na sledeći link\n" +
                 "Verifikacioni link:\t" +
-                "http://localhost:4200/register/registrationConfirm?token=" + token);
+                "http://localhost:4200/registrationConfirm?token=" + token);
 
         javaMailSender.send(mail);
 

@@ -1,0 +1,22 @@
+<h1 mat-dialog-title >Dodavanje nove sale</h1>
+<div mat-dialog-content style="display: flex; flex-direction: column;">
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="tipPregleda.naziv" placeholder="Naziv" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="tipPregleda.specijalizacija" placeholder="Specijalizacija" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" [(ngModel)]="tipPregleda.trajanje" placeholder="Trajanje" required>
+    <p matSuffix>min</p>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" [(ngModel)]="tipPregleda.cenaPregleda" placeholder="Cena" required>
+  </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Odustani</button>
+  <button mat-button [mat-dialog-close]="this.tipPregleda" (click)="onOkClick()" cdkFocusInitial>Dodaj</button>
+</div>

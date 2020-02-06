@@ -66,13 +66,15 @@ public class AdministratorKlinikeController {
     }
 
     @GetMapping(value = "/ulogovanKorisnik", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<AdministratorKlinike> getKorisnik(@Context HttpServletRequest request) {
+    public ResponseEntity<AdministratorKlinikeDTO> getKorisnik(@Context HttpServletRequest request) {
         Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
         AdministratorKlinike administratorKlinike = administratorKlinikeService.findOneById(korisnik.getId());
 
         if(administratorKlinike == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return  new ResponseEntity(administratorKlinike, HttpStatus.OK);
+        System.out.println("Ulogovan administrator:" + administratorKlinike.getIme());
+        System.out.println(administratorKlinike.getKlinika().getId());
+        return  new ResponseEntity(new AdministratorKlinikeDTO(administratorKlinike), HttpStatus.OK);
     }
 }

@@ -1,0 +1,13 @@
+.example-custom-date-class {
+  background: orange;
+  border-radius: 100%;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.data-table {
+  width: 80%;
+  margin: 20px auto;
+}

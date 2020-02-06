@@ -23,14 +23,28 @@ import { ProfilPacijentaModule } from './modules/general/pacijent/profilPacijent
 import { LogoutService } from './service/logout.service';
 import {RegistracijaKlinikeModule} from './modules/general/registracijaKlinike/registracijaKlinike.module';
 import {RegistracijaKlinikeService} from './service/registracijaKlinike.service';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
+import { SalaService } from './service/sala.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import {
+  AgendaService,
+  DayService, DragAndDropService,
+  MonthService,
+  ResizeService,
+  WeekService,
+  WorkWeekService
+} from '@syncfusion/ej2-angular-schedule';
+import {TipPregledaService} from './service/tip-pregleda.service';
+import {PregledService} from './service/pregled.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    RegisterConfirmComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +57,31 @@ import {RegistracijaKlinikeService} from './service/registracijaKlinike.service'
     ProfilAdministratoraKlinickogCentraModule,
     ProfilPacijentaModule,
     HttpClientModule,
-    RegistracijaKlinikeModule
+    RegistracijaKlinikeModule,
+    BrowserAnimationsModule,
+    CommonModule,
+    FormsModule,
   ],
-  providers: [RegisterService, LoginService, AdministratorKlinikeService, AdministratorKlinickogCentraService, PacijentService, RegistracijaKlinikeService, LogoutService],
+
+  providers: [
+    RegisterService,
+    LoginService,
+    AdministratorKlinikeService,
+    AdministratorKlinickogCentraService,
+    PacijentService,
+    RegistracijaKlinikeService,
+    LogoutService,
+    SalaService,
+    DayService,
+    WeekService,
+    WorkWeekService,
+    MonthService,
+    AgendaService,
+    ResizeService,
+    DragAndDropService,
+    TipPregledaService,
+    PregledService,
+  ],
 
 
   bootstrap: [AppComponent]

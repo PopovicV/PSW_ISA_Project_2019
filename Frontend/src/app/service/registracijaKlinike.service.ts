@@ -17,7 +17,6 @@ export class RegistracijaKlinikeService {
 
   public registrujKliniku(klinika: Klinika) {
     const podaci = JSON.stringify(klinika);
-    alert(podaci);
     return this.http.post<Klinika>(this.registracijaKlinikeUrl, podaci, httpOptions);
   }
 

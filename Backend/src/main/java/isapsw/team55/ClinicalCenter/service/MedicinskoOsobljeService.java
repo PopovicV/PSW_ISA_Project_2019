@@ -47,9 +47,7 @@ public class MedicinskoOsobljeService {
         return medicinskoOsobljeRepository.save(medicinskoOsoblje);
     }
 
-    public void remove(Long id) {
-        medicinskoOsobljeRepository.deleteById(id);
-    }
+    public void remove(Long id) {medicinskoOsobljeRepository.deleteById(id);}
 
     public MedicinskoOsoblje update(MedicinskoOsoblje medicinskoOsoblje) {
         MedicinskoOsoblje a = medicinskoOsobljeRepository.findOneByEmail(medicinskoOsoblje.getEmail());
