@@ -38,18 +38,13 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
           data1 => {
             this.lekarList = data1;
             this.dataSource = new LekariTableDataSource(this.lekarList);
+            this.dataSource.sort = this.sort;
+            this.dataSource.paginator = this.paginator;
+            this.table.dataSource = this.dataSource;
           }
         );
       }
     );
-  }
-
-  ngAfterViewInit() {
-    if(this.dataSource != null) {
-      this.dataSource.sort = this.sort;
-      this.dataSource.paginator = this.paginator;
-      this.table.dataSource = this.dataSource;
-    }
   }
 
   openDialog(): void {
@@ -62,7 +57,6 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
         result.klinikaId = this.ulogovanAdministratorKlinike.klinika;
         this.lekarService.registerLekar(result).subscribe();
         this.ngOnInit();
-        this.ngAfterViewInit();
       }
     });
   }
@@ -70,7 +64,6 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
   obrisi(id: number): void {
     this.lekarService.remove(id).subscribe();
     this.ngOnInit();
-    this.ngAfterViewInit();
   }
 }
 

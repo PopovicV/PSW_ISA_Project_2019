@@ -33,7 +33,6 @@ import {AddSalaDialogComponent, SaleTableComponent, UpdateSalaDialogComponent} f
 import {AddPregledDialogComponent, PreglediKalendarComponent} from './pregledi-kalendar/pregledi-kalendar.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-import {AddTipPregledaDialogComponent, CenovnikComponent} from './cenovnik/cenovnik.component';
 import {
   AddTipPregledaDialogComponent,
   CenovnikComponent,
