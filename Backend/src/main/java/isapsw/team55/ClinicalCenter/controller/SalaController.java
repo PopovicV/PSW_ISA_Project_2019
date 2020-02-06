@@ -58,4 +58,10 @@ public class SalaController {
         salaService.update(sala);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @PostMapping(value = "/removeSala/{id}",consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity addLekar(@PathVariable Long id) throws Exception {
+        salaService.remove(id);
+        return new ResponseEntity(HttpStatus.OK);
+    }
 }

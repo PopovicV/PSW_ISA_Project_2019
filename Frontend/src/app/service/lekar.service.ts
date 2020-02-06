@@ -21,7 +21,6 @@ export class LekarService {
 
   public registerLekar(lekar: Lekar) {
     this.requestUrl = '/server/api/lekar/addLekar';
-    console.log(JSON.stringify(lekar));
     return this.http.post<Lekar>(this.requestUrl, JSON.stringify(lekar), httpOptions);
   }
 

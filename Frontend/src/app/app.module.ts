@@ -26,6 +26,18 @@ import {RegistracijaKlinikeService} from './service/registracijaKlinike.service'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
 import { SalaService } from './service/sala.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import {
+  AgendaService,
+  DayService, DragAndDropService,
+  MonthService,
+  ResizeService,
+  WeekService,
+  WorkWeekService
+} from '@syncfusion/ej2-angular-schedule';
+import {TipPregledaService} from './service/tip-pregleda.service';
+import {PregledService} from './service/pregled.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +58,9 @@ import { SalaService } from './service/sala.service';
     ProfilPacijentaModule,
     HttpClientModule,
     RegistracijaKlinikeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CommonModule,
+    FormsModule,
   ],
 
   providers: [
@@ -58,6 +72,15 @@ import { SalaService } from './service/sala.service';
     RegistracijaKlinikeService,
     LogoutService,
     SalaService,
+    DayService,
+    WeekService,
+    WorkWeekService,
+    MonthService,
+    AgendaService,
+    ResizeService,
+    DragAndDropService,
+    TipPregledaService,
+    PregledService,
   ],
 
 

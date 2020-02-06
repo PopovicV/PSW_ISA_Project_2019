@@ -1,5 +1,7 @@
 package isapsw.team55.ClinicalCenter.domain;
 
+import isapsw.team55.ClinicalCenter.dto.PregledDTO;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -13,19 +15,43 @@ public class Pregled {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "cenaPregeleda", nullable = false)
-    private float cenaPregleda;
-
     @Column(name = "datum", nullable = false)
     private String datum;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Lekar lekar;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Sala sala;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private TipPregleda tipPregleda;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Pacijent pacijent;
+
+    @Column(name = "rezervisan", nullable = false)
+    private boolean rezervisan;
+
     public Pregled() {
+    }
+
+    public Pregled(String datum, Lekar lekar, Sala sala, TipPregleda tipPregleda) {
+        this.datum = datum;
+        this.lekar = lekar;
+        this.sala = sala;
+        this.tipPregleda = tipPregleda;
+        this.pacijent = null;
+        this.rezervisan =false;
+    }
+
+    public Pregled(String datum, Lekar lekar, Sala sala, TipPregleda tipPregleda, Pacijent pacijent) {
+        this.datum = datum;
+        this.lekar = lekar;
+        this.sala = sala;
+        this.tipPregleda = tipPregleda;
+        this.pacijent = pacijent;
+        this.rezervisan = true;
     }
 
     public Long getId() {
@@ -34,14 +60,6 @@ public class Pregled {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public float getCenaPregleda() {
-        return cenaPregleda;
-    }
-
-    public void setCenaPregleda(float cenaPregleda) {
-        this.cenaPregleda = cenaPregleda;
     }
 
     public String getDatum() {
@@ -86,5 +104,42 @@ public class Pregled {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    public TipPregleda getTipPregleda() {
+        return tipPregleda;
+    }
+
+    public void setTipPregleda(TipPregleda tipPregleda) {
+        this.tipPregleda = tipPregleda;
+    }
+
+    public Pacijent getPacijent() {
+        return pacijent;
+    }
+
+    public void setPacijent(Pacijent pacijent) {
+        this.pacijent = pacijent;
+    }
+
+    public boolean isRezervisan() {
+        return rezervisan;
+    }
+
+    public void setRezervisan(boolean rezervisan) {
+        this.rezervisan = rezervisan;
+    }
+
+    @Override
+    public String toString() {
+        return "Pregled{" +
+                "id=" + id +
+                ", datum='" + datum + '\'' +
+                ", lekar=" + lekar +
+                ", sala=" + sala +
+                ", tipPregleda=" + tipPregleda +
+                ", pacijent=" + pacijent +
+                ", rezervisan=" + rezervisan +
+                '}';
     }
 }

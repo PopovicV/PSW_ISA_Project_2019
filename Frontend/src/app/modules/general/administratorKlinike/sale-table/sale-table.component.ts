@@ -84,7 +84,7 @@ export class AddSalaDialogComponent {
   sala: Sala = new Sala();
   naziv: string;
   constructor(
-    public dialogRef: MatDialogRef<Sala>,
+      public dialogRef: MatDialogRef<Sala>,
     @Inject(MAT_DIALOG_DATA) public data) {
   }
 

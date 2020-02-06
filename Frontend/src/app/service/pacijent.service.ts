@@ -18,7 +18,6 @@ export class PacijentService {
   public izmeniProfil(pacijent: Pacijent) {
     this.requestUrl = '/server/api/pacijent/update';
     const podaci = JSON.stringify(pacijent);
-    console.log(podaci)
     return this.http.post<Pacijent>(this.requestUrl, podaci, httpOptions);
   }
 
