@@ -21,6 +21,7 @@ import { MatFormFieldModule, MatInputModule, MatExpansionModule } from '@angular
 import { PacijentListaDijagnozaComponent } from './pacijent-lista-dijagnoza/pacijent-lista-dijagnoza.component';
 import { DijagnozaService } from 'src/app/service/dijagnoza.service';
 import { PacijentProfilKlinikeComponent } from './pacijent-profil-klinike/pacijent-profil-klinike.component';
+import { PacijentIstorijaOperacijaComponent } from './pacijent-istorija-operacija/pacijent-istorija-operacija.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { PacijentProfilKlinikeComponent } from './pacijent-profil-klinike/pacije
         ZapravoProfilComponent,
         PacijentListaKlinikaComponent,
         PacijentListaDijagnozaComponent,
-        PacijentProfilKlinikeComponent
+        PacijentProfilKlinikeComponent,
+        PacijentIstorijaOperacijaComponent
     ],
     exports: [
         ProfilPacijentaComponent,

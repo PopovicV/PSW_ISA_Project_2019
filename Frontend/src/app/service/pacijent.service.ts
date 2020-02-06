@@ -1,6 +1,7 @@
 import { Pacijent } from '../model/pacijent';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { OperacijaDTO } from '../model/operacijaDTO';
 
 
 const httpOptions = {
@@ -25,5 +26,10 @@ export class PacijentService {
   public getAll() {
     this.requestUrl = '/server/api/pacijent/all';
     return this.http.get<Array<Pacijent>>(this.requestUrl, httpOptions);
+  }
+
+  public getIstorijaOperacija() {
+    this.requestUrl = '/server/api/operacija/pacijentOperacije';
+    return this.http.get<Array<OperacijaDTO>>(this.requestUrl, httpOptions);
   }
 }

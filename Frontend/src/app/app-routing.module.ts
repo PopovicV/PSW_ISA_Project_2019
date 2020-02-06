@@ -22,6 +22,7 @@ import {AdministratorKlinikeProfilPageComponent} from './modules/general/adminis
 import {SaleTableComponent} from './modules/general/administratorKlinike/sale-table/sale-table.component';
 import { PacijentListaDijagnozaComponent } from './modules/general/pacijent/pacijent-lista-dijagnoza/pacijent-lista-dijagnoza.component';
 import { PacijentProfilKlinikeComponent } from './modules/general/pacijent/pacijent-profil-klinike/pacijent-profil-klinike.component';
+import { PacijentIstorijaOperacijaComponent } from './modules/general/pacijent/pacijent-istorija-operacija/pacijent-istorija-operacija.component';
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, },
@@ -79,6 +80,10 @@ const routes: Routes = [
     {
       path: 'pacijent-lista-dijagnoza',
       component: PacijentListaDijagnozaComponent
+    },
+    {
+      path: 'pacijent-istorija-operacija',
+      component: PacijentIstorijaOperacijaComponent
     } 
   ]},
   { path: 'registracija-klinike', component: RegistracijaKlinikeComponent},
