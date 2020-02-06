@@ -29,18 +29,17 @@ import {MatInputModule} from '@angular/material/input';
 import {LekarService} from '../../../service/lekar.service';
 import {MatSelectModule} from '@angular/material/select';
 import { AdministratorKlinikeProfilPageComponent } from './administrator-klinike-profil-page/administrator-klinike-profil-page.component';
+import {AdministratorKlinikeService} from '../../../service/administratorKlinike.service';
 import {AddSalaDialogComponent, SaleTableComponent, UpdateSalaDialogComponent} from './sale-table/sale-table.component';
 import {AddPregledDialogComponent, PreglediKalendarComponent} from './pregledi-kalendar/pregledi-kalendar.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-import {AddTipPregledaDialogComponent, CenovnikComponent} from './cenovnik/cenovnik.component';
 import {
   AddTipPregledaDialogComponent,
   CenovnikComponent,
   UpdateTipPregledaDialogComponent
 } from './cenovnik/cenovnik.component';
 import {CommonModule} from '@angular/common';
-
 
 
 @NgModule( {
@@ -88,7 +87,7 @@ import {CommonModule} from '@angular/common';
     ProfilAdministratoraKlinikeComponent
   ],
   bootstrap: [ProfilAdministratoraKlinikeComponent],
-  providers: [PacijentService, KlinikaService, LekarService],
+  providers: [PacijentService, KlinikaService, LekarService, AdministratorKlinikeService],
   entryComponents: [AddTipPregledaDialogComponent, AddLekarDialogComponent,
                     AddSalaDialogComponent, UpdateSalaDialogComponent,
                     AddPregledDialogComponent, UpdateTipPregledaDialogComponent]

@@ -10,7 +10,6 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog
 import {AdministratorKlinike} from '../../../../model/administratorKlinike';
 import {stringify} from 'querystring';
 
-
 @Component({
   selector: 'app-lekari-table',
   templateUrl: './lekari-table.component.html',
@@ -45,7 +44,7 @@ export class LekariTableComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    if(this.dataSource != null) {
+    if (this.dataSource != null) {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.table.dataSource = this.dataSource;

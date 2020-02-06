@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {environment} from '../../../../environments/environment';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
@@ -7,6 +7,7 @@ import { AdministratorKlinickogCentra } from 'src/app/model/administratorKlinick
 import {AdministratorKlinickogCentraService} from '../../../service/administratorKlinickogCentra.service';
 import {Klinika} from '../../../model/klinika';
 import {Router} from '@angular/router';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -29,6 +30,7 @@ export class ProfilAdministratoraKlinickogCentraComponent implements OnInit {
   izmenaForm: FormGroup;
   klinike: Array<Klinika>;
 
+
   ngOnInit(): void {
     this.izmenaForm = new FormGroup({
       ime: new FormControl('', Validators.required),
@@ -39,8 +41,8 @@ export class ProfilAdministratoraKlinickogCentraComponent implements OnInit {
     });
   }
 
-  constructor(private http: HttpClient, private administratorKlinickogCentraService: AdministratorKlinickogCentraService,
-              private router: Router) {
+  constructor( private http: HttpClient, private administratorKlinickogCentraService: AdministratorKlinickogCentraService,
+               private router: Router) {
     this.ulogovanUrl = '/server/api/administratorKlinickogCentra/ulogovanKorisnik';
     this.http.get<AdministratorKlinickogCentra>(this.ulogovanUrl, httpOptions).subscribe(
       data => {
@@ -70,5 +72,6 @@ export class ProfilAdministratoraKlinickogCentraComponent implements OnInit {
     }
   }
 
-
 }
+
+

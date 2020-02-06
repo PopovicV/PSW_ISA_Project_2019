@@ -1,9 +1,6 @@
 package isapsw.team55.ClinicalCenter.controller;
 
-import isapsw.team55.ClinicalCenter.domain.AdministratorKlinickogCentra;
-import isapsw.team55.ClinicalCenter.domain.Klinika;
-import isapsw.team55.ClinicalCenter.domain.Korisnik;
-import isapsw.team55.ClinicalCenter.domain.Pacijent;
+import isapsw.team55.ClinicalCenter.domain.*;
 import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.dto.AdministratorKlinickogCentraDTO;
 import isapsw.team55.ClinicalCenter.service.AdministratorKlinickogCentraService;
@@ -78,6 +75,7 @@ public class AdministratorKlinickogCentraController {
 
     @PostMapping(value="/odobriZahtev", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Pacijent> odobriZahtev(@RequestBody Pacijent pacijent) throws Exception {
+
         Pacijent p = administratorKlinickogCentraService.aktivirajNalog(pacijent);
         if(p != null) {
             emailService.sendVerificationMail(p, "Vaš nalog je odobren!");
@@ -101,7 +99,7 @@ public class AdministratorKlinickogCentraController {
 
     @PostMapping(value = "/add-klinika", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Klinika> addKlinika(@Context HttpServletRequest request, @RequestBody Klinika klinika) throws Exception {
-        Klinika k = klinikaService.addKlinika(klinika);
+        Klinika k = administratorKlinickogCentraService.addKlinika(klinika);
         Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
         AdministratorKlinickogCentra administratorKlinickogCentra = administratorKlinickogCentraService.findOneById(korisnik.getId());
 
@@ -111,5 +109,18 @@ public class AdministratorKlinickogCentraController {
         } else {
             return new ResponseEntity<Klinika>(HttpStatus.NOT_ACCEPTABLE);
         }
+    }
+
+    @PostMapping(value = "/add-administrator-klinickog-centra", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AdministratorKlinickogCentra> addAdministratorKlinickogCentra(@Context HttpServletRequest request, @RequestBody AdministratorKlinickogCentra administratorKlinickogCentra) throws Exception {
+        AdministratorKlinickogCentra akc = administratorKlinickogCentraService.findOneById(administratorKlinickogCentra.getId());
+
+        if(akc != null) {
+            return new ResponseEntity<AdministratorKlinickogCentra>(HttpStatus.NOT_ACCEPTABLE);
+        } else {
+            administratorKlinickogCentraService.save(administratorKlinickogCentra);
+            return new ResponseEntity<AdministratorKlinickogCentra>(administratorKlinickogCentra, HttpStatus.OK);
+        }
+
     }
 }

@@ -10,7 +10,7 @@ const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
 
-  @Injectable()
+@Injectable()
 export class PacijentService {
   private requestUrl: string;
 
@@ -26,7 +26,14 @@ export class PacijentService {
 
   public getAll() {
     this.requestUrl = '/server/api/pacijent/all';
+    /*any x = this.http.get<Array<Pacijent>>(this.requestUrl, httpOptions);
+    */
     return this.http.get<Array<Pacijent>>(this.requestUrl, httpOptions);
+  }
+
+  public getPacijent(id: number) {
+    this.requestUrl = 'server/api/pacijent/' + id;
+    return this.http.get<Pacijent>(this.requestUrl, httpOptions);
   }
 
   public getIstorijaOperacija() {

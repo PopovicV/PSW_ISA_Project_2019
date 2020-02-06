@@ -77,4 +77,16 @@ public class AdministratorKlinikeController {
         System.out.println(administratorKlinike.getKlinika().getId());
         return  new ResponseEntity(new AdministratorKlinikeDTO(administratorKlinike), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/getAdministratoriKlinike/{id}",  produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<AdministratorKlinikeDTO>> getAllFromKlinika(@PathVariable Long id) {
+        List<AdministratorKlinike> administratori = administratorKlinikeService.getAllFromKlinika(id);
+        List<AdministratorKlinikeDTO> administratoriDTO = new ArrayList<AdministratorKlinikeDTO>();
+        System.out.println("kontroler");
+        for(AdministratorKlinike administrator: administratori) {
+            administratoriDTO.add(new AdministratorKlinikeDTO(administrator));
+            System.out.println(administrator.getIme());
+        }
+        return new ResponseEntity<List<AdministratorKlinikeDTO>>(administratoriDTO, HttpStatus.OK);
+    }
 }

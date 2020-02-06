@@ -8,7 +8,7 @@ import { Klinika } from 'src/app/model/klinika';
 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
-}
+};
 
 @Component({
     selector: 'app-profil-pacijenta',
@@ -36,8 +36,8 @@ export class ProfilPacijentaComponent {
             kontaktTelefon: new FormControl('', Validators.required),
             adresa: new FormControl('', Validators.required),
             grad: new FormControl('', Validators.required),
-            drzava: new FormControl('', Validators.required),
-        })
+            drzava: new FormControl('', Validators.required)
+        });
     }
 
     // constructor(private http: HttpClient, private pacijentService: PacijentService) {
@@ -47,7 +47,7 @@ export class ProfilPacijentaComponent {
     //         this.ulogovanKorisnik = data;
     //       }
     //     );
-        
+
       //   this.klinikeUrl = '/server/api/klinika/all';
       //   this.http.get<Array<Klinika>>(this.klinikeUrl, httpOptions).subscribe(
       //     data => {
@@ -60,7 +60,7 @@ export class ProfilPacijentaComponent {
       // onSubmit() {
       //   const lozinka = (document.getElementById('lozinka') as HTMLInputElement).value;
       //   const lozinkaConfirm = (document.getElementById('lozinkaConfirm') as HTMLInputElement).value;
-    
+
       //   if (lozinka === lozinkaConfirm) {
       //     this.pacijentService.izmeniProfil(this.ulogovanKorisnik).subscribe(
       //       data => {

@@ -37,7 +37,7 @@ public class Klinika {
         this.administratorKlinikeSet = administratorKlinikeSet;
     }
 
-    public Set<AdministratorKlinike> getAdministratoreKlinike() {
+    public Set<AdministratorKlinike> getAdministratoriKlinike() {
         return administratorKlinikeSet;
     }
 

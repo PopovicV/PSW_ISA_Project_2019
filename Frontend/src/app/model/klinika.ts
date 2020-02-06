@@ -5,4 +5,5 @@ export class Klinika {
   ime: string;
   adresa: string;
   opis: string;
+  administratori: AdministratorKlinike[];
 }

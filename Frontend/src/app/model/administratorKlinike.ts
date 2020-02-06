@@ -1,3 +1,5 @@
+import {Klinika} from './klinika';
+
 export class AdministratorKlinike {
   id: number;
   email: string;

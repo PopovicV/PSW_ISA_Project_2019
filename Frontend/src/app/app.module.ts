@@ -26,6 +26,7 @@ import {RegistracijaKlinikeService} from './service/registracijaKlinike.service'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterConfirmComponent } from './register-confirm/register-confirm.component';
 import { SalaService } from './service/sala.service';
+import {KlinikaService} from './service/klinika.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {TipPregledaService} from './service/tip-pregleda.service';
@@ -64,11 +65,10 @@ import {PregledService} from './service/pregled.service';
     RegistracijaKlinikeService,
     LogoutService,
     SalaService,
+    KlinikaService,
     TipPregledaService,
     PregledService,
   ],
-
-
   bootstrap: [AppComponent]
 })
 export class AppModule { }
