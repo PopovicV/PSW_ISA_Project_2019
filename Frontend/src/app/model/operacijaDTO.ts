@@ -7,4 +7,5 @@ export class OperacijaDTO {
     nazivSale: string;
     datum: string;
     cena: number;
+    trajanje: number;
 }

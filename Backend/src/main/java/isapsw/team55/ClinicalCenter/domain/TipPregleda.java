@@ -8,7 +8,7 @@ public class TipPregleda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "cenaPregeleda", nullable = false)
+    @Column(name = "cenaPregleda", nullable = false)
     private float cenaPregleda;
 
     @Column(name = "naziv", nullable = false)

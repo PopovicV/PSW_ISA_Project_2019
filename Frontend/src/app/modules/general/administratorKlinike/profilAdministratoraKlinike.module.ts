@@ -33,7 +33,6 @@ import {AddSalaDialogComponent, SaleTableComponent, UpdateSalaDialogComponent} f
 import {AddPregledDialogComponent, PreglediKalendarComponent} from './pregledi-kalendar/pregledi-kalendar.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-import {ScheduleModule} from '@syncfusion/ej2-angular-schedule';
 import {AddTipPregledaDialogComponent, CenovnikComponent} from './cenovnik/cenovnik.component';
 import {CommonModule} from '@angular/common';
 
@@ -76,7 +75,6 @@ import {CommonModule} from '@angular/common';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ScheduleModule,
     CommonModule,
     ReactiveFormsModule,
   ],

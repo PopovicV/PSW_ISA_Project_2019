@@ -22,6 +22,7 @@ import { PacijentListaDijagnozaComponent } from './pacijent-lista-dijagnoza/paci
 import { DijagnozaService } from 'src/app/service/dijagnoza.service';
 import { PacijentProfilKlinikeComponent } from './pacijent-profil-klinike/pacijent-profil-klinike.component';
 import { PacijentIstorijaOperacijaComponent } from './pacijent-istorija-operacija/pacijent-istorija-operacija.component';
+import { PacijentIstorijaPregledaComponent } from './pacijent-istorija-pregleda/pacijent-istorija-pregleda.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { PacijentIstorijaOperacijaComponent } from './pacijent-istorija-operacij
         PacijentListaKlinikaComponent,
         PacijentListaDijagnozaComponent,
         PacijentProfilKlinikeComponent,
-        PacijentIstorijaOperacijaComponent
+        PacijentIstorijaOperacijaComponent,
+        PacijentIstorijaPregledaComponent
     ],
     exports: [
         ProfilPacijentaComponent,

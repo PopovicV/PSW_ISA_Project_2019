@@ -1,5 +1,6 @@
 package isapsw.team55.ClinicalCenter.controller;
 
+import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.domain.Pregled;
 import isapsw.team55.ClinicalCenter.dto.PregledDTO;
 import isapsw.team55.ClinicalCenter.service.*;
@@ -9,6 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.core.Context;
 import java.util.*;
 
 @RestController
@@ -72,5 +75,25 @@ public class PregledController {
     public ResponseEntity addLekar(@PathVariable Long id) throws Exception {
         pregledService.remove(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/pacijentPregledi", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<PregledDTO>> pacijentPregledi(@Context HttpServletRequest request) {
+        Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
+
+        List<Pregled> pregledi = pregledService.getPacijentPregledi(korisnik.getId());
+
+        if(pregledi.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        List<PregledDTO> preglediDTO = new ArrayList<>();
+
+        for(Pregled pregled : pregledi) {
+            PregledDTO temp = new PregledDTO(pregled);
+            preglediDTO.add(temp);
+        }
+
+        return new ResponseEntity(preglediDTO, HttpStatus.OK);
     }
 }

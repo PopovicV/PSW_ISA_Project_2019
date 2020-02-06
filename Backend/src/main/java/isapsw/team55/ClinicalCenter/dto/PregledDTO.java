@@ -103,6 +103,14 @@ public class PregledDTO {
         this.rezervisan = rezervisan;
     }
 
+    public String getSalaNaziv() {
+        return salaNaziv;
+    }
+
+    public void setSalaNaziv(String salaNaziv) {
+        this.salaNaziv = salaNaziv;
+    }
+
     @Override
     public String toString() {
         return "PregledDTO{" +
