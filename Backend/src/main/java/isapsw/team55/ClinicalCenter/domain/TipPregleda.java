@@ -81,4 +81,16 @@ public class TipPregleda {
     public void setCenaPregleda(float cenaPregleda) {
         this.cenaPregleda = cenaPregleda;
     }
+
+    @Override
+    public String toString() {
+        return "TipPregleda{" +
+                "id=" + id +
+                ", cenaPregleda=" + cenaPregleda +
+                ", naziv='" + naziv + '\'' +
+                ", specijalizacija='" + specijalizacija + '\'' +
+                ", trajanje=" + trajanje +
+                ", klinika=" + klinika +
+                '}';
+    }
 }

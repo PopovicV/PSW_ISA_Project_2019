@@ -74,12 +74,16 @@ export class PreglediKalendarComponent implements OnInit {
   }
 
   loadDataSource() {
-    for (const pregled of this.preglediAll) {
-      const date = pregled.datum;
-      if (this.selectedDate === date.split('|')[0]) {
-        this.dataSource.push(pregled);
+    this.pregledService.getAllFromSala(this.selectedSala.id).subscribe(data => {
+      this.preglediAll = data;
+      this.dataSource = [];
+      for (const pregled of this.preglediAll) {
+        const date = pregled.datum;
+        if (this.selectedDate === date.split('|')[0]) {
+          this.dataSource.push(pregled);
+        }
       }
-    }
+    });
   }
 
   salaSelected() {

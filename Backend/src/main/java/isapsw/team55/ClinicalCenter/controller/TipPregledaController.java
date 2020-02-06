@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.util.*;
 import java.util.List;
 
@@ -42,6 +43,8 @@ public class TipPregledaController {
         tipPregleda.setTrajanje(tipPregledaDTO.getTrajanje());
         tipPregleda.setCenaPregleda(tipPregledaDTO.getCenaPregleda());
 
+        System.out.println(tipPregledaDTO);
+        System.out.println(tipPregleda);
         if(tipPregledaService.findAllByNaziv(tipPregleda.getNaziv()).size()==0) {
             tipPregledaService.save(tipPregleda);
             return new ResponseEntity<TipPregledaDTO>(tipPregledaDTO, HttpStatus.OK);
@@ -52,7 +55,22 @@ public class TipPregledaController {
 
     @PostMapping(value = "/removeTipPregleda/{id}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity removeTipPregleda(@PathVariable Long id) throws Exception {
+        System.out.println("STIGAO ZAHTEV ZA REMOVE TIP PREGLEDA ID " + id);
         tipPregledaService.remove(id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/updateTipPregleda",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<TipPregledaDTO> updateTipPregleda(@RequestBody TipPregledaDTO tipPregledaDTO) throws Exception {
+        TipPregleda tipPregleda = tipPregledaService.findOneById(tipPregledaDTO.getId());
+        tipPregleda.setNaziv(tipPregledaDTO.getNaziv());
+        tipPregleda.setKlinika(klinikaService.findOneById(tipPregledaDTO.getKlinikaId()));
+        tipPregleda.setSpecijalizacija(tipPregledaDTO.getSpecijalizacija());
+        tipPregleda.setTrajanje(tipPregledaDTO.getTrajanje());
+        tipPregleda.setCenaPregleda(tipPregledaDTO.getCenaPregleda());
+
+
+        tipPregledaService.update(tipPregleda);
+        return new ResponseEntity<TipPregledaDTO>(tipPregledaDTO, HttpStatus.OK);
     }
 }
