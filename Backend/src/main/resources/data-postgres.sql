@@ -27,3 +27,12 @@ insert into dijagnoza(id, naziv, sifra_dijagnoze) values (3, 'Depresija', 'F32')
 insert into zdravstveni_karton_dijagnoze(id, dijagnoza_id) values (1, 1)
 insert into zdravstveni_karton_dijagnoze(id, dijagnoza_id) values (1, 2)
 insert into zdravstveni_karton_dijagnoze(id, dijagnoza_id) values (1, 3)
+
+insert into sala(id, naziv, klinika_id) values (1, 'Velika sala', 1)
+insert into sala(id, naziv, klinika_id) values (2, 'Mala sala', 1)
+
+insert into operacija(id, cena, datum, tip_operacije, trajanje, pacijent_id, sala_id) values (1, 3999, '04/02/2020|09:30', 'Uklanjanje kurjeg oka', 30, 2, 2)
+insert into operacija(id, cena, datum, tip_operacije, trajanje, pacijent_id, sala_id) values (2, 8000, '01/01/2020|04:15', 'Vadjenje zucne kese', 90, 2, 1)
+
+insert into operacija_lekari(id, lekar_id) values (1, 10)
+insert into operacija_lekari(id, lekar_id) values (2, 10)
