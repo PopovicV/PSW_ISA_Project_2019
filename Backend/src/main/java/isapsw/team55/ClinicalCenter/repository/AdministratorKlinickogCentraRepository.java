@@ -22,5 +22,6 @@ public interface AdministratorKlinickogCentraRepository extends JpaRepository<Ad
     //ovo nam mozda nece trebati, ali nek stoji
     List<AdministratorKlinickogCentra> findAllByPrezimeAndImeAllIgnoringCase(String prezime, String ime);
     //Klinika addKlinika(Klinika klinika);
+    AdministratorKlinickogCentra save(AdministratorKlinickogCentra administratorKlinickogCentra);
 
 }

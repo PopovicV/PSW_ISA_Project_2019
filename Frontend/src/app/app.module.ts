@@ -38,6 +38,7 @@ import {
   AddKlinikaDialogComponent
 } from './modules/general/administratorKlinike/klinike-table/klinike-table.component';
 import {KlinikaService} from './service/klinika.service';
+import {AddAdministratorKlinickogCentraDialogComponent} from './modules/navigations/administrator-klinickog-centra-navigation/administrator-klinickog-centra-navigation.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,7 @@ import {KlinikaService} from './service/klinika.service';
     KlinikaService
   ],
 
-  entryComponents: [AddKlinikaDialogComponent, AddAdministratorKlinikeDialogComponent],
+  entryComponents: [AddKlinikaDialogComponent, AddAdministratorKlinikeDialogComponent, AddAdministratorKlinickogCentraDialogComponent],
 
   bootstrap: [AppComponent]
 })

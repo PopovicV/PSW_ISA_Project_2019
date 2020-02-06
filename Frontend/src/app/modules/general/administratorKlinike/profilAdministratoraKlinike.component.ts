@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {AdministratorKlinike} from '../../../model/administratorKlinike';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {AdministratorKlinikeService} from '../../../service/administratorKlinike.service';
 import {Klinika} from '../../../model/klinika';
 import {Pacijent} from '../../../model/pacijent';
+import {AdministratorKlinickogCentra} from "../../../model/administratorKlinickogCentra";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})

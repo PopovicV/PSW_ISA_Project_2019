@@ -75,6 +75,7 @@ public class AdministratorKlinickogCentraController {
 
     @PostMapping(value="/odobriZahtev", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Pacijent> odobriZahtev(@RequestBody Pacijent pacijent) throws Exception {
+
         Pacijent p = administratorKlinickogCentraService.aktivirajNalog(pacijent);
         if(p != null) {
             emailService.sendVerificationMail(p, "Vaš nalog je odobren!");
@@ -108,5 +109,18 @@ public class AdministratorKlinickogCentraController {
         } else {
             return new ResponseEntity<Klinika>(HttpStatus.NOT_ACCEPTABLE);
         }
+    }
+
+    @PostMapping(value = "/add-administrator-klinickog-centra", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<AdministratorKlinickogCentra> addAdministratorKlinickogCentra(@Context HttpServletRequest request, @RequestBody AdministratorKlinickogCentra administratorKlinickogCentra) throws Exception {
+        AdministratorKlinickogCentra akc = administratorKlinickogCentraService.findOneById(administratorKlinickogCentra.getId());
+
+        if(akc != null) {
+            return new ResponseEntity<AdministratorKlinickogCentra>(HttpStatus.NOT_ACCEPTABLE);
+        } else {
+            administratorKlinickogCentraService.save(administratorKlinickogCentra);
+            return new ResponseEntity<AdministratorKlinickogCentra>(administratorKlinickogCentra, HttpStatus.OK);
+        }
+
     }
 }

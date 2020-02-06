@@ -1,10 +1,15 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../../../app-routing.module';
-import {ProfilAdministratoraKlinickogCentraComponent} from './profilAdministratoraKlinickogCentra.component';
+import {
+  ProfilAdministratoraKlinickogCentraComponent
+} from './profilAdministratoraKlinickogCentra.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegistracijaKlinikeModule} from '../registracijaKlinike/registracijaKlinike.module';
-import { AdministratorKlinickogCentraNavigationComponent } from '../../navigations/administrator-klinickog-centra-navigation/administrator-klinickog-centra-navigation.component';
+import {
+  AddAdministratorKlinickogCentraDialogComponent,
+  AdministratorKlinickogCentraNavigationComponent
+} from '../../navigations/administrator-klinickog-centra-navigation/administrator-klinickog-centra-navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -49,7 +54,8 @@ import {Router} from '@angular/router';
     AdministratorKlinickogCentraNavigationComponent,
     KlinikeTableComponent,
     AddKlinikaDialogComponent,
-    AddAdministratorKlinikeDialogComponent
+    AddAdministratorKlinikeDialogComponent,
+    AddAdministratorKlinickogCentraDialogComponent
   ],
   providers: [
     KlinikaService

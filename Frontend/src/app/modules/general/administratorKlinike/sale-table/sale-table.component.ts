@@ -45,7 +45,7 @@ export class SaleTableComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(AddSalaDialogComponent, {
       data: {sala: this.dialogData}
-    })
+    });
   }
 }
 
