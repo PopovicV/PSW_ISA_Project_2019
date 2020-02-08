@@ -15,6 +15,7 @@ public class PregledDTO {
     private long salaId;
     private String salaNaziv;
     private String tipPregledaNaziv;
+    private float cenaPregleda;
     private long tipPregledaId;
     private long pacijentId;
     private boolean rezervisan;
@@ -43,6 +44,7 @@ public class PregledDTO {
         this.tipPregledaNaziv = tipPregleda.getNaziv();
         this.rezervisan = rezervisan;
         this.salaNaziv = sala.getNaziv();
+        this.cenaPregleda = tipPregleda.getCenaPregleda();
     }
 
     public Long getId() {
@@ -141,15 +143,29 @@ public class PregledDTO {
         this.klinikaIme = klinikaIme;
     }
 
+    public float getCenaPregleda() {
+        return cenaPregleda;
+    }
+
+    public void setCenaPregleda(float cenaPregleda) {
+        this.cenaPregleda = cenaPregleda;
+    }
+
+    
+
     @Override
     public String toString() {
         return "PregledDTO{" +
                 "id=" + id +
                 ", datum='" + datum + '\'' +
                 ", lekarId=" + lekarId +
+                ", lekarIme='" + lekarIme + '\'' +
+                ", lekarPrezime='" + lekarPrezime + '\'' +
+                ", klinikaIme='" + klinikaIme + '\'' +
                 ", salaId=" + salaId +
                 ", salaNaziv='" + salaNaziv + '\'' +
                 ", tipPregledaNaziv='" + tipPregledaNaziv + '\'' +
+                ", cenaPregleda=" + cenaPregleda +
                 ", tipPregledaId=" + tipPregledaId +
                 ", pacijentId=" + pacijentId +
                 ", rezervisan=" + rezervisan +
