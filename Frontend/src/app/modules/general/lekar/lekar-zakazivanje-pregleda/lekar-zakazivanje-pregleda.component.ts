@@ -84,7 +84,10 @@ export class LekarZakazivanjePregledaComponent implements OnInit {
       }
 
       this.zahtev.lekarId = this.ulogovanKorisnik.id;
-
+      this.zahtev.klinikaId = this.ulogovanKorisnik.klinikaId;
+      this.zahtevService.addZahtev(this.zahtev).subscribe(data => {
+        alert('Zahtev uspesno prosledjen administratoru. O odobravanju/odbijanju zahteva bicete obavesteni mejlom.');
+      });
     } else {
       alert('Neispravno uneseni podaci!');
     }
