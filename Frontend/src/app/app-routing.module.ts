@@ -31,8 +31,9 @@ import { PacijentProfilKlinikeComponent } from './modules/general/pacijent/pacij
 import { PacijentIstorijaOperacijaComponent } from './modules/general/pacijent/pacijent-istorija-operacija/pacijent-istorija-operacija.component';
 import { PacijentIstorijaPregledaComponent } from './modules/general/pacijent/pacijent-istorija-pregleda/pacijent-istorija-pregleda.component';
 import {LekarComponent} from './modules/general/lekar/lekar.component';
-import {LekarProfilComponent} from "./modules/general/lekar/lekar-profil/lekar-profil.component";
+import {LekarProfilComponent} from './modules/general/lekar/lekar-profil/lekar-profil.component';
 import { PacijentPredefinisaniPreglediComponent } from './modules/general/pacijent/pacijent-predefinisani-pregledi/pacijent-predefinisani-pregledi.component';
+import {LekarPacijentiTableComponent} from './modules/general/lekar/pacijenti-table/lekar-pacijenti-table.component';
 
 
 
@@ -120,6 +121,7 @@ const routes: Routes = [
     path: 'lekar', component: LekarComponent,
     children: [
       { path: '', component: LekarProfilComponent},
+      { path: 'pacijenti', component: LekarPacijentiTableComponent},
     ],
   },
   {

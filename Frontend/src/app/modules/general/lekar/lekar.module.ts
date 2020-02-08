@@ -11,11 +11,13 @@ import { LekarProfilComponent } from './lekar-profil/lekar-profil.component';
 import {AppRoutingModule} from '../../../app-routing.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
+import {FormsModule} from '@angular/forms';
+import { LekarPacijentiTableComponent } from './pacijenti-table/lekar-pacijenti-table.component';
 
 
 
 @NgModule({
-  declarations: [LekarComponent, LekarNavigationComponent, LekarProfilComponent],
+  declarations: [LekarComponent, LekarNavigationComponent, LekarProfilComponent, LekarPacijentiTableComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -27,6 +29,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatListModule,
     MatButtonModule,
     MatButtonModule,
+    FormsModule,
   ],
   exports: [
     LekarComponent
