@@ -1,6 +1,7 @@
 package isapsw.team55.ClinicalCenter.controller;
 
 import isapsw.team55.ClinicalCenter.domain.Korisnik;
+import isapsw.team55.ClinicalCenter.domain.Pacijent;
 import isapsw.team55.ClinicalCenter.domain.Pregled;
 import isapsw.team55.ClinicalCenter.dto.PregledDTO;
 import isapsw.team55.ClinicalCenter.service.*;
@@ -27,6 +28,9 @@ public class PregledController {
     private SalaService salaService;
     @Autowired
     private TipPregledaService tipPregledaService;
+
+    @Autowired
+    private EmailService emailService;
 
     @GetMapping(value = "/allFromKlinika/{idKlinike}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<PregledDTO>> getAllFromKlinika(@PathVariable Long idKlinike) {
@@ -107,5 +111,46 @@ public class PregledController {
         }
 
         return new ResponseEntity(preglediDTO, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/predefinisaniSaTipom/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<PregledDTO>> predefinisaniSaTipom(@PathVariable Long id) {
+
+        List<Pregled> pregledi = pregledService.getPregledPoTipuIRezervaciji(false, id);
+
+        if(pregledi.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        List<PregledDTO> preglediDTO = new ArrayList<>();
+
+        for(Pregled pregled : pregledi) {
+            PregledDTO temp = new PregledDTO(pregled);
+            preglediDTO.add(temp);
+        }
+
+        return new ResponseEntity(preglediDTO, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/zakaziPredefinisan/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PregledDTO> zakaziPredefinisan(@Context HttpServletRequest request, @PathVariable Long id) throws Exception {
+
+        Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
+        Pacijent pacijent = pacijentService.findOne(korisnik.getId());
+        Pregled pregledZaZakazivanje = pregledService.findOneById(id);
+
+
+        if(pregledZaZakazivanje == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+
+        pregledZaZakazivanje.setPacijent(pacijent);
+        pregledZaZakazivanje.setRezervisan(true);
+        pregledService.save(pregledZaZakazivanje);
+        emailService.sendPotvrdaPredefinisanog(pacijent, pregledZaZakazivanje, "Pregled zakazan");
+        PregledDTO pregledDTO = new PregledDTO(pregledZaZakazivanje);
+
+        return new ResponseEntity(pregledDTO, HttpStatus.OK);
     }
 }

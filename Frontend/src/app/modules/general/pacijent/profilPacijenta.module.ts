@@ -17,13 +17,14 @@ import { Router } from '@angular/router';
 import { ZapravoProfilComponent } from './zapravo-profil/zapravo-profil.component';
 import { PacijentListaKlinikaComponent } from './pacijent-lista-klinika/pacijent-lista-klinika.component';
 import { KlinikaService } from 'src/app/service/klinika.service';
-import { MatFormFieldModule, MatInputModule, MatExpansionModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatExpansionModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { PacijentListaDijagnozaComponent } from './pacijent-lista-dijagnoza/pacijent-lista-dijagnoza.component';
 import { DijagnozaService } from 'src/app/service/dijagnoza.service';
 import { PacijentProfilKlinikeComponent } from './pacijent-profil-klinike/pacijent-profil-klinike.component';
 import { PacijentIstorijaOperacijaComponent } from './pacijent-istorija-operacija/pacijent-istorija-operacija.component';
 import { PacijentIstorijaPregledaComponent } from './pacijent-istorija-pregleda/pacijent-istorija-pregleda.component';
-
+import { PacijentPredefinisaniPreglediComponent } from './pacijent-predefinisani-pregledi/pacijent-predefinisani-pregledi.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
     imports: [
@@ -41,6 +42,10 @@ import { PacijentIstorijaPregledaComponent } from './pacijent-istorija-pregleda/
         MatFormFieldModule,
         MatInputModule,
         MatExpansionModule,
+        MatStepperModule,
+        MatInputModule,
+        MatOptionModule,
+        MatSelectModule
     ],
     declarations: [
         ProfilPacijentaComponent,
@@ -50,7 +55,8 @@ import { PacijentIstorijaPregledaComponent } from './pacijent-istorija-pregleda/
         PacijentListaDijagnozaComponent,
         PacijentProfilKlinikeComponent,
         PacijentIstorijaOperacijaComponent,
-        PacijentIstorijaPregledaComponent
+        PacijentIstorijaPregledaComponent,
+        PacijentPredefinisaniPreglediComponent
     ],
     exports: [
         ProfilPacijentaComponent,

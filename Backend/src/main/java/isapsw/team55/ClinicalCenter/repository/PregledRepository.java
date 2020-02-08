@@ -17,7 +17,9 @@ public interface PregledRepository extends JpaRepository<Pregled, Long> {
     List<Pregled> findAllByTipPregledaNaziv(String tipPregeldaNaziv);
     List<Pregled> findAllByTipPregledaId(long tipPregledaId);
     List<Pregled> findAllByPacijent_Id(long pacijentId);
+    List<Pregled> findAllByRezervisan(boolean isRezervisan);
 
+    List<Pregled> findAllByRezervisanAndTipPregleda_Id(boolean isRezervisan, long tipPregledaId);
     @Query("SELECT p from Pregled p where p.sala.klinika.id=?1")
     List<Pregled> getAllFromKlinika(long klinikaId);
 }

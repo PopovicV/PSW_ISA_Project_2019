@@ -73,4 +73,19 @@ public class TipPregledaController {
         tipPregledaService.update(tipPregleda);
         return new ResponseEntity<TipPregledaDTO>(tipPregledaDTO, HttpStatus.OK);
     }
+
+    @GetMapping(value = "/sviTipoviPregleda", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<ArrayList<TipPregledaDTO>> sviTipoviPregleda() throws Exception {
+
+        List<TipPregleda> sviTipovi = tipPregledaService.findAll();
+
+        ArrayList<TipPregledaDTO> sviDTO = new ArrayList<>();
+
+        for(TipPregleda tp : sviTipovi) {
+            TipPregledaDTO temp = new TipPregledaDTO(tp);
+            sviDTO.add(temp);
+        }
+
+        return new ResponseEntity<ArrayList<TipPregledaDTO>>(sviDTO, HttpStatus.OK);
+    }
 }
