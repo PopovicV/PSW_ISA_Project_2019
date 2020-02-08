@@ -13,6 +13,7 @@ public class LoginService {
 
     public Korisnik proveraKorisnika(String email, String lozinka) {
         Korisnik korisnik = korisnikRepository.findByEmail(email);
+        System.out.println("KORISNIK IMA OVAJ ID : " + korisnik.getId());
         if (korisnik == null) {
             System.out.println("Ne postoji korisnik sa unetom email adresom.");
             return null;

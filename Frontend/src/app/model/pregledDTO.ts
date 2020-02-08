@@ -8,6 +8,7 @@ export class PregledDTO {
     salaId: number;
     salaNaziv: string;
     tipPregledaNaziv: string;
+    cenaPregleda: number;
     tipPregledaId: number;
     pacijentId: number;
     rezervisan: boolean;

@@ -16,6 +16,8 @@ public interface PacijentRepository extends JpaRepository<Pacijent, Long> {
 
         List<Pacijent> findByImeAndPrezimeAllIgnoringCase(String ime, String prezime);
 
+        Pacijent findOneById(Long id);
+
         Pacijent save(Pacijent pacijent);
 
         @Query("select p from Pacijent p where p.adminAktiviraoNalog = ?1")
