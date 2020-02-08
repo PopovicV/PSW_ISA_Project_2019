@@ -1,0 +1,23 @@
+<h1 mat-dialog-title >Dodavanje novog administratora klinickog centra</h1>
+<div mat-dialog-content style="display: flex; flex-direction: column;">
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="akc.id" placeholder="Id">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="akc.ime" placeholder="Ime">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="akc.prezime" placeholder="Prezime">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="akc.email" placeholder="Email">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="akc.kontaktTelefon" placeholder="Kontakt Telefon">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Odustani</button>
+  <button mat-button [mat-dialog-close]="this.akc" (click)="onOkClick()" cdkFocusInitial>Dodaj</button>
+</div>

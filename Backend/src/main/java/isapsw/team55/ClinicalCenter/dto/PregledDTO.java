@@ -9,6 +9,9 @@ public class PregledDTO {
     private Long id;
     private String datum;
     private long lekarId;
+    private String lekarIme;
+    private String lekarPrezime;
+    private String klinikaIme;
     private long salaId;
     private String salaNaziv;
     private String tipPregledaNaziv;
@@ -32,6 +35,9 @@ public class PregledDTO {
         this.id = id;
         this.datum = datum;
         this.lekarId = lekar.getId();
+        this.lekarIme = lekar.getIme();
+        this.lekarPrezime = lekar.getPrezime();
+        this.klinikaIme = sala.getKlinika().getIme();
         this.salaId = sala.getId();
         this.tipPregledaId = tipPregleda.getId();
         this.tipPregledaNaziv = tipPregleda.getNaziv();
@@ -109,6 +115,30 @@ public class PregledDTO {
 
     public void setSalaNaziv(String salaNaziv) {
         this.salaNaziv = salaNaziv;
+    }
+
+    public String getLekarIme() {
+        return lekarIme;
+    }
+
+    public String getLekarPrezime() {
+        return lekarPrezime;
+    }
+
+    public String getKlinikaIme() {
+        return klinikaIme;
+    }
+
+    public void setLekarIme(String lekarIme) {
+        this.lekarIme = lekarIme;
+    }
+
+    public void setLekarPrezime(String lekarPrezime) {
+        this.lekarPrezime = lekarPrezime;
+    }
+
+    public void setKlinikaIme(String klinikaIme) {
+        this.klinikaIme = klinikaIme;
     }
 
     @Override

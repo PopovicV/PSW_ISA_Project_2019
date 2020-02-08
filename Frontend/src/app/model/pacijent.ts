@@ -9,4 +9,6 @@ export class Pacijent {
   grad: string;
   drzava: string;
   jbo: string;
+  adminAktiviraoNalog: string;
+  pacijentAktiviraoNalog: string;
 }

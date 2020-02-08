@@ -24,4 +24,13 @@ export class AdministratorKlinikeService {
     this.requestUrl = 'server/api/administratorKlinike/ulogovanKorisnik';
     return this.http.get<AdministratorKlinike>(this.requestUrl, httpOptions);
   }
+  public getAll() {
+    this.requestUrl = 'server/api/administratorKlinike/all';
+    return this.http.get<Array<AdministratorKlinike>>(this.requestUrl, httpOptions);
+  }
+
+  public getAllFromKlinika(id: number) {
+    this.requestUrl = '/server/api/administratorKlinike/getAdministratoriKlinike/' + id;
+    return this.http.get<Array<AdministratorKlinike>>(this.requestUrl, httpOptions);
+  }
 }

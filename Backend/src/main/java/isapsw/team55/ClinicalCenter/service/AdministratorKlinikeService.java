@@ -79,4 +79,6 @@ public class AdministratorKlinikeService {
             return null;
         }
     }
+
+    public List<AdministratorKlinike> getAllFromKlinika(Long id) {return  administratorKlinikeRepository.getAllFromKlinika(id);}
 }

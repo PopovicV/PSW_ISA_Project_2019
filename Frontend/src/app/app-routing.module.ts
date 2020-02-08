@@ -7,8 +7,12 @@ import {ProfileComponent} from './modules/general/profile/profile.component';
 import {LoginComponent} from './modules/general/login/login.component';
 import {RegisterComponent} from './modules/general/register/register.component';
 import {ProfilKlinikeComponent} from './modules/general/profilKlinike/profilKlinike.component';
-import {ProfilAdministratoraKlinickogCentraComponent} from './modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.component';
-import {ProfilAdministratoraKlinikeComponent} from './modules/general/administratorKlinike/profilAdministratoraKlinike.component';
+import {
+  ProfilAdministratoraKlinickogCentraComponent
+} from './modules/general/profilAdministratoraKlinickogCentra/profilAdministratoraKlinickogCentra.component';
+import {
+  ProfilAdministratoraKlinikeComponent
+} from './modules/general/administratorKlinike/profilAdministratoraKlinike.component';
 import { ProfilPacijentaComponent } from './modules/general/pacijent/profilPacijenta.component';
 import {RegistracijaKlinikeComponent} from './modules/general/registracijaKlinike/registracijaKlinike.component';
 import {AdministratorKlinikeNavigationComponent} from './modules/navigations/administrator-klinike-navigation/administrator-klinike-navigation.component';
@@ -28,6 +32,8 @@ import { PacijentIstorijaOperacijaComponent } from './modules/general/pacijent/p
 import { PacijentIstorijaPregledaComponent } from './modules/general/pacijent/pacijent-istorija-pregleda/pacijent-istorija-pregleda.component';
 import {LekarComponent} from './modules/general/lekar/lekar.component';
 import {LekarProfilComponent} from "./modules/general/lekar/lekar-profil/lekar-profil.component";
+import { PacijentPredefinisaniPreglediComponent } from './modules/general/pacijent/pacijent-predefinisani-pregledi/pacijent-predefinisani-pregledi.component';
+
 
 
 const routes: Routes = [
@@ -73,7 +79,8 @@ const routes: Routes = [
   { path: 'profil-administratora-klinickog-centra', component: ProfilAdministratoraKlinickogCentraComponent,
     children: [
       { path: '', redirectTo: '', pathMatch: 'full'},
-      { path: 'app-klinike-table', component: KlinikeTableComponent}
+      { path: 'app-klinike-table', component: KlinikeTableComponent},
+      { path: 'app-pacijenti-table', component: PacijentiTableComponent}
     ]
   },
   { path: 'registrationConfirm', component: RegisterConfirmComponent},
@@ -103,6 +110,10 @@ const routes: Routes = [
       path: 'pacijent-istorija-pregleda',
       component: PacijentIstorijaPregledaComponent
     },
+    {
+      path: 'pacijent-predefinisani-pregledi',
+      component: PacijentPredefinisaniPreglediComponent
+    }
   ]},
   { path: 'registracija-klinike', component: RegistracijaKlinikeComponent},
   {

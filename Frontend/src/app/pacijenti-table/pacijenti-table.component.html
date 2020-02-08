@@ -18,6 +18,21 @@
       <td mat-cell *matCellDef="let row">{{row.prezime}}</td>
     </ng-container>
 
+    <!-- Email -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let row">{{row.email}}</td>
+    </ng-container>
+
+    <!-- Akcije -->
+    <ng-container matColumnDef="akcije">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Akcije</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-raised-button color = "primary" (click) = "odobriZahtev(row.id)">Odobri</button>
+        <button mat-raised-button color = "warn">Odbij</button>
+      </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>

@@ -1,0 +1,57 @@
+<mat-horizontal-stepper>
+    <mat-step label="Step 1">
+        <mat-form-field>
+            <mat-label>Tip pregleda</mat-label>
+            <mat-select  [(ngModel)]="selectedTip.id" name="selectedTip"> 
+              <mat-option *ngFor="let tipPregleda of tipoviPregleda" [value]="tipPregleda.id">
+                {{tipPregleda.naziv}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext (click)="next()">Next</button>
+          </div>
+    </mat-step>
+
+<mat-step label="Predefinisani pregledi">
+<div class="mat-elevation-z8 data-table">
+    <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="Predefinisani pregledi">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="datum">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Datum i vreme</th>
+        <td mat-cell *matCellDef="let row">{{row.datum}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lekarIme">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ime lekara</th>
+        <td mat-cell *matCellDef="let row">{{row.lekarIme}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lekarPrezime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Prezime lekara</th>
+        <td mat-cell *matCellDef="let row">{{row.lekarPrezime}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="tipPregledaNaziv">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Tip pregleda</th>
+        <td mat-cell *matCellDef="let row">{{row.tipPregledaNaziv}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row"><button mat-raised-button class = "delete-button" (click)="zakazi(row.id)">Zakazi</button></td>
+      </ng-container>
+  
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</mat-step> 
+</mat-horizontal-stepper>
+  

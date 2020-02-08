@@ -1,0 +1,16 @@
+<h1 mat-dialog-title >Dodavanje administratora klinike</h1>
+<div mat-dialog-content style="display: flex; flex-direction: column;">
+
+  <mat-selection-list #administratoriKlinike>
+    <mat-list-option *ngFor="let admin of administratoriKlinike">
+      {{admin}}
+    </mat-list-option>
+  </mat-selection-list>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Odustani</button>
+  <button mat-button [mat-dialog-close]="this.administratoriKlinike" (click)="onOkClick()" cdkFocusInitial>Dodaj</button>
+</div>
+
+</div>
