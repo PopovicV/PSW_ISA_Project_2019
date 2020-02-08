@@ -15,9 +15,7 @@ public class PacijentService {
     @Autowired
     private PacijentRepository pacijentRepository;
 
-    public Pacijent findOne(Long id) {
-        return pacijentRepository.findById(id).orElseGet(null);
-    }
+    public Pacijent findOne(Long id) { return pacijentRepository.findOneById(id); }
 
     public List<Pacijent> findAll() {
         return pacijentRepository.findAll();
