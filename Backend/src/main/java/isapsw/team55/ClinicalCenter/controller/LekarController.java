@@ -73,4 +73,14 @@ public class LekarController {
             lekarService.remove(id);
             return new ResponseEntity<>(HttpStatus.OK);
     }
+
+//    @PostMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<AdministratorKlinike> updateAdministratorKlinike(@RequestBody LekarDTO administratorKlinike) throws Exception{
+//        AdministratorKlinike administratorKlinike1 = lekarService.update(administratorKlinike);
+//        if(administratorKlinike1 != null) {
+//            return new ResponseEntity<AdministratorKlinike>(administratorKlinike1, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<AdministratorKlinike>(HttpStatus.NOT_ACCEPTABLE);
+//        } }
+
 }

@@ -31,7 +31,11 @@ export class LekarService {
 
   public getUlogovanKorisnik() {
     this.requestUrl =  '/server/api/lekar/ulogovanKorisnik';
-    return this.http.post(this.requestUrl, httpOptions);
+    return this.http.get<Lekar>(this.requestUrl, httpOptions);
   }
 
+  public izmeniProfil(lekar: Lekar) {
+    this.requestUrl =  '/server/api/lekar/update';
+    return this.http.post(this.requestUrl, JSON.stringify(lekar), httpOptions);
+  }
 }

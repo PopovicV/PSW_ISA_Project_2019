@@ -11,11 +11,17 @@ import { LekarProfilComponent } from './lekar-profil/lekar-profil.component';
 import {AppRoutingModule} from '../../../app-routing.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {MatButtonModule} from '@angular/material/button';
-
+import {FormsModule} from '@angular/forms';
+import { LekarPacijentiTableComponent } from './pacijenti-table/lekar-pacijenti-table.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
-  declarations: [LekarComponent, LekarNavigationComponent, LekarProfilComponent],
+  declarations: [LekarComponent, LekarNavigationComponent, LekarProfilComponent, LekarPacijentiTableComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -27,6 +33,12 @@ import {MatButtonModule} from '@angular/material/button';
     MatListModule,
     MatButtonModule,
     MatButtonModule,
+    FormsModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
     LekarComponent
