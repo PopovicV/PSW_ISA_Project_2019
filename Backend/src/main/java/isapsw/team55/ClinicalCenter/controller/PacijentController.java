@@ -22,7 +22,7 @@ import java.util.List;
 public class PacijentController {
 
     @Autowired
-    PacijentService pacijentService;
+    private PacijentService pacijentService;
 
     @Autowired
     PregledService pregledService;
@@ -62,6 +62,7 @@ public class PacijentController {
     @GetMapping(value = "/ulogovanKorisnik", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Pacijent> getKorisnik(@Context HttpServletRequest request) {
         Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
+        System.out.println("ID KORISNIKA JE: " + korisnik.getId());
         Pacijent p = pacijentService.findOne(korisnik.getId());
 
         if(p == null) {

@@ -27,6 +27,11 @@
         <td mat-cell *matCellDef="let row">{{row.datum}}</td>
       </ng-container>
 
+      <ng-container matColumnDef="salaNaziv">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Naziv sale</th>
+        <td mat-cell *matCellDef="let row">{{row.salaNaziv}}</td>
+      </ng-container>
+
       <ng-container matColumnDef="lekarIme">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Ime lekara</th>
         <td mat-cell *matCellDef="let row">{{row.lekarIme}}</td>
@@ -40,6 +45,11 @@
       <ng-container matColumnDef="tipPregledaNaziv">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Tip pregleda</th>
         <td mat-cell *matCellDef="let row">{{row.tipPregledaNaziv}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="cenaPregleda">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Cena</th>
+        <td mat-cell *matCellDef="let row">{{row.cenaPregleda}}</td>
       </ng-container>
   
       <ng-container matColumnDef="actions">

@@ -16,7 +16,7 @@ export class PacijentPredefinisaniPreglediComponent implements OnInit {
   pregledi: PregledDTO[] = [];
   dataSource: any;
   tipoviPregleda: TipPregleda[];
-  displayedColumns = ['id', 'datum', 'lekarIme', 'lekarPrezime', 'tipPregledaNaziv', 'actions'];
+  displayedColumns = ['id', 'datum', 'salaNaziv', 'lekarIme', 'lekarPrezime', 'tipPregledaNaziv', 'cenaPregleda', 'actions'];
   selectedTip: TipPregleda = new TipPregleda;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -48,6 +48,7 @@ export class PacijentPredefinisaniPreglediComponent implements OnInit {
     this.pregledi = [];
     this.pregledService.getPredefinisaniSaTipom(this.selectedTip.id).subscribe(
       data => {
+        alert(JSON.stringify(data));
       this.pregledi = data;
       this.dataSource = new MatTableDataSource<PregledDTO>(this.pregledi);
       this.dataSource.sort = this.sort;
