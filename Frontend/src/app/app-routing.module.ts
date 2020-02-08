@@ -34,6 +34,9 @@ import {LekarComponent} from './modules/general/lekar/lekar.component';
 import {LekarProfilComponent} from './modules/general/lekar/lekar-profil/lekar-profil.component';
 import { PacijentPredefinisaniPreglediComponent } from './modules/general/pacijent/pacijent-predefinisani-pregledi/pacijent-predefinisani-pregledi.component';
 import {LekarPacijentiTableComponent} from './modules/general/lekar/pacijenti-table/lekar-pacijenti-table.component';
+import {LekarZakazivanjePregledaComponent} from './modules/general/lekar/lekar-zakazivanje-pregleda/lekar-zakazivanje-pregleda.component';
+import {RadniKalendarComponent} from './modules/general/lekar/radni-kalendar/radni-kalendar.component';
+import {ZahtevZaGodisnjiComponent} from './modules/general/lekar/zahtev-za-godisnji/zahtev-za-godisnji.component';
 
 
 
@@ -121,7 +124,11 @@ const routes: Routes = [
     path: 'lekar', component: LekarComponent,
     children: [
       { path: '', component: LekarProfilComponent},
+      { path: 'profilPage', component: LekarProfilComponent},
       { path: 'pacijenti', component: LekarPacijentiTableComponent},
+      { path: 'zakazivanje', component: LekarZakazivanjePregledaComponent},
+      { path: 'radniKalendar', component: RadniKalendarComponent},
+      { path: 'godisnji', component: ZahtevZaGodisnjiComponent},
     ],
   },
   {
