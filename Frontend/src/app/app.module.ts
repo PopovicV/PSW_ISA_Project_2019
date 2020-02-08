@@ -30,6 +30,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {TipPregledaService} from './service/tip-pregleda.service';
 import {PregledService} from './service/pregled.service';
+import {LekarModule} from './modules/general/lekar/lekar.module';
+import {LekarService} from './service/lekar.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import {PregledService} from './service/pregled.service';
     BrowserAnimationsModule,
     CommonModule,
     FormsModule,
+    LekarModule,
   ],
 
   providers: [
@@ -66,6 +69,7 @@ import {PregledService} from './service/pregled.service';
     SalaService,
     TipPregledaService,
     PregledService,
+    LekarService,
   ],
 
 

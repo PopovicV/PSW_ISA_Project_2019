@@ -1,6 +1,7 @@
 package isapsw.team55.ClinicalCenter.controller;
 
 import isapsw.team55.ClinicalCenter.domain.Klinika;
+import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.domain.Lekar;
 import isapsw.team55.ClinicalCenter.dto.LekarDTO;
 import isapsw.team55.ClinicalCenter.service.KlinikaService;
@@ -11,6 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.core.Context;
 import java.util.*;
 
 @RestController
@@ -21,6 +24,19 @@ public class LekarController {
 
     @Autowired
     private KlinikaService klinikaService;
+
+    @GetMapping(value = "/ulogovanKorisnik", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<LekarDTO> getKorisnik(@Context HttpServletRequest request) {
+        Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
+        Lekar lekar = lekarService.findOneById(korisnik.getId());
+
+        if(lekar == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        System.out.println("Ulogovan lekar:" + lekar.getIme());
+        System.out.println(lekar.getKlinika().getId());
+        return  new ResponseEntity(new LekarDTO(lekar), HttpStatus.OK);
+    }
 
     @GetMapping(value = "/allFromKlinika/{idKlinike}",  produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<LekarDTO>> getAllLekar(@PathVariable Long idKlinike) {

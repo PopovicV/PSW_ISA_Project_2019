@@ -20,12 +20,14 @@ import {PacijentiTableComponent} from './pacijenti-table/pacijenti-table.compone
 import {LekariTableComponent} from './modules/general/administratorKlinike/lekari-table/lekari-table.component';
 import {AdministratorKlinikeProfilPageComponent} from './modules/general/administratorKlinike/administrator-klinike-profil-page/administrator-klinike-profil-page.component';
 import {SaleTableComponent} from './modules/general/administratorKlinike/sale-table/sale-table.component';
-import {PreglediKalendarComponent} from "./modules/general/administratorKlinike/pregledi-kalendar/pregledi-kalendar.component";
-import {CenovnikComponent} from "./modules/general/administratorKlinike/cenovnik/cenovnik.component";
+import {PreglediKalendarComponent} from './modules/general/administratorKlinike/pregledi-kalendar/pregledi-kalendar.component';
+import {CenovnikComponent} from './modules/general/administratorKlinike/cenovnik/cenovnik.component';
 import { PacijentListaDijagnozaComponent } from './modules/general/pacijent/pacijent-lista-dijagnoza/pacijent-lista-dijagnoza.component';
 import { PacijentProfilKlinikeComponent } from './modules/general/pacijent/pacijent-profil-klinike/pacijent-profil-klinike.component';
 import { PacijentIstorijaOperacijaComponent } from './modules/general/pacijent/pacijent-istorija-operacija/pacijent-istorija-operacija.component';
 import { PacijentIstorijaPregledaComponent } from './modules/general/pacijent/pacijent-istorija-pregleda/pacijent-istorija-pregleda.component';
+import {LekarComponent} from './modules/general/lekar/lekar.component';
+import {LekarProfilComponent} from "./modules/general/lekar/lekar-profil/lekar-profil.component";
 
 
 const routes: Routes = [
@@ -76,7 +78,7 @@ const routes: Routes = [
   },
   { path: 'registrationConfirm', component: RegisterConfirmComponent},
   { path: 'profil-pacijenta', component: ProfilPacijentaComponent,
-  children:[
+  children: [
     {
       path: '',
       component: ZapravoProfilComponent
@@ -100,9 +102,15 @@ const routes: Routes = [
     {
       path: 'pacijent-istorija-pregleda',
       component: PacijentIstorijaPregledaComponent
-    }
+    },
   ]},
   { path: 'registracija-klinike', component: RegistracijaKlinikeComponent},
+  {
+    path: 'lekar', component: LekarComponent,
+    children: [
+      { path: '', component: LekarProfilComponent},
+    ],
+  },
   {
     path: 'about',
     loadChildren: () => import('./modules/general/about/about.module').then(mod => mod.AboutModule)

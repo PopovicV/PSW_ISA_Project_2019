@@ -28,4 +28,10 @@ export class LekarService {
     this.requestUrl =  '/server/api/lekar/removeLekar/' + id;
     return this.http.post(this.requestUrl, httpOptions);
   }
+
+  public getUlogovanKorisnik() {
+    this.requestUrl =  '/server/api/lekar/ulogovanKorisnik';
+    return this.http.post(this.requestUrl, httpOptions);
+  }
+
 }

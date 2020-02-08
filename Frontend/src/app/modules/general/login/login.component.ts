@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['profil-administratora-klinickog-centra']);
         } else if (data.uloga === 'PACIJENT') {
           this.router.navigate(['profil-pacijenta']);
+        } else if (data.uloga === 'LEKAR') {
+          this.router.navigate(['lekar']);
         }
 
 
