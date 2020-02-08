@@ -81,6 +81,6 @@ public class LekarController {
 //            return new ResponseEntity<AdministratorKlinike>(administratorKlinike1, HttpStatus.OK);
 //        } else {
 //            return new ResponseEntity<AdministratorKlinike>(HttpStatus.NOT_ACCEPTABLE);
-//        }
-    }
+//        } }
+
 }
