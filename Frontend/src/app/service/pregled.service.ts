@@ -32,12 +32,12 @@ export class PregledService {
   }
 
   getPredefinisaniSaTipom(id: number) {
-    this.requestUrl = '/server/api/pregled/predefinisaniSaTipom/'+id;
+    this.requestUrl = '/server/api/pregled/predefinisaniSaTipom/' + id;
     return this.http.get<Array<PregledDTO>>(this.requestUrl, httpOptions);
   }
 
   zakaziPredefinisan(id: number) {
-    this.requestUrl = '/server/api/pregled//zakaziPredefinisan/'+id;
+    this.requestUrl = '/server/api/pregled//zakaziPredefinisan/' + id;
     return this.http.get<PregledDTO>(this.requestUrl, httpOptions);
   }
 }

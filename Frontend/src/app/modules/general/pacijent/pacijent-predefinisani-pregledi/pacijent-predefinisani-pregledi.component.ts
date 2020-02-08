@@ -16,13 +16,15 @@ export class PacijentPredefinisaniPreglediComponent implements OnInit {
   pregledi: PregledDTO[] = [];
   dataSource: any;
   tipoviPregleda: TipPregleda[];
+
   displayedColumns = ['id', 'datum', 'salaNaziv', 'lekarIme', 'lekarPrezime', 'tipPregledaNaziv', 'cenaPregleda', 'actions'];
   selectedTip: TipPregleda = new TipPregleda;
 
+
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  
+
   constructor(private tipPregledService: TipPregledaService, private pregledService: PregledService) {
-    this.dataSource = new MatTableDataSource<PregledDTO>(null)
+    this.dataSource = new MatTableDataSource<PregledDTO>(null);
    }
 
   ngOnInit() {
@@ -30,7 +32,7 @@ export class PacijentPredefinisaniPreglediComponent implements OnInit {
       data => {
         this.tipoviPregleda = data;
       }
-    )
+    );
   }
 
 
@@ -38,10 +40,10 @@ export class PacijentPredefinisaniPreglediComponent implements OnInit {
   public zakazi(id: number) {
     this.pregledService.zakaziPredefinisan(id).subscribe(
       data => {
-        alert("Uspesno ste zakazali pregled, uskoro ce vam stici mejl sa svim podacima.");
+        alert('Uspesno ste zakazali pregled, uskoro ce vam stici mejl sa svim podacima.');
         this.next();
       }
-    )
+    );
   }
 
   public next() {
@@ -53,7 +55,7 @@ export class PacijentPredefinisaniPreglediComponent implements OnInit {
       this.dataSource = new MatTableDataSource<PregledDTO>(this.pregledi);
       this.dataSource.sort = this.sort;
       }
-    )
+    );
   }
 
 }

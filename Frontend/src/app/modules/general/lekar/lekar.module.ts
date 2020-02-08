@@ -18,10 +18,17 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from "@angular/material/input";
+import { LekarZakazivanjePregledaComponent } from './lekar-zakazivanje-pregleda/lekar-zakazivanje-pregleda.component';
+import { RadniKalendarComponent } from './radni-kalendar/radni-kalendar.component';
+import { ZahtevZaGodisnjiComponent } from './zahtev-za-godisnji/zahtev-za-godisnji.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 
 @NgModule({
-  declarations: [LekarComponent, LekarNavigationComponent, LekarProfilComponent, LekarPacijentiTableComponent],
+  declarations: [LekarComponent, LekarNavigationComponent, LekarProfilComponent, LekarPacijentiTableComponent, LekarZakazivanjePregledaComponent, RadniKalendarComponent, ZahtevZaGodisnjiComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -39,6 +46,10 @@ import {MatInputModule} from "@angular/material/input";
     MatSortModule,
     MatFormFieldModule,
     MatInputModule,
+    MatStepperModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatDatepickerModule,
   ],
   exports: [
     LekarComponent

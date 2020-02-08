@@ -1,0 +1,126 @@
+<mat-horizontal-stepper>
+  <mat-step label="Tip zahteva">
+    <mat-form-field>
+      <mat-label>Zahtev za:</mat-label>
+      <mat-select [(ngModel)] = "zahtev.tip" name="selctTip">
+        <mat-option [value] = "'PREGLED'">
+          Pregled
+        </mat-option>
+        <mat-option [value] = "'OPERACIJA'">
+          Operacija
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button matStepperNext (click)="next()">Dalje</button>
+    </div>
+  </mat-step>
+  <mat-step label="Odaberite pacijenta">
+    <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="Predefinisani pregledi">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      </ng-container>
+      <ng-container matColumnDef="imePrezime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ime i prezime</th>
+        <td mat-cell *matCellDef="let row">{{row.ime}} {{row.prezime}}</td>
+      </ng-container>
+      <ng-container matColumnDef="JBO">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>JBO</th>
+        <td mat-cell *matCellDef="let row">{{row.jbo}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row"><button mat-raised-button matStepperNext class = "delete-button" (click)="odaberiPacijenta(row.id)">Odaberi</button></td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div>
+      <button mat-raised-button matStepperPrevious (click)="next()">Nazad</button>
+    </div>
+  </mat-step>
+  <mat-step label="Odaberite salu(i tip)">
+    <div>
+    <mat-form-field>
+      <mat-select [(ngModel)]="zahtev.salaId" name="sala" placeholder="Sale">
+        <mat-option *ngFor="let sala of salaList" [value]="sala.id">
+          {{sala.naziv}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+    <div *ngIf="zahtev.tip==='PREGLED'">
+    <mat-form-field>
+      <mat-select [(ngModel)]="tipPregledSelected" name="tipPregleda" placeholder="Tipovi pregleda">
+        <mat-option *ngFor="let tip of tipPregedaList" [value]="tip">
+          {{tip.naziv}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+
+    <div>
+      <button mat-raised-button matStepperPrevious (click)="next()">Nazad</button>
+    </div>
+    <div>
+      <button mat-raised-button matStepperNext (click)="tipPregledaSelectionConfirm()">Dalje</button>
+    </div>
+  </mat-step>
+  <mat-step label="Odaberite vreme">
+    <label>Datum:</label>
+    <div style="flex-direction: row">
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="selectedDay" placeholder="dd">
+      </mat-form-field>
+      <label>/</label>
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="selectedMonth" placeholder="MM">
+      </mat-form-field>
+      <label>/</label>
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="selectedYear" placeholder="yyyy">
+      </mat-form-field>
+    </div>
+    <label>Početak:</label>
+    <div style="flex-direction: row">
+      <mat-form-field>
+        <input matInput dataT="number" [(ngModel)]="selectedSat" (change)="onInputChange()" placeholder="HH">
+      </mat-form-field>
+      <label>:</label>
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="selectedMin" (change)="onInputChange()" placeholder="mm">
+      </mat-form-field>
+    </div>
+    <label>Kraj:</label>
+    <div *ngIf="zahtev.tip==='PREGLED'" style="flex-direction: row">
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="selectedSatKraj" placeholder="HH" disabled>
+      </mat-form-field>
+      <label>:</label>
+      <mat-form-field>
+        <input matInput type="number" [(ngModel)]="selectedMinKraj" placeholder="mm" disabled>
+      </mat-form-field>
+    </div>
+    <div *ngIf="zahtev.tip==='OPERACIJA'" style="flex-direction: row">
+      <mat-form-field>
+        <input type="number" matInput [(ngModel)]="selectedSatKraj" placeholder="HH">
+      </mat-form-field>
+      <label>:</label>
+      <mat-form-field>
+        <input type="number" matInput [(ngModel)]="selectedMinKraj" placeholder="mm">
+      </mat-form-field>
+    </div>
+    <div>
+      <button mat-raised-button matStepperPrevious (click)="next()">Nazad</button>
+    </div>
+    <div>
+      <button mat-raised-button matStepperNext (click)="proslediZahtev()">Posalji zahtev</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
