@@ -34,4 +34,9 @@ export class TipPregledaService {
     alert(this.requestUrl);
     return this.http.post<TipPregleda>(this.requestUrl, httpOptions);
   }
+
+  getAllTipPregleda() {
+    this.requestUrl = '/server/api/tipPregleda/sviTipoviPregleda'
+    return this.http.get<Array<TipPregleda>>(this.requestUrl, httpOptions);
+  }
 }

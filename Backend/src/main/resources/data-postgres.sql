@@ -40,5 +40,6 @@ insert into operacija_lekari(id, lekar_id) values (2, 10)
 insert into tip_pregleda(id, cena_pregleda, naziv, specijalizacija, trajanje, klinika_id) values (1, 1000, 'EKG', 'Kardiologija', 30, 1)
 
 insert into pregled(id, datum, rezervisan, lekar_id, pacijent_id, sala_id, tip_pregleda_id) values (1, '19/06/2019|12:00', true, 10, 2, 1, 1)
+insert into pregled(id, datum, rezervisan, lekar_id, sala_id, tip_pregleda_id) values (2, '9/02/2020|12:00', false, 10, 1, 1)
 
 

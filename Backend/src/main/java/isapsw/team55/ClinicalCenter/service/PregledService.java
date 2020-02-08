@@ -42,6 +42,10 @@ public class PregledService {
 
     public List<Pregled> getPacijentPregledi(long pacijentId) { return pregledRepository.findAllByPacijent_Id(pacijentId); }
 
+    public List<Pregled> gellPregledRezervisan(boolean isRezervisan) { return pregledRepository.findAllByRezervisan(isRezervisan); }
+
+    public List<Pregled> getPregledPoTipuIRezervaciji(boolean isRezervisan, long tipPregledaId) { return pregledRepository.findAllByRezervisanAndTipPregleda_Id(isRezervisan, tipPregledaId); }
+
     public List<Pregled> findAllByTipPregledaNaziv(String tipPregeldaNaziv) {
         return pregledRepository.findAllByTipPregledaNaziv(tipPregeldaNaziv);
     }
