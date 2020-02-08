@@ -7,4 +7,5 @@ export class Zahtev {
   datum: string;
   trajanje: number
   lekarId: number;
+  klinikaId: number;
 }
