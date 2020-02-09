@@ -1,6 +1,7 @@
 package isapsw.team55.ClinicalCenter.controller;
 
 import isapsw.team55.ClinicalCenter.domain.Klinika;
+import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.domain.Lekar;
 import isapsw.team55.ClinicalCenter.domain.TipPregleda;
 import isapsw.team55.ClinicalCenter.dto.LekarDTO;
@@ -13,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.core.Context;
 import java.util.*;
 
 @RestController
@@ -26,6 +29,19 @@ public class LekarController {
 
     @Autowired
     private TipPregledaService tipPregledaService;
+
+    @GetMapping(value = "/ulogovanKorisnik", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<LekarDTO> getKorisnik(@Context HttpServletRequest request) {
+        Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
+        Lekar lekar = lekarService.findOneById(korisnik.getId());
+
+        if(lekar == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        System.out.println("Ulogovan lekar:" + lekar.getIme());
+        System.out.println(lekar.getKlinika().getId());
+        return  new ResponseEntity(new LekarDTO(lekar), HttpStatus.OK);
+    }
 
     @GetMapping(value = "/allFromKlinika/{idKlinike}",  produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<LekarDTO>> getAllLekar(@PathVariable Long idKlinike) {
@@ -58,15 +74,13 @@ public class LekarController {
     }
 
     @PostMapping(value = "/removeLekar/{id}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<LekarDTO> addLekar(@RequestBody LekarDTO lekarDTO, @PathVariable Long id) throws Exception {
+    public ResponseEntity<LekarDTO> removeLekar(@RequestBody LekarDTO lekarDTO, @PathVariable Long id) throws Exception {
             lekarService.remove(id);
             return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping(value = "/lekarKlinikaTip/{idTipa}",  produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Lekar>> getLekarKlinikaTip(@PathVariable Long idTipa) throws  Exception{
-
-
         TipPregleda tp = tipPregledaService.findOneById(idTipa);
 
         List<Lekar> lekari = new ArrayList<Lekar>();
@@ -77,4 +91,13 @@ public class LekarController {
 
         return new ResponseEntity<List<Lekar>>(lekari, HttpStatus.OK);
     }
+
+//    @PostMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<AdministratorKlinike> updateAdministratorKlinike(@RequestBody LekarDTO administratorKlinike) throws Exception{
+//        AdministratorKlinike administratorKlinike1 = lekarService.update(administratorKlinike);
+//        if(administratorKlinike1 != null) {
+//            return new ResponseEntity<AdministratorKlinike>(administratorKlinike1, HttpStatus.OK);
+//        } else {
+//            return new ResponseEntity<AdministratorKlinike>(HttpStatus.NOT_ACCEPTABLE);
+//        } }
 }

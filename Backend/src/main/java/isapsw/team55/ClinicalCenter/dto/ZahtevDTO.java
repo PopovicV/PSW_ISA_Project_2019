@@ -3,31 +3,19 @@ package isapsw.team55.ClinicalCenter.dto;
 import isapsw.team55.ClinicalCenter.domain.Zahtev;
 
 public class ZahtevDTO {
-
-    private String datum;
-
-    private Long lekarId;
-
-    private Long klinikaId;
-
-    private Long tipPregledaId;
-
-    private Long pacijentId;
-
+    private long id;
     private String tip;
+    private long pacijentId;
+    private long salaId;
+    private long tipPregledaId;
+    private String datum;
+    private int trajanje;
+    private long lekarId;
+    private long klinikaId;
 
-    private Long salaId;
-
-    public ZahtevDTO(String datum, Long lekarId, Long klinikaId, Long tipPregledaId, Long pacijentId, String tip, Long salaId) {
-        this.datum = datum;
-        this.lekarId = lekarId;
-        this.klinikaId = klinikaId;
-        this.tipPregledaId = tipPregledaId;
-        this.pacijentId = pacijentId;
-        this.tip = tip;
-        this.salaId = salaId;
+    public ZahtevDTO() {
     }
-
+  
     public ZahtevDTO(Zahtev zahtev) {
         this.datum = zahtev.getDatum();
         this.lekarId = zahtev.getLekar().getId();
@@ -36,64 +24,94 @@ public class ZahtevDTO {
         this.pacijentId = zahtev.getPacijent().getId();
         this.tip = zahtev.getTip();
         this.salaId = zahtev.getSala().getId();
+        this.trajanje = zahtev.getTrajanje();
     }
 
-    public ZahtevDTO() {
+
+    public ZahtevDTO(long id, String tip, long pacijentId, long salaId, long tipPregledaId, String datum, int trajanje, long lekarId) {
+        this.id = id;
+        this.tip = tip;
+        this.pacijentId = pacijentId;
+        this.salaId = salaId;
+        this.tipPregledaId = tipPregledaId;
+        this.datum = datum;
+        this.trajanje = trajanje;
+        this.lekarId = lekarId;
     }
 
-    public String getDatum() {
-        return datum;
+    public ZahtevDTO(Zahtev zahtev) {
+
     }
 
-    public Long getLekarId() {
-        return lekarId;
+    public long getId() {
+        return id;
     }
 
-    public Long getKlinikaId() {
-        return klinikaId;
-    }
-
-    public Long getTipPregledaId() {
-        return tipPregledaId;
-    }
-
-    public Long getPacijentId() {
-        return pacijentId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTip() {
         return tip;
     }
 
-    public Long getSalaId() {
-        return salaId;
-    }
-
-    public void setDatum(String datum) {
-        this.datum = datum;
-    }
-
-    public void setLekarId(Long lekarId) {
-        this.lekarId = lekarId;
-    }
-
-    public void setKlinikaId(Long klinikaId) {
-        this.klinikaId = klinikaId;
-    }
-
-    public void setTipPregledaId(Long tipPregledaId) {
-        this.tipPregledaId = tipPregledaId;
-    }
-
-    public void setPacijentId(Long pacijentId) {
-        this.pacijentId = pacijentId;
-    }
-
     public void setTip(String tip) {
         this.tip = tip;
     }
 
-    public void setSalaId(Long salaId) {
+    public long getPacijentId() {
+        return pacijentId;
+    }
+
+    public void setPacijentId(long pacijentId) {
+        this.pacijentId = pacijentId;
+    }
+
+    public long getSalaId() {
+        return salaId;
+    }
+
+    public void setSalaId(long salaId) {
         this.salaId = salaId;
+    }
+
+    public long getTipPregledaId() {
+        return tipPregledaId;
+    }
+
+    public void setTipPregledaId(long tipPregledaId) {
+        this.tipPregledaId = tipPregledaId;
+    }
+
+    public String getDatum() {
+        return datum;
+    }
+
+    public void setDatu(String datum) {
+        this.datum = datum;
+    }
+
+    public int getTrajanje() {
+        return trajanje;
+    }
+
+    public void setTrajanje(int trajanje) {
+        this.trajanje = trajanje;
+    }
+
+    public long getLekarId() {
+        return lekarId;
+    }
+
+    public void setLekarId(long lekarId) {
+        this.lekarId = lekarId;
+    }
+
+    public long getKlinikaId() {
+        return klinikaId;
+    }
+
+    public void setKlinikaId(long klinikaId) {
+        this.klinikaId = klinikaId;
     }
 }

@@ -1,9 +1,12 @@
-export class ZahtevDTO {
-    datum: String;
-    lekarId: number;
-    klinikaId: number;
-    tipPregledaId: number;
-    pacijentId: number;
-    tip: String;
-    salaId: number;
+
+export class Zahtev {
+  id: number;
+  tip: string;
+  pacijentId: number;
+  salaId: number;
+  tipPregledaId: number;
+  datum: string;
+  trajanje: number
+  lekarId: number;
+  klinikaId: number;
 }

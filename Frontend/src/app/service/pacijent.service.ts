@@ -45,4 +45,14 @@ export class PacijentService {
     this.requestUrl = '/server/api/pregled/pacijentPregledi';
     return this.http.get<Array<PregledDTO>>(this.requestUrl, httpOptions);
   }
+
+  public getAllFromKlinika(id: number) {
+    this.requestUrl = '/server/api/pacijent/allFromKlinika/' + id;
+    return this.http.get<Array<Pacijent>>(this.requestUrl, httpOptions);
+  }
+
+  public getUlogovanKorisnik() {
+    this.requestUrl = '/server/api/pacijent/ulogovanKorisnik';
+    return this.http.get<Pacijent>(this.requestUrl, httpOptions);
+  }
 }

@@ -2,8 +2,10 @@ package isapsw.team55.ClinicalCenter.controller;
 
 import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.domain.Pacijent;
+import isapsw.team55.ClinicalCenter.domain.Pregled;
 import isapsw.team55.ClinicalCenter.dto.PacijentDTO;
 import isapsw.team55.ClinicalCenter.service.PacijentService;
+import isapsw.team55.ClinicalCenter.service.PregledService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,6 +23,9 @@ public class PacijentController {
 
     @Autowired
     private PacijentService pacijentService;
+
+    @Autowired
+    PregledService pregledService;
 
     @GetMapping(value = "/all")
     public ResponseEntity<List<PacijentDTO>> getAllPacijenti() {
@@ -64,5 +69,21 @@ public class PacijentController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return  new ResponseEntity(p, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/allFromKlinika/{idKlinike}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<PacijentDTO>> getAllFromKlinika(@PathVariable Long idKlinike) {
+        List<Pregled> pregledList = pregledService.findAllByKlinikaId(idKlinike);
+
+        List<PacijentDTO> pacijentDTOList = new ArrayList<>();
+
+        for (Pregled pregled :
+                pregledList) {
+            if(pregled.isRezervisan()) {
+                pacijentDTOList.add(new PacijentDTO(pregled.getPacijent()));
+            }
+        }
+
+        return new ResponseEntity<List<PacijentDTO>>(pacijentDTOList, HttpStatus.OK);
     }
 }
