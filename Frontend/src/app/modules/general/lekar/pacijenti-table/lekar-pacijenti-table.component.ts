@@ -6,6 +6,7 @@ import {MatTable, MatTableDataSource} from '@angular/material/table';
 import {LekarService} from '../../../../service/lekar.service';
 import {Pacijent} from '../../../../model/pacijent';
 import {PacijentService} from '../../../../service/pacijent.service';
+import {Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-pacijenti-table',
@@ -14,7 +15,7 @@ import {PacijentService} from '../../../../service/pacijent.service';
 })
 export class LekarPacijentiTableComponent implements OnInit {
   dataSource: any;
-  displayedColumns = ['id', 'ime', 'prezime', 'jbo'];
+  displayedColumns = ['id', 'ime', 'prezime', 'jbo', 'akcije'];
   ulogovanKorisnik: Lekar;
   pacijentiKlinike: Pacijent[] = [];
 
@@ -22,7 +23,8 @@ export class LekarPacijentiTableComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatTable, {static: false}) table: MatTable<Pacijent>;
   constructor(private lekarService: LekarService,
-              private pacijentService: PacijentService) { }
+              private pacijentService: PacijentService,
+              private router: Router) { }
 
   ngOnInit() {
     this.lekarService.getUlogovanKorisnik().subscribe(data => {
@@ -39,4 +41,7 @@ export class LekarPacijentiTableComponent implements OnInit {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   }
 
+  otvoriProfil(id: any) {
+    this.router.navigate(['lekar/pacijentProfil', {id: id}]);
+  }
 }

@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row m-y-2">
+    <div class="col-lg-10 push-lg-4">
+      <ul class="nav nav-tabs">
+
+        <li class="nav-item">
+          <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profil</a>
+        </li>
+      </ul>
+
+
+      <div class="tab-content p-b-3">
+
+        <div class="tab-pane active" id="profile">
+          <table class="table table-hover table-striped" >
+            <tbody>
+            <!-- <tr> -->
+            <!-- <div class="col-lg-4 pull-lg-8 text-xs-center"> -->
+            <!-- <img src="//placehold.it/150" class="m-x-auto img-fluid img-circle" alt="avatar"> -->
+            <!-- <h6 class="m-t-2">Upload a different photo</h6> -->
+            <!-- <label class="custom-file"> -->
+            <!-- <input type="file" id="file" class="custom-file-input"> -->
+            <!-- <span class="custom-file-control">Choose file</span> -->
+            <!-- </label> -->
+            <!-- </div> -->
+            <!-- </tr> -->
+            <tr>
+              <td>
+                <strong>Id</strong>
+              </td>
+              <td>
+                {{this.pacijent.id}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Ime</strong>
+              </td>
+              <td>
+                {{this.pacijent.ime}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Prezime</strong>
+              </td>
+              <td>
+                {{this.pacijent.prezime}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Adresa</strong>
+              </td>
+              <td>
+                {{this.pacijent.adresa}} , {{this.pacijent.grad}} , {{this.pacijent.drzava}}
+              </td>
+            </tr>
+            <tr>
+            <tr>
+              <td>
+                <strong>Email</strong>
+              </td>
+              <td>
+                {{this.pacijent.email}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>Kontakt telefon</strong>
+              </td>
+              <td>
+                {{this.pacijent.kontaktTelefon}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>JBO</strong>
+              </td>
+              <td>
+                {{this.pacijent.jbo}}
+              </td>
+            </tr>
+            </tbody>
+
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label"></label>
+              <div class="col-lg-9">
+                <button (click)="openZdravstveniKarton()" type="cancel" class="btn btn-secondary">Zdravstveni karton</button>
+                &nbsp;
+                <button (click)="openZapocniPregled()" type="submit" class="btn btn-primary">Zapocni pregled</button>
+              </div>
+            </div>
+          </table>
+          <!--/row-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
