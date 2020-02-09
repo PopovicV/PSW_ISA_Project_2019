@@ -65,7 +65,7 @@ public class EmailService {
     }
 
     @Async
-    public void sendPotvrdaPredefinisanog(Pacijent pacijent, Pregled pregled, String subject) throws MailException, InterruptedException {
+    public void sendPotvrdaPredefinisanog(Pacijent pacijent, Pregled pregled, String subject) throws MailException {
         System.out.println("Proces slanja verifikacionog maila zapocet.");
         SimpleMailMessage mail = new SimpleMailMessage();
 
