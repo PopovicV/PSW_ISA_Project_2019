@@ -9,11 +9,14 @@
             </mat-select>
           </mat-form-field>
           <div>
-            <button mat-button matStepperNext (click)="next()">Next</button>
+            <button mat-button matStepperNext (click)="next()">Dalje</button>
           </div>
-    </mat-step>
+        </mat-step>
 
 <mat-step label="Predefinisani pregledi">
+  <div>
+    <button mat-button matStepperPrevious>Nazad</button>
+  </div>
 <div class="mat-elevation-z8 data-table">
     <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="Predefinisani pregledi">
   

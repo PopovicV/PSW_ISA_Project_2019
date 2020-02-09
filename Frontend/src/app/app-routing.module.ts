@@ -31,6 +31,7 @@ import { PacijentProfilKlinikeComponent } from './modules/general/pacijent/pacij
 import { PacijentIstorijaOperacijaComponent } from './modules/general/pacijent/pacijent-istorija-operacija/pacijent-istorija-operacija.component';
 import { PacijentIstorijaPregledaComponent } from './modules/general/pacijent/pacijent-istorija-pregleda/pacijent-istorija-pregleda.component';
 import { PacijentPredefinisaniPreglediComponent } from './modules/general/pacijent/pacijent-predefinisani-pregledi/pacijent-predefinisani-pregledi.component';
+import { PacijentZahtevanjeNovogPregledaComponent } from './modules/general/pacijent/pacijent-zahtevanje-novog-pregleda/pacijent-zahtevanje-novog-pregleda.component';
 
 
 const routes: Routes = [
@@ -110,6 +111,10 @@ const routes: Routes = [
     {
       path: 'pacijent-predefinisani-pregledi',
       component: PacijentPredefinisaniPreglediComponent
+    },
+    {
+      path: 'zahtevPregleda',
+      component: PacijentZahtevanjeNovogPregledaComponent
     }
   ]},
   { path: 'registracija-klinike', component: RegistracijaKlinikeComponent},

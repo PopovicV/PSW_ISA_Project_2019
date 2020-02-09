@@ -48,7 +48,6 @@ export class PacijentPredefinisaniPreglediComponent implements OnInit {
     this.pregledi = [];
     this.pregledService.getPredefinisaniSaTipom(this.selectedTip.id).subscribe(
       data => {
-        alert(JSON.stringify(data));
       this.pregledi = data;
       this.dataSource = new MatTableDataSource<PregledDTO>(this.pregledi);
       this.dataSource.sort = this.sort;

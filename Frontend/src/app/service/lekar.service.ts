@@ -28,4 +28,9 @@ export class LekarService {
     this.requestUrl =  '/server/api/lekar/removeLekar/' + id;
     return this.http.post(this.requestUrl, httpOptions);
   }
+
+  public lekariKlinikaTip(idTipa: number) {
+    this.requestUrl = '/server/api/lekar/lekarKlinikaTip/'+idTipa;
+    return this.http.get<Array<Lekar>>(this.requestUrl, httpOptions);
+  }
 }
