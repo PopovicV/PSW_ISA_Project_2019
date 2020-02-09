@@ -4,6 +4,7 @@ import isapsw.team55.ClinicalCenter.domain.Zahtev;
 import isapsw.team55.ClinicalCenter.repository.ZahtevRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class ZahtevService {
 
     public List<Zahtev> findAllByPacijent_id(Long pacijent_id) { return zahtevRepository.findAllByPacijent_Id(pacijent_id); }
 
+    @Transactional
     public Zahtev save(Zahtev zahtev) { return zahtevRepository.save(zahtev); }
 
     public void deleteById(Long zahtev_id) { zahtevRepository.deleteById(zahtev_id); }

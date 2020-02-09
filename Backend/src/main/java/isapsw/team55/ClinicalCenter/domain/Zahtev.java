@@ -31,10 +31,13 @@ public class Zahtev {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Sala sala;
 
+    @Column(name = "trajanje")
+    private int trajanje;
+
     public Zahtev() {
     }
 
-    public Zahtev(String datum, Lekar lekar, Klinika klinika, TipPregleda tipPregleda, Pacijent pacijent, String tip, Sala sala) {
+    public Zahtev(String datum, Lekar lekar, Klinika klinika, TipPregleda tipPregleda, Pacijent pacijent, String tip, Sala sala, int trajanje) {
         this.datum = datum;
         this.lekar = lekar;
         this.klinika = klinika;
@@ -42,6 +45,7 @@ public class Zahtev {
         this.pacijent = pacijent;
         this.tip = tip;
         this.sala = sala;
+        this.trajanje = trajanje;
     }
 
     public Long getId() {
@@ -106,6 +110,14 @@ public class Zahtev {
 
     public void setSala(Sala sala) {
         this.sala = sala;
+    }
+
+    public int getTrajanje() {
+        return trajanje;
+    }
+
+    public void setTrajanje(int trajanje) {
+        this.trajanje = trajanje;
     }
 }
 

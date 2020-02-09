@@ -1,9 +1,6 @@
 package isapsw.team55.ClinicalCenter.service;
 
-import isapsw.team55.ClinicalCenter.domain.Korisnik;
-import isapsw.team55.ClinicalCenter.domain.Pacijent;
-import isapsw.team55.ClinicalCenter.domain.Pregled;
-import isapsw.team55.ClinicalCenter.domain.VerificationToken;
+import isapsw.team55.ClinicalCenter.domain.*;
 import isapsw.team55.ClinicalCenter.repository.VerificationTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -14,6 +11,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -88,5 +86,25 @@ public class EmailService {
 
         System.out.println("Email poslat");
 
+    }
+
+    @Async
+    public void sendZahtevAdministratoru(Pacijent uPacijent, Zahtev zahtev, List<AdministratorKlinike> ak, String subject) throws MailException {
+        System.out.println("Proces slanja verifikacionog maila zapocet.");
+        for(AdministratorKlinike admin: ak) {
+            SimpleMailMessage mail = new SimpleMailMessage();
+
+            mail.setTo(admin.getEmail());
+            mail.setFrom(env.getProperty("spring.mail.username"));
+            mail.setSubject(subject);
+
+            String zaSplit[] = zahtev.getDatum().split("\\|");
+            String datum = zaSplit[0];
+            String vreme = zaSplit[1];
+
+            mail.setText("Pacijent " + uPacijent.getIme() + " " + uPacijent.getPrezime() + " je poslao zahtev za pregled " + zahtev.getTipPregleda().getNaziv() + "" +
+                    " kod lekara " + zahtev.getLekar().getIme() + " " + zahtev.getLekar().getPrezime() + ", datuma " + datum + " u " + vreme + ".");
+        }
+        System.out.println("Email poslat");
     }
 }
