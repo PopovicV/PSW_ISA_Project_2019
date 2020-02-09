@@ -16,11 +16,12 @@ insert into klinika (ime, adresa, opis) values ('Klinika 4', 'Sonje Marinkovic 7
 insert into korisnik (email, lozinka, uloga) values ('milan@gmail.com', '1', 'ADMINISTRATOR_KLINIKE')
 insert into administrator_klinike (id, ime, prezime, kontakt_telefon, klinika_id) values (5, 'Milan', 'Lukic', '1234567', 1)
 
+
+insert into korisnik (id, email, lozinka, uloga) values (10, 'lukic.milan22@gmail.com', '1', 'LEKAR')
+insert into lekar (id, ime, kontakt_telefon, ocena, prezime, smena, specijalizacija, klinika_id, promenio_sifru) values(10, 'Milan', '1111111', 5, 'Petrovic', 1, 'Kardiologija', 1, false)
+
 insert into korisnik (id, email, lozinka, uloga) values (6, 'random1@gmail.com', '1', 'LEKAR')
 insert into lekar (id, ime, kontakt_telefon, ocena, prezime, smena, specijalizacija, klinika_id, promenio_sifru) values(6, 'Zoran', '1111111', 5, 'Petrovic', 1, 'Pedijatrija', 1, false)
-
-insert into korisnik (id, email, lozinka, uloga) values (10, 'random@gmail.com', '1', 'LEKAR')
-insert into lekar (id, ime, kontakt_telefon, ocena, prezime, smena, specijalizacija, klinika_id, promenio_sifru) values(10, 'Milan', '1111111', 5, 'Petrovic', 1, 'Kardiologija', 1, false)
 
 insert into zdravstveni_karton(id, id_pacijenta) values (1, 2)
 insert into dijagnoza(id, naziv, sifra_dijagnoze) values (1, 'Šizofrenija', 'F20')
@@ -45,5 +46,7 @@ insert into tip_pregleda(id, cena_pregleda, naziv, specijalizacija, trajanje, kl
 
 insert into pregled(id, datum, rezervisan, lekar_id, pacijent_id, sala_id, tip_pregleda_id) values (1, '19/06/2019|12:00', true, 10, 2, 1, 1)
 insert into pregled(id, datum, rezervisan, lekar_id, sala_id, tip_pregleda_id) values (2, '9/02/2020|12:00', false, 10, 1, 1)
+
+insert into zahtev_za_godisnji(id, korisnik_id, pocetak, kraj, klinika_id) values (1, 10, '10/03/2020', '20/03/2020', 1)
 
 

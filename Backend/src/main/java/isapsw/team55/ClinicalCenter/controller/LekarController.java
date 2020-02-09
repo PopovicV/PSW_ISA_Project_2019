@@ -100,4 +100,12 @@ public class LekarController {
 //        } else {
 //            return new ResponseEntity<AdministratorKlinike>(HttpStatus.NOT_ACCEPTABLE);
 //        } }
+
+    @GetMapping(value = "/getOneById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<LekarDTO> getOneById(@PathVariable Long id) {
+        Lekar lekar = lekarService.findOneById(id);
+
+        return  new ResponseEntity(new LekarDTO(lekar), HttpStatus.OK);
+    }
+
 }
