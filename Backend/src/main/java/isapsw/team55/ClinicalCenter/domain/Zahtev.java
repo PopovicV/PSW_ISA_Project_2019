@@ -21,7 +21,6 @@ public class Zahtev {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private TipPregleda tipPregleda;
 
-
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Pacijent pacijent;
 

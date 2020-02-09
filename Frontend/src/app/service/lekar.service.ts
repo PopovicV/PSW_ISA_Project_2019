@@ -30,10 +30,10 @@ export class LekarService {
   }
 
   public lekariKlinikaTip(idTipa: number) {
-    this.requestUrl = '/server/api/lekar/lekarKlinikaTip/'+idTipa;
+    this.requestUrl = '/server/api/lekar/lekarKlinikaTip/' + idTipa;
     return this.http.get<Array<Lekar>>(this.requestUrl, httpOptions);
   }
-  
+
   public getUlogovanKorisnik() {
     this.requestUrl =  '/server/api/lekar/ulogovanKorisnik';
     return this.http.get<Lekar>(this.requestUrl, httpOptions);
@@ -42,5 +42,10 @@ export class LekarService {
   public izmeniProfil(lekar: Lekar) {
     this.requestUrl =  '/server/api/lekar/update';
     return this.http.post(this.requestUrl, JSON.stringify(lekar), httpOptions);
+  }
+
+  public getOneById(id: number) {
+    this.requestUrl = '/server/api/lekar/getOneById/' + id;
+    return this.http.get<Lekar>(this.requestUrl, httpOptions);
   }
 }

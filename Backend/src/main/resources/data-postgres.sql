@@ -46,6 +46,7 @@ insert into lekar (id, ime, kontakt_telefon, ocena, prezime, smena, specijalizac
 insert into korisnik (id, email, lozinka, uloga) values (13, 'lekar3@mailsac.com', 'sifrazasajt', 'LEKAR')
 insert into lekar (id, ime, kontakt_telefon, ocena, prezime, smena, specijalizacija, klinika_id, promenio_sifru) values(13, 'Ivana', '0647799327', 5, 'Jankovic', 1, 'Nefrologija', 2, true)
 
+
 insert into korisnik (id, email, lozinka, uloga) values (14, 'lekar4@mailsac.com', 'sifrazasajt', 'LEKAR')
 insert into lekar (id, ime, kontakt_telefon, ocena, prezime, smena, specijalizacija, klinika_id, promenio_sifru) values(14, 'Milan', '0617654321', 4, 'Petrovic', 3, 'Infektologija', 2, true)
 
@@ -125,5 +126,7 @@ insert into tip_pregleda(id, cena_pregleda, naziv, specijalizacija, trajanje, kl
 --PREGLEDI
 insert into pregled(id, datum, rezervisan, lekar_id, pacijent_id, sala_id, tip_pregleda_id) values (1, '19/06/2019|12:00', true, 17, 5, 9, 7)
 insert into pregled(id, datum, rezervisan, lekar_id, sala_id, tip_pregleda_id) values (2, '9/02/2020|12:00', false, 16, 6, 6)
+
+insert into zahtev_za_godisnji(id, korisnik_id, pocetak, kraj, klinika_id) values (1, 10, '10/03/2020', '20/03/2020', 1)
 
 
