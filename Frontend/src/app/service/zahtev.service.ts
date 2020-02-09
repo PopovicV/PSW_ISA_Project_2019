@@ -23,4 +23,9 @@ export class ZahtevService {
     this.requestUrl = '/server/api/zahtev/addZahtev';
     return this.http.post<Zahtev>(this.requestUrl, JSON.stringify(zahtev), httpOptions);
   }
+
+  public pacijentAddZahtev(zahtev: Zahtev) {
+    this.requestUrl = '/server/api/zahtev/pacijentAddZahtev';
+    return this.http.post<Zahtev>(this.requestUrl, JSON.stringify(zahtev), httpOptions);
+  }
 }
