@@ -40,6 +40,7 @@ import {ZahtevZaGodisnjiComponent} from './modules/general/lekar/zahtev-za-godis
 import {LekarPacijentProfilComponent} from './modules/general/lekar/lekar-pacijent-profil/lekar-pacijent-profil.component';
 import {LekarZdravstveniKartonComponent} from "./modules/general/lekar/lekar-zdravstveni-karton/lekar-zdravstveni-karton.component";
 import {ZapocniPregledComponent} from "./modules/general/lekar/zapocni-pregled/zapocni-pregled.component";
+import {AdministratorZahteviZaGodisnjiComponent} from "./modules/general/administratorKlinike/administrator-zahtevi-za-godisnji/administrator-zahtevi-za-godisnji.component";
 
 
 
@@ -80,6 +81,10 @@ const routes: Routes = [
         path: 'cenovnik',
         component: CenovnikComponent,
       },
+      {
+        path: 'zahteviZaGodisnji',
+        component: AdministratorZahteviZaGodisnjiComponent,
+      }
     ]
   },
   { path: 'profil-klinike', component: ProfilKlinikeComponent},

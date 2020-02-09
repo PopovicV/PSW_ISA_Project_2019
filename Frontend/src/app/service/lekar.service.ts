@@ -38,4 +38,9 @@ export class LekarService {
     this.requestUrl =  '/server/api/lekar/update';
     return this.http.post(this.requestUrl, JSON.stringify(lekar), httpOptions);
   }
+
+  public getOneById(id: number) {
+    this.requestUrl = '/server/api/lekar/getOneById/' + id;
+    return this.http.get<Lekar>(this.requestUrl, httpOptions);
+  }
 }

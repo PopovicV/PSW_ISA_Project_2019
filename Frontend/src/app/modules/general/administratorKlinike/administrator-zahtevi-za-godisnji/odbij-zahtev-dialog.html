@@ -1,0 +1,11 @@
+<h1 mat-dialog-title >Dodavanje nove sale</h1>
+<div mat-dialog-content style="display: flex; flex-direction: column;">
+  <mat-form-field class="example-full-width">
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput [(ngModel)]="napomena" placeholder="Unesite obrazlozenje..." required></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Odustani</button>
+  <button mat-button (click)="onOkClick()" cdkFocusInitial>Dodaj</button>
+</div>
