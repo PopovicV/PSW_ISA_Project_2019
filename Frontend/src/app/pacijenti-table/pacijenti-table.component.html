@@ -1,0 +1,46 @@
+<div class="mat-elevation-z8 data-table">
+  <table mat-table class="full-width-table" matSort aria-label="Pacijenti">
+    <!-- Id Column -->
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="ime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ime</th>
+      <td mat-cell *matCellDef="let row">{{row.ime}}</td>
+    </ng-container>
+
+    <!-- Prezime Column -->
+    <ng-container matColumnDef="prezime">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Prezime</th>
+      <td mat-cell *matCellDef="let row">{{row.prezime}}</td>
+    </ng-container>
+
+    <!-- Email -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let row">{{row.email}}</td>
+    </ng-container>
+
+    <!-- Akcije -->
+    <ng-container matColumnDef="akcije">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Akcije</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-raised-button color = "primary" (click) = "odobriZahtev(row.id)">Odobri</button>
+        <button mat-raised-button color = "warn">Odbij</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+                 [length]="dataSource?.data.length"
+                 [pageIndex]="0"
+                 [pageSize]="20"
+                 [pageSizeOptions]="[20, 50, 100]">
+  </mat-paginator>
+</div>

@@ -1,0 +1,39 @@
+<h1 mat-dialog-title >Dodavanje novog lekara</h1>
+<div mat-dialog-content style="display: flex; flex-direction: column;">
+
+  <mat-form-field>
+   <input matInput [(ngModel)]="ime" placeholder="Ime" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="prezime" placeholder="Prezime" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="email" placeholder="Email" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="kontaktTelefon" placeholder="Kontakt telefon" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="specijalizacija" placeholder="Specijalizacija" required>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select [(ngModel)]="smena" placeholder="Smena" required>
+      <mat-option  [value]="1">
+        06:00-12:00
+      </mat-option>
+      <mat-option [value]="2">
+        12:00-18:00
+      </mat-option>
+      <mat-option [value]="3">
+        18:00-00:00
+      </mat-option>
+      <mat-option [value]="4">
+        00:00-06:00
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Odustani</button>
+  <button mat-button [mat-dialog-close]="this.lekar" (click)="onOkClick()" cdkFocusInitial>Dodaj</button>
+</div>
