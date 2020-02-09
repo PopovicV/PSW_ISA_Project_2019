@@ -6,3 +6,8 @@
   width: 80%;
   margin: 20px auto;
 }
+
+::ng-deep .mat-horizontal-stepper-header{
+  pointer-events: none !important;
+}
+

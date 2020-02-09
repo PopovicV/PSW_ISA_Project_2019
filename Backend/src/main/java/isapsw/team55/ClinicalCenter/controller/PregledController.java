@@ -136,6 +136,8 @@ public class PregledController {
     public ResponseEntity<PregledDTO> zakaziPredefinisan(@Context HttpServletRequest request, @PathVariable Long id) throws Exception {
 
         Korisnik korisnik = (Korisnik) request.getSession().getAttribute("ulogovanKorisnik");
+
+
         Pacijent pacijent = pacijentService.findOne(korisnik.getId());
         Pregled pregledZaZakazivanje = pregledService.findOneById(id);
 
