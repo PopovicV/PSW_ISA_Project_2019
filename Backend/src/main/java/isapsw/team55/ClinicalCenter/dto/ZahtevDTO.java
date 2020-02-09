@@ -39,10 +39,6 @@ public class ZahtevDTO {
         this.lekarId = lekarId;
     }
 
-    public ZahtevDTO(Zahtev zahtev) {
-
-    }
-
     public long getId() {
         return id;
     }
@@ -114,4 +110,6 @@ public class ZahtevDTO {
     public void setKlinikaId(long klinikaId) {
         this.klinikaId = klinikaId;
     }
+
+
 }
