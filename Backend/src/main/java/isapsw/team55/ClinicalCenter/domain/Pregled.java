@@ -36,6 +36,15 @@ public class Pregled {
     public Pregled() {
     }
 
+    public Pregled(Zahtev zahtev) {
+        this.datum = zahtev.getDatum();
+        this.lekar = zahtev.getLekar();
+        this.sala = zahtev.getSala();
+        this.tipPregleda = zahtev.getTipPregleda();
+        this.pacijent = zahtev.getPacijent();
+        this.rezervisan = true;
+    }
+
     public Pregled(String datum, Lekar lekar, Sala sala, TipPregleda tipPregleda) {
         this.datum = datum;
         this.lekar = lekar;
