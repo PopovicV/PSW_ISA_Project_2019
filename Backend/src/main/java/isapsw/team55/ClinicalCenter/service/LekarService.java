@@ -49,4 +49,6 @@ public class LekarService {
     public Lekar update(Lekar lekar) {
        return lekarRepository.save(lekar);
     }
+
+    public List<Lekar> lekariKlinikaTip(Long tip_id, String specijalizacija) { return lekarRepository.findAllByKlinikaIdAndSpecijalizacija(tip_id, specijalizacija); }
 }

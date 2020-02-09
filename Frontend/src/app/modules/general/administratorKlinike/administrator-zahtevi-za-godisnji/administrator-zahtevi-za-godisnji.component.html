@@ -1,0 +1,45 @@
+<div class="mat-elevation-z8 data-table">
+  <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="Sale">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="zaposleni">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Zaposleni</th>
+      <td mat-cell *matCellDef="let row">{{row.korisnikIme}} {{row.korisnikPrezime}}</td>
+    </ng-container>
+    <ng-container matColumnDef="pocetak">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Pocetak</th>
+      <td mat-cell *matCellDef="let row">{{row.pocetak}}</td>
+    </ng-container>
+    <ng-container matColumnDef="kraj">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Kraj</th>
+      <td mat-cell *matCellDef="let row">{{row.kraj}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="akcije">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row">
+        <span style="margin: 10px">
+          <button mat-raised-button color="accent" (click)="odbij(row)">Odbij</button>
+        </span>
+        <span style="margin: 10px">
+          <button mat-raised-button  color="primary" (click)="odobri(row)">Odobri</button>
+      </span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator  #paginator
+                  [length]="dataSource? dataSource.data.length : 0"
+                  [pageIndex]="0"
+                  [pageSize]="20"
+                  [pageSizeOptions]="[20, 50, 100]">
+  </mat-paginator>
+</div>

@@ -40,6 +40,10 @@ import {
   UpdateTipPregledaDialogComponent
 } from './cenovnik/cenovnik.component';
 import {CommonModule} from '@angular/common';
+import {
+  AdministratorZahteviZaGodisnjiComponent,
+  OdbijZahtevDialogComponent
+} from './administrator-zahtevi-za-godisnji/administrator-zahtevi-za-godisnji.component';
 
 
 @NgModule( {
@@ -59,6 +63,8 @@ import {CommonModule} from '@angular/common';
     AddTipPregledaDialogComponent,
     AddPregledDialogComponent,
     UpdateTipPregledaDialogComponent,
+    AdministratorZahteviZaGodisnjiComponent,
+    OdbijZahtevDialogComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -90,7 +96,8 @@ import {CommonModule} from '@angular/common';
   providers: [PacijentService, KlinikaService, LekarService, AdministratorKlinikeService],
   entryComponents: [AddTipPregledaDialogComponent, AddLekarDialogComponent,
                     AddSalaDialogComponent, UpdateSalaDialogComponent,
-                    AddPregledDialogComponent, UpdateTipPregledaDialogComponent]
+                    AddPregledDialogComponent, UpdateTipPregledaDialogComponent,
+                    OdbijZahtevDialogComponent]
 })
 
 export class ProfilAdministratoraKlinikeModule {

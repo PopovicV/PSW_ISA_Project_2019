@@ -15,6 +15,18 @@ public class ZahtevDTO {
 
     public ZahtevDTO() {
     }
+  
+    public ZahtevDTO(Zahtev zahtev) {
+        this.datum = zahtev.getDatum();
+        this.lekarId = zahtev.getLekar().getId();
+        this.klinikaId = zahtev.getKlinika().getId();
+        this.tipPregledaId = zahtev.getTipPregleda().getId();
+        this.pacijentId = zahtev.getPacijent().getId();
+        this.tip = zahtev.getTip();
+        this.salaId = zahtev.getSala().getId();
+        this.trajanje = zahtev.getTrajanje();
+    }
+
 
     public ZahtevDTO(long id, String tip, long pacijentId, long salaId, long tipPregledaId, String datum, int trajanje, long lekarId) {
         this.id = id;

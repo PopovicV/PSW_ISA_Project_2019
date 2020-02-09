@@ -25,6 +25,9 @@ import { PacijentIstorijaOperacijaComponent } from './pacijent-istorija-operacij
 import { PacijentIstorijaPregledaComponent } from './pacijent-istorija-pregleda/pacijent-istorija-pregleda.component';
 import { PacijentPredefinisaniPreglediComponent } from './pacijent-predefinisani-pregledi/pacijent-predefinisani-pregledi.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import { PacijentZahtevanjeNovogPregledaComponent } from './pacijent-zahtevanje-novog-pregleda/pacijent-zahtevanje-novog-pregleda.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MAT_DATE_LOCALE} from '@angular/material'
 
 @NgModule({
     imports: [
@@ -45,7 +48,8 @@ import {MatStepperModule} from '@angular/material/stepper';
         MatStepperModule,
         MatInputModule,
         MatOptionModule,
-        MatSelectModule
+        MatSelectModule,
+        MatDatepickerModule
     ],
     declarations: [
         ProfilPacijentaComponent,
@@ -56,7 +60,8 @@ import {MatStepperModule} from '@angular/material/stepper';
         PacijentProfilKlinikeComponent,
         PacijentIstorijaOperacijaComponent,
         PacijentIstorijaPregledaComponent,
-        PacijentPredefinisaniPreglediComponent
+        PacijentPredefinisaniPreglediComponent,
+        PacijentZahtevanjeNovogPregledaComponent
     ],
     exports: [
         ProfilPacijentaComponent,
@@ -66,7 +71,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     providers: [
         LogoutService,
         KlinikaService,
-        DijagnozaService
+        DijagnozaService,
+        {provide: MAT_DATE_LOCALE, useValue:  "en-GB"}
     ]
 
 })

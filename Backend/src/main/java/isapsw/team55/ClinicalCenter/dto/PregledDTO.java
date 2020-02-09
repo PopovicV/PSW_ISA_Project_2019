@@ -151,7 +151,7 @@ public class PregledDTO {
         this.cenaPregleda = cenaPregleda;
     }
 
-    
+
 
     @Override
     public String toString() {

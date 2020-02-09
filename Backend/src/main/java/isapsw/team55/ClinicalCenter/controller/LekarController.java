@@ -2,11 +2,13 @@ package isapsw.team55.ClinicalCenter.controller;
 
 import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.domain.Lekar;
+import isapsw.team55.ClinicalCenter.domain.TipPregleda;
 import isapsw.team55.ClinicalCenter.dto.LekarDTO;
 import isapsw.team55.ClinicalCenter.service.EmailService;
 import isapsw.team55.ClinicalCenter.service.KlinikaService;
 import isapsw.team55.ClinicalCenter.service.KorisnikService;
 import isapsw.team55.ClinicalCenter.service.LekarService;
+import isapsw.team55.ClinicalCenter.service.TipPregledaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -31,6 +33,10 @@ public class LekarController {
 
     @Autowired
     private KorisnikService korisnikService;
+    
+    @Autowired
+    private TipPregledaService tipPregledaService;
+
 
     @GetMapping(value = "/ulogovanKorisnik", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<LekarDTO> getKorisnik(@Context HttpServletRequest request) {
@@ -84,9 +90,22 @@ public class LekarController {
     }
 
     @PostMapping(value = "/removeLekar/{id}",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<LekarDTO> addLekar(@RequestBody LekarDTO lekarDTO, @PathVariable Long id) throws Exception {
+    public ResponseEntity<LekarDTO> removeLekar(@RequestBody LekarDTO lekarDTO, @PathVariable Long id) throws Exception {
             lekarService.remove(id);
             return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/lekarKlinikaTip/{idTipa}",  produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Lekar>> getLekarKlinikaTip(@PathVariable Long idTipa) throws  Exception{
+        TipPregleda tp = tipPregledaService.findOneById(idTipa);
+
+        List<Lekar> lekari = new ArrayList<Lekar>();
+
+        lekari = lekarService.lekariKlinikaTip(tp.getKlinika().getId(), tp.getSpecijalizacija());
+
+        System.out.println("DUZINA NIZA JE: " + lekari.size());
+
+        return new ResponseEntity<List<Lekar>>(lekari, HttpStatus.OK);
     }
 
 //    @PostMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -97,5 +116,12 @@ public class LekarController {
 //        } else {
 //            return new ResponseEntity<AdministratorKlinike>(HttpStatus.NOT_ACCEPTABLE);
 //        } }
+
+    @GetMapping(value = "/getOneById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<LekarDTO> getOneById(@PathVariable Long id) {
+        Lekar lekar = lekarService.findOneById(id);
+
+        return  new ResponseEntity(new LekarDTO(lekar), HttpStatus.OK);
+    }
 
 }
