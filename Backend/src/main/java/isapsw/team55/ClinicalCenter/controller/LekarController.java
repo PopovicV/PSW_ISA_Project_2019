@@ -1,10 +1,11 @@
 package isapsw.team55.ClinicalCenter.controller;
 
-import isapsw.team55.ClinicalCenter.domain.Klinika;
 import isapsw.team55.ClinicalCenter.domain.Korisnik;
 import isapsw.team55.ClinicalCenter.domain.Lekar;
 import isapsw.team55.ClinicalCenter.dto.LekarDTO;
+import isapsw.team55.ClinicalCenter.service.EmailService;
 import isapsw.team55.ClinicalCenter.service.KlinikaService;
+import isapsw.team55.ClinicalCenter.service.KorisnikService;
 import isapsw.team55.ClinicalCenter.service.LekarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,12 @@ public class LekarController {
 
     @Autowired
     private KlinikaService klinikaService;
+
+    @Autowired
+    private EmailService emailService;
+
+    @Autowired
+    private KorisnikService korisnikService;
 
     @GetMapping(value = "/ulogovanKorisnik", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<LekarDTO> getKorisnik(@Context HttpServletRequest request) {
@@ -61,6 +68,14 @@ public class LekarController {
         System.out.println(lekar.getIme());
 
         if(lekarService.findOneByEmail(lekarDTO.getEmail())==null) {
+            try {
+                Korisnik korisnik = korisnikService.findByEmail(lekarDTO.getEmail());
+                String subject = "Novi lekar na klinici";
+                String poruka = "Cestitamo, registrovani ste na nasoj online klinici. Molimo da se ulogujete" +
+                        "i promenite lozinku. Vasa trenutna lozinka je: " + korisnik.getLozinka();
+            } catch (Exception e) {
+                System.out.println("NIJE POSLAT MAIL");
+            }
             lekarService.save(lekar);
             return new ResponseEntity<LekarDTO>(lekarDTO, HttpStatus.OK);
         } else {
