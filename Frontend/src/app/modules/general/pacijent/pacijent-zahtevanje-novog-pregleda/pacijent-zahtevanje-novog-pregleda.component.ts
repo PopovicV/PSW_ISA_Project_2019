@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Klinika } from 'src/app/model/klinika';
 import { TipPregleda } from 'src/app/model/tipPregleda';
 import { Lekar } from 'src/app/model/lekar';
@@ -6,6 +6,8 @@ import { KlinikaService } from 'src/app/service/klinika.service';
 import { TipPregledaService } from 'src/app/service/tip-pregleda.service';
 import { LekarService } from 'src/app/service/lekar.service';
 import { FormControl } from '@angular/forms';
+import { ZahtevDTO } from 'src/app/model/zahtev';
+import { MatStepper } from '@angular/material';
 
 @Component({
   selector: 'app-pacijent-zahtevanje-novog-pregleda',
@@ -13,6 +15,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./pacijent-zahtevanje-novog-pregleda.component.css']
 })
 export class PacijentZahtevanjeNovogPregledaComponent implements OnInit {
+
+  @ViewChild('stepper', {static: true}) stepper: MatStepper;
 
   klinike: Klinika[];
   selectedKlinika: Klinika = new Klinika;
@@ -24,6 +28,7 @@ export class PacijentZahtevanjeNovogPregledaComponent implements OnInit {
   datumZaSlanje: String;
   serializedDate = new FormControl((new Date()).toISOString());
   vreme: String;
+  zahtevZaSlanje: ZahtevDTO = new ZahtevDTO();
 
   constructor(private klinikaService: KlinikaService, private tipPregledaService: TipPregledaService, private lekarService: LekarService) { }
 
@@ -71,7 +76,15 @@ export class PacijentZahtevanjeNovogPregledaComponent implements OnInit {
     }
     alert("Dan: " + dan + " mesec: " + mesec + "  i vreme: " + this.vreme)
 
+    this.datumZaSlanje = dan + "/" + mesec + "/" + godina + "|" + this.vreme;
 
+    this.zahtevZaSlanje.datum = this.datumZaSlanje;
+    this.zahtevZaSlanje.klinikaId = this.selectedKlinika.id;
+    this.zahtevZaSlanje.lekarId = this.selectedLekar.id;
+    this.zahtevZaSlanje.tipPregledaId = this.selectedTip.id;
+    this.zahtevZaSlanje.tip = "PREGLED";
+
+    this.stepper.reset()
   }
 
 }
