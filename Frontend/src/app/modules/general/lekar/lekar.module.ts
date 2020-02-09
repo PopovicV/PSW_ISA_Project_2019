@@ -25,10 +25,13 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import { ZapocniPregledComponent } from './zapocni-pregled/zapocni-pregled.component';
+import { LekarPacijentProfilComponent } from './lekar-pacijent-profil/lekar-pacijent-profil.component';
+import { LekarZdravstveniKartonComponent } from './lekar-zdravstveni-karton/lekar-zdravstveni-karton.component';
 
 
 @NgModule({
-  declarations: [LekarComponent, LekarNavigationComponent, LekarProfilComponent, LekarPacijentiTableComponent, LekarZakazivanjePregledaComponent, RadniKalendarComponent, ZahtevZaGodisnjiComponent],
+  declarations: [LekarComponent, LekarNavigationComponent, LekarProfilComponent, LekarPacijentiTableComponent, LekarZakazivanjePregledaComponent, RadniKalendarComponent, ZahtevZaGodisnjiComponent, ZapocniPregledComponent, LekarPacijentProfilComponent, LekarZdravstveniKartonComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
