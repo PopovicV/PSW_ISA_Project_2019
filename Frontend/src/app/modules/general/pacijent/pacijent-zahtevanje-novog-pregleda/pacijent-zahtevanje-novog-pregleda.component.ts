@@ -6,7 +6,7 @@ import { KlinikaService } from 'src/app/service/klinika.service';
 import { TipPregledaService } from 'src/app/service/tip-pregleda.service';
 import { LekarService } from 'src/app/service/lekar.service';
 import { FormControl } from '@angular/forms';
-import { ZahtevDTO } from 'src/app/model/zahtev';
+import {Zahtev} from 'src/app/model/zahtev';
 import { MatStepper } from '@angular/material';
 
 @Component({
@@ -19,16 +19,16 @@ export class PacijentZahtevanjeNovogPregledaComponent implements OnInit {
   @ViewChild('stepper', {static: true}) stepper: MatStepper;
 
   klinike: Klinika[];
-  selectedKlinika: Klinika = new Klinika;
+  selectedKlinika: Klinika = new Klinika();
   tipoviPregleda: TipPregleda[];
-  selectedTip: TipPregleda = new TipPregleda;
+  selectedTip: TipPregleda = new TipPregleda();
   lekari: Lekar[];
-  selectedLekar: Lekar = new Lekar;
+  selectedLekar: Lekar = new Lekar();
   date: Date = new Date();
-  datumZaSlanje: String;
+  datumZaSlanje: string;
   serializedDate = new FormControl((new Date()).toISOString());
-  vreme: String;
-  zahtevZaSlanje: ZahtevDTO = new ZahtevDTO();
+  vreme: string;
+  zahtevZaSlanje: Zahtev = new Zahtev();
 
   constructor(private klinikaService: KlinikaService, private tipPregledaService: TipPregledaService, private lekarService: LekarService) { }
 

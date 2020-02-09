@@ -38,11 +38,7 @@ public class ZahtevDTO {
         this.trajanje = trajanje;
         this.lekarId = lekarId;
     }
-
-    public ZahtevDTO(Zahtev zahtev) {
-
-    }
-
+    
     public long getId() {
         return id;
     }
