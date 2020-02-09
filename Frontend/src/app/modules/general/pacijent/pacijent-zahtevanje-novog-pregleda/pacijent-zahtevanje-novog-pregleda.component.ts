@@ -7,7 +7,9 @@ import { TipPregledaService } from 'src/app/service/tip-pregleda.service';
 import { LekarService } from 'src/app/service/lekar.service';
 import { FormControl } from '@angular/forms';
 import {Zahtev} from 'src/app/model/zahtev';
+
 import { MatStepper } from '@angular/material';
+import { ZahtevService } from 'src/app/service/zahtev.service';
 
 @Component({
   selector: 'app-pacijent-zahtevanje-novog-pregleda',
@@ -30,7 +32,7 @@ export class PacijentZahtevanjeNovogPregledaComponent implements OnInit {
   vreme: string;
   zahtevZaSlanje: Zahtev = new Zahtev();
 
-  constructor(private klinikaService: KlinikaService, private tipPregledaService: TipPregledaService, private lekarService: LekarService) { }
+  constructor(private klinikaService: KlinikaService, private tipPregledaService: TipPregledaService, private lekarService: LekarService, private zahtevService: ZahtevService) { }
 
   ngOnInit() {
     this.klinikaService.getKlinike().subscribe(
@@ -45,7 +47,6 @@ export class PacijentZahtevanjeNovogPregledaComponent implements OnInit {
     this.tipPregledaService.getAllFromKlinika(this.selectedKlinika.id).subscribe(
       data => {
         this.tipoviPregleda = data;
-        alert(JSON.stringify(data));
       }
     )
   }
@@ -57,7 +58,6 @@ export class PacijentZahtevanjeNovogPregledaComponent implements OnInit {
         this.lekari = data;
       }
     )
-    alert(JSON.stringify(this.selectedTip))
   }
 
   onSubmit() {
@@ -74,7 +74,7 @@ export class PacijentZahtevanjeNovogPregledaComponent implements OnInit {
     if(Number(dan) < 10) {
       dan = "0"+dan;
     }
-    alert("Dan: " + dan + " mesec: " + mesec + "  i vreme: " + this.vreme)
+  
 
     this.datumZaSlanje = dan + "/" + mesec + "/" + godina + "|" + this.vreme;
 
@@ -85,6 +85,12 @@ export class PacijentZahtevanjeNovogPregledaComponent implements OnInit {
     this.zahtevZaSlanje.tip = "PREGLED";
 
     this.stepper.reset()
+
+    this.zahtevService.pacijentAddZahtev(this.zahtevZaSlanje).subscribe(
+      data => {
+        alert("Zahtev uspesno poslat.")
+      }
+    )
   }
 
 }

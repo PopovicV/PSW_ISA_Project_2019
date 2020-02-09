@@ -16,8 +16,17 @@
         <a mat-list-item routerLink="pacijent-istorija-operacija">Istorija operacija</a>
       </mat-nav-list>
       </mat-expansion-panel>
-        <a mat-list-item routerLink="pacijent-lista-klinika">Klinike</a>
-        <a mat-list-item routerLink="pacijent-predefinisani-pregledi">Zakazivanje pregleda</a>
+      <a mat-list-item routerLink="pacijent-lista-klinika">Klinike</a>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>Zakazivanje pregleda</mat-panel-title>
+        </mat-expansion-panel-header>
+      <mat-nav-list>
+        <a mat-list-item routerLink="pacijent-predefinisani-pregledi">Predefinisani pregledi</a>
+        <a mat-list-item routerLink="zahtevPregleda">Zahtevanje novog pregleda</a>
+      </mat-nav-list>
+    </mat-expansion-panel>
         <a mat-list-item (click)="logout()" routerLink="">Odjava</a>
       </mat-nav-list>
     </mat-sidenav>
@@ -31,13 +40,13 @@
           *ngIf="isHandset$ | async">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
-        <span><b>YouTube</b> klinika</span>
+        <span><b>Klinički</b> centar</span>
         <span class="spacer"></span>
         <a routerLink = ""
           mat-icon-button
           type = "button"
           (click)="logout()">
-          <mat-icon aria-label="Logout">child_care</mat-icon>
+          <mat-icon aria-label="Logout">exit_to_app</mat-icon>
         </a>
       </mat-toolbar>
       <div>

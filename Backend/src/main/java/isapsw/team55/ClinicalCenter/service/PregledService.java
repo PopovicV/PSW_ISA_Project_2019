@@ -4,6 +4,7 @@ import isapsw.team55.ClinicalCenter.domain.Pregled;
 import isapsw.team55.ClinicalCenter.repository.PregledRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -44,6 +45,7 @@ public class PregledService {
 
     public List<Pregled> gellPregledRezervisan(boolean isRezervisan) { return pregledRepository.findAllByRezervisan(isRezervisan); }
 
+    @Transactional
     public List<Pregled> getPregledPoTipuIRezervaciji(boolean isRezervisan, long tipPregledaId) { return pregledRepository.findAllByRezervisanAndTipPregleda_Id(isRezervisan, tipPregledaId); }
 
     public List<Pregled> findAllByTipPregledaNaziv(String tipPregeldaNaziv) {
